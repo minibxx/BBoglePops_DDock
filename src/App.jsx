@@ -1,4 +1,5 @@
 import './App.css'
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -17,8 +18,13 @@ justify-content: center;
 align-items: center;
 padding: 25px 20px;
 `;
+
+
 function App() {
   const navigate = useNavigate();
+
+  const [myPart, setMyPart] = useState('');
+  const [myJob, setMyJob] = useState('');
   return (
     <>
       <div className='h-[75vh]'>
@@ -27,12 +33,30 @@ function App() {
         </Canvas>
       </div>
       <div>
+        <div className='flex flex-row justify-center gap-[10px] m-[auto] h-[30px] mb-[30px]'>
+          <div>희망 분야</div>
+          <input value={myPart}
+            onChange={(e) => {
+              setMyPart(e.target.value);
+            }}
+            className='h-[30px] outline-none mr-[20px]' />
+          <div>담당 직무</div>
+          <input value={myJob}
+            onChange={(e) => {
+              setMyJob(e.target.value);
+            }} 
+            className='h-[30px] outline-none ' />
+        </div>
         <SaveButton
-          onClick={() => navigate('/interview')}
           className='m-[auto]'
+          onClick={() =>
+            postMyJob(myPart, myJob).then(data => {
+              setMyJobQuestion(data.choices[0].message.content)
+              navigate('/interview')
+            })
+          }
         >
-          면접 보러 가기
-        </SaveButton>
+          면접 보러 가기</SaveButton>
       </div>
     </>
   )
