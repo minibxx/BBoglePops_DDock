@@ -6,17 +6,16 @@ import RandomQ from './RandomQ';
 const SaveButton = styled.button`
   border-radius: 50px;
   display: flex;
-  border: 1px solid black;
+  border: 1px solid white;
   font-size: 15px;
   gap: 10px;
   height: 30px;
   margin-bottom: 16px;
   justify-content: center;
   align-items: center;
-  padding: 15px 20px;
+  padding: 10px 20px;
 `;
 const Gabin = styled.video`
-  width: 800px;
 `;
 
 function InterviewPage() {
@@ -31,7 +30,9 @@ function InterviewPage() {
 
   return (
     <>
-      <div>
+    <div className='w-[900px] m-[auto]'>
+
+      <div className='m-[auto] my-[30px]'>
         <Gabin
           muted
           autoPlay
@@ -60,6 +61,7 @@ function InterviewPage() {
         <SaveButton>전송</SaveButton>
       </div>
       <RandomQ/>
+    </div>
     </>
   );
 }
