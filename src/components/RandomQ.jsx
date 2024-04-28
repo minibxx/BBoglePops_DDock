@@ -6,7 +6,7 @@ function RandomQ({myJobQuestion}) {
       <div className='flex flex-row gap-[15px] mt-[15px] ml-[10px] h-[30px]'>
         <div>질문 리스트</div>
         <div 
-          className=' w-[85%] h-[200px] outline-none bg-[#ECECEC] text-[black]' 
+          className=' whitespace-pre w-[90%] h-[260px] outline-none bg-[#ECECEC] text-[black] p-[10px]' 
         >
           {myJobQuestion}
         </div>

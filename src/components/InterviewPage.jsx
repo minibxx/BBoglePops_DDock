@@ -1,12 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components'; 
 import Video from '../assets/videos/gabin.mp4';
 import RandomQ from './RandomQ';
-import { postMyJob } from '../apis/interview';
+import { useRecoilState } from 'recoil';
+import { myJobQuestionAtom } from '../store/atom';
 
-
-const Gabin = styled.video`
-`;
 
 function InterviewPage() {
   const videoRef = useRef();
@@ -14,14 +12,14 @@ function InterviewPage() {
   const setPlayBackRate = () => {
     videoRef.current.playbackRate = 0.5;
   };
+  const [myJobQuestion, setMyJobQuestion] = useRecoilState(myJobQuestionAtom);
 
-  const [myJobQuestion, setMyJobQuestion] = useState('');
   return (
     <>
     <div className='w-[900px] m-[auto]'>
 
       <div className='m-[auto] my-[30px]'>
-        <Gabin
+        <video
           muted
           autoPlay
           loop
@@ -29,7 +27,7 @@ function InterviewPage() {
           onCanPlay={() => setPlayBackRate()}
         >
           <source src={Video} type="video/mp4" />
-        </Gabin>
+        </video>
       </div>
       
       { myJobQuestion &&  <RandomQ myJobQuestion={myJobQuestion}/>}
