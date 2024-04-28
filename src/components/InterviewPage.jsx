@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components'; 
 import Video from '../assets/videos/gabin.mp4';
 import RandomQ from './RandomQ';
+import { postMyJob } from '../apis/interview';
 
 const SaveButton = styled.button`
   border-radius: 50px;
@@ -14,6 +15,7 @@ const SaveButton = styled.button`
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
+  margin-left: 35px;
 `;
 const Gabin = styled.video`
 `;
@@ -27,7 +29,7 @@ function InterviewPage() {
 
   const [myPart, setMyPart] = useState('');
   const [myJob, setMyJob] = useState('');
-
+  const [myJobQuestion, setMyJobQuestion] = useState('');
   return (
     <>
     <div className='w-[900px] m-[auto]'>
@@ -49,18 +51,23 @@ function InterviewPage() {
           onChange={(e)=>{
             setMyPart(e.target.value);
           }} 
-          className='h-[30px] outline-none'/>
-        <SaveButton>전송</SaveButton>
-      </div>
-      <div className='flex flex-row gap-[10px] mt-[10px] ml-[10px] h-[30px]'>
+          className='h-[30px] outline-none mr-[20px] ml-[18px]'/>
         <div>담당 직무</div>
         <input value={myJob} 
           onChange={(e)=>{
             setMyJob(e.target.value);
-          }} className='h-[30px] outline-none'/>
-        <SaveButton>전송</SaveButton>
+          }} className='h-[30px] outline-none  ml-[18px]'/>
+        <SaveButton
+          onClick={() => 
+            postMyJob(myPart, myJob).then(data => {
+              setMyJobQuestion(data.choices[0].message.content)
+            })
+          }
+        >
+          전송</SaveButton>
       </div>
-      <RandomQ/>
+      { myJobQuestion &&  <RandomQ myJobQuestion={myJobQuestion}/>}
+      
     </div>
     </>
   );
