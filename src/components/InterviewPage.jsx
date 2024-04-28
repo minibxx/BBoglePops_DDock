@@ -1,13 +1,12 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components'; 
-import Video from '../videos/gabin.mp4';
+import Video from '../assets/videos/gabin.mp4';
 import RandomQ from './RandomQ';
 
 const SaveButton = styled.button`
   border-radius: 50px;
   display: flex;
-  color: white;
-  background-color: black;
+  border: 1px solid black;
   font-size: 15px;
   gap: 10px;
   height: 30px;
@@ -20,7 +19,7 @@ const Gabin = styled.video`
   width: 800px;
 `;
 
-function MainPage() {
+function InterviewPage() {
   const videoRef = useRef();
 
   const setPlayBackRate = () => {
@@ -65,4 +64,4 @@ function MainPage() {
   );
 }
 
-export default MainPage;
+export default InterviewPage;
