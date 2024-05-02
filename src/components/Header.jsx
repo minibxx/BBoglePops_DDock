@@ -3,7 +3,7 @@ import React from 'react'
 function Header() {
   return (
     <>
-    <div className='flex flex-row justify-between'>
+    <div className='flex flex-row justify-between text-white'>
         <div>Header</div>
         <ul className='flex flex-row gap-[30px]'>
             <li>면접 진행</li>
