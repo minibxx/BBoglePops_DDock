@@ -4,7 +4,10 @@ import App from '../../App';
 /* 로그인 */
 
 /* 서비스 */
-import InterviewPage from '../../components/InterviewPage';
+import InterviewPage from '@components/interview/InterviewPage';
+import Mypage from '@components/mypage/Mypage';
+import Result from '@components/result/Result';
+import Users from '@components/users/Users';
 
 
 export const RouterInfo = [
@@ -18,6 +21,18 @@ export const RouterInfo = [
       {
         path: 'Interview',
         element: <InterviewPage />,
+      },
+      {
+        path: 'result',
+        element: <Result />,
+      },
+      {
+        path: 'mypage',
+        element: <Mypage />,
+      },
+      {
+        path: 'users',
+        element: <Users />,
       }
     ],
   },

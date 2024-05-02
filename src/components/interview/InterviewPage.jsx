@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components'; 
-import Video from '../assets/videos/gabin.mp4';
+import Video from '@assets/videos/gabin.mp4';
 import RandomQ from './RandomQ';
 import { useRecoilState } from 'recoil';
-import { myJobQuestionAtom } from '../store/atom';
+import { myJobQuestionAtom } from '@store/atom';
 
 
 function InterviewPage() {
