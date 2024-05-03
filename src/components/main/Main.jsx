@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Canvas } from '@react-three/fiber'
 import DDock3D from '@components/DDock3D';
 import Header from '@components/Header';
-import Typo from '@components/Typography'
+import Typo from '@components/Typography';
 import FunctionCard from './FunctionCard';
 import MovingLogo from './MovingLogo';
 
@@ -74,11 +74,6 @@ function App() {
             <StartBtn>면접 보러가기</StartBtn>
           </div>
         </div>
-        
-
-
-
-
       </div>
     </>
   )

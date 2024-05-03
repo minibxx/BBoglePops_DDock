@@ -15,10 +15,13 @@ export default function Typography({title, type, m=0}) {
             return <div className={`text-[35px]  font-bold m-[${m}px]`}>{title}</div>
         } 
         else if(type === 'body5'){
-            return <div className={`text-[15px]  m-[${m}px]`}>{title}</div>
+            return <div className={`text-[36px]  m-[${m}px]`}>{title}</div>
         } 
         else if(type === 'body9'){
             return <div className={`text-[16px] font-semibold m-[${m}px] leading-[150%]`}>{title}</div>
+        } 
+        else if(type === 'body10'){
+            return <div className={`text-[16px]  m-[${m}px] leading-[150%]`}>{title}</div>
         } 
         else if(type === 'small3'){
             return <div className={`text-[17px]  m-[${m}px] leading-[150%]`}>{title}</div>
