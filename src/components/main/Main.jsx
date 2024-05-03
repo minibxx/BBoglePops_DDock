@@ -5,6 +5,8 @@ import axios from 'axios';
 import { Canvas } from '@react-three/fiber'
 import DDock3D from '@components/DDock3D';
 import Header from '@components/Header';
+import Typo from '@components/Typography'
+import FunctionCard from './FunctionCard';
 
 const Char3D = styled.div`
 position: absolute;
@@ -35,7 +37,27 @@ function App() {
       </Char3D>
       <div className='relative '>
         <Header/>
-        <div className='text-white'>하이</div>
+        <div className='w-[1214px] m-[auto]'>
+          <div className='text-white text-[50px] mt-[780px]'>똑부러지는 취업?</div>
+          <div className='text-white text-[50px] ml-[112px]'>똑바른 자세부터!</div>
+          <div className='text-white text-[50px] mt-[360px]'>똑똑이란?</div>
+          <div className='text-[#1CBDBB] mt-[256px] ml-[670px]'>
+            <Typo title={'“모의 면접, 실전처럼 연습하다.”'} type={'body4'}/>
+          </div>
+          <div className='text-white mt-[26px] ml-[670px]'>
+            <Typo title={'똑똑은 면접 준비의 새로운 패러다임을 제시합니다. '} type={'body2'}/>
+            <Typo title={'메타휴먼과의 면접 연습을 통해,  '} type={'body2'}/>
+            <Typo title={'실제 면접관 앞에서의 경험을 완벽하게 재현합니다. '} type={'body2'}/>
+            <Typo title={'답변 내용을 분석해 제공하여,  '} type={'body2'}/>
+            <Typo title={'당신의 합격을 끊임없이 서포트합니다. '} type={'body2'}/>
+          </div>
+          <FunctionCard/>
+        </div>
+        
+
+
+
+
       </div>
     </>
   )
