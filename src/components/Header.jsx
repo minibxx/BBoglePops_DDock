@@ -8,7 +8,7 @@ const LoginBtn = styled.button`
   border-radius: 15px;
   padding: 2px 15px;
   &:hover{
-    background-color: rgb(255,255,255,0.3);
+    background-color: rgb(255,255,255,0.);
   }
 `;
 

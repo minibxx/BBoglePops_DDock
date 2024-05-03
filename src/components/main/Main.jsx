@@ -7,6 +7,7 @@ import DDock3D from '@components/DDock3D';
 import Header from '@components/Header';
 import Typo from '@components/Typography'
 import FunctionCard from './FunctionCard';
+import MovingLogo from './MovingLogo';
 
 const Char3D = styled.div`
 position: absolute;
@@ -22,6 +23,18 @@ background-image: linear-gradient(#000,#002A84);
 background-repeat : no-repeat;
 background-size : cover;
 z-index: -2;
+`;
+
+const StartBtn = styled.button`
+  font-size: 40px;
+  margin: 0 auto;
+  border: 2px solid white;
+  color: white;
+  border-radius: 15px;
+  padding: 10px 30px;
+  &:hover{
+    background-color: rgb(255,255,255,0.3);
+  }
 `;
 
 function App() {
@@ -51,7 +64,15 @@ function App() {
             <Typo title={'답변 내용을 분석해 제공하여,  '} type={'body2'}/>
             <Typo title={'당신의 합격을 끊임없이 서포트합니다. '} type={'body2'}/>
           </div>
+          <MovingLogo/>
+          <div className='text-white text-[50px] mt-[253px]'>똑똑이란?</div>
           <FunctionCard/>
+          <div className='text-white mt-[370px]'>
+            <Typo title={'노크 요소'} type={'body2'}/>
+          </div>
+          <div className='ml-[450px] mt-[90px]'>
+            <StartBtn>면접 보러가기</StartBtn>
+          </div>
         </div>
         
 

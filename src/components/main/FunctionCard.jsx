@@ -23,51 +23,56 @@ const Card = styled.div`
 function FunctionCard() {
     return (
         <>
-        <Swiper
-        slidesPerView={4}
+            <Swiper
+        slidesPerView={1.4}
         spaceBetween={30}
-        centeredSlides={true}
         pagination={{
           clickable: true,
         }}
         modules={[Pagination]}
         className="mySwiper"
-      ></Swiper>
-        <div className='flex flex-column'>
-            <Card className='w-[877px] h-[317px]'>
-                <div>이미지</div>
-                <div>
-                    <div className='mb-[20px]'>
-                        <Typo title={'가상 면접관 '} type={'body1'}/>
-                    </div>
-                    <Typo title={'메타휴먼 가상면접관과의 모의면접을 '} type={'body2'}/>
-                    <Typo title={'통해 실제 면접관과 대화하는 연습을 '} type={'body2'}/>
-                    <Typo title={'해보세요! '} type={'body2'}/>
-                </div>
-            </Card>
-            <Card className='w-[877px] h-[317px]'>
-                <div>이미지</div>
-                <div>
-                    <div className='mb-[20px]'>
-                        <Typo title={'가상 면접관 '} type={'body1'}/>
-                    </div>
-                    <Typo title={'메타휴먼 가상면접관과의 모의면접을 '} type={'body2'}/>
-                    <Typo title={'통해 실제 면접관과 대화하는 연습을 '} type={'body2'}/>
-                    <Typo title={'해보세요! '} type={'body2'}/>
-                </div>
-            </Card>
-            <Card className='w-[877px] h-[317px]'>
-                <div>이미지</div>
-                <div>
-                    <div className='mb-[20px]'>
-                        <Typo title={'가상 면접관 '} type={'body1'}/>
-                    </div>
-                    <Typo title={'메타휴먼 가상면접관과의 모의면접을 '} type={'body2'}/>
-                    <Typo title={'통해 실제 면접관과 대화하는 연습을 '} type={'body2'}/>
-                    <Typo title={'해보세요! '} type={'body2'}/>
-                </div>
-            </Card>
-        </div>
+      >
+
+                    <SwiperSlide>
+                        <Card className='w-[877px] h-[317px]'>
+                            <div>이미지</div>
+                            <div>
+                                <div className='mb-[20px]'>
+                                    <Typo title={'가상 면접관 '} type={'body1'} />
+                                </div>
+                                <Typo title={'메타휴먼 가상면접관과의 모의면접을 '} type={'body2'} />
+                                <Typo title={'통해 실제 면접관과 대화하는 연습을 '} type={'body2'} />
+                                <Typo title={'해보세요! '} type={'body2'} />
+                            </div>
+                        </Card>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Card className='w-[877px] h-[317px]'>
+                            <div>이미지</div>
+                            <div>
+                                <div className='mb-[20px]'>
+                                    <Typo title={'가상 면접관 '} type={'body1'} />
+                                </div>
+                                <Typo title={'메타휴먼 가상면접관과의 모의면접을 '} type={'body2'} />
+                                <Typo title={'통해 실제 면접관과 대화하는 연습을 '} type={'body2'} />
+                                <Typo title={'해보세요! '} type={'body2'} />
+                            </div>
+                        </Card>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Card className='w-[877px] h-[317px]'>
+                            <div>이미지</div>
+                            <div>
+                                <div className='mb-[20px]'>
+                                    <Typo title={'가상 면접관 '} type={'body1'} />
+                                </div>
+                                <Typo title={'메타휴먼 가상면접관과의 모의면접을 '} type={'body2'} />
+                                <Typo title={'통해 실제 면접관과 대화하는 연습을 '} type={'body2'} />
+                                <Typo title={'해보세요! '} type={'body2'} />
+                            </div>
+                        </Card>
+                    </SwiperSlide>
+            </Swiper>
         </>
     )
 }
