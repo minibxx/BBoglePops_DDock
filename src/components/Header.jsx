@@ -1,6 +1,7 @@
 import React from 'react'
 import Typo from '@components/Typography'
 import { styled } from 'styled-components';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const LoginBtn = styled.button`
   border: 2px solid white;
