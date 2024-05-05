@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import Typo from '@components/Typography'
+import Header from '../Header';
 
 const Background = styled.div`
 position: fixed;
@@ -12,9 +13,8 @@ background-size : cover;
 z-index: -2;
 `;
 
-const LoginDiv = styled.div`
+const SignUPDiv = styled.div`
   width: 714px;
-  height: 553px;
   font-size: 40px;
   margin: 15% auto;
   border: 2px solid white;
@@ -29,20 +29,19 @@ const Insert = styled.input`
   padding: 20px;
   font-size: 20px;
   height: 60px;
-  border: 2px solid white;
-  border-radius: 35px;
-  background-color: rgb(255,255,255,0.3);
+  border-bottom: 2px solid white;
+  background-color: transparent;
   &::placeholder{
     color:rgb(255,255,255,0.3);
     font-size: 20px;
   }
 `;
 
-const LoginBtn = styled.div`
+const SignUpBtn = styled.div`
   text-align: center;
   width: 362px;
   height: 60px;
-  margin: 50px auto 20px auto;
+  margin: 50px auto 70px auto;
   border: 2px solid white;
   color: black;
   border-radius: 35px;
@@ -53,22 +52,42 @@ const LoginBtn = styled.div`
 function SignUp() {
   return (
     <>
-    <LoginDiv>
+      <Background />
+      <Header />
+      <SignUPDiv>
         <div className='text-center my-[50px]'>
-          <Typo title={'LOGIN'} type={'body5'} />
+          <Typo title={'SIGN UP'} type={'body5'} />
         </div>
         <div className='ml-[145px]'>
-          <Insert placeholder='ID'/>
-          <Insert placeholder='PASSWORD'/>
+
+          {/* <div className='mx-[20px] mt-[5px]'>
+            <Typo title={'ID'} type={'body2'} />
+          </div> */}
+          <Insert placeholder='ID' />
+          <div className='mx-[20px] mt-[10px] mb-[20px]'>
+            <Typo title={'이미 사용중인 아이디입니다.'} type={'passwordError'} />
+          </div>
+
+          {/* <div className='mx-[20px] mt-[5px]'>
+            <Typo title={'비밀번호'} type={'body2'} />
+          </div> */}
+          <Insert placeholder='PASSWORD' />
+          <div className='mx-[20px] mt-[10px] mb-[20px]'>
+            <Typo title={'숫자, 영어 포함 8자 이상으로 입력해주세요.'} type={'passwordError'} />
+          </div>
+
+          {/* <div className='mx-[20px] mt-[5px]'>
+            <Typo title={'비밀번호 확인'} type={'body2'} />
+          </div> */}
+          <Insert placeholder='PASSWORD' />
+          <div className='mx-[20px] mt-[10px] mb-[20px]'>
+            <Typo title={'비밀번호를 다시 확인해주세요.'} type={'passwordError'} />
+          </div>
         </div>
-        <LoginBtn>
-          <Typo title={'LOGIN'} type={'body2'} />
-        </LoginBtn>
-        <div className='flex justify-between w-[320px] m-[auto]'>
-          <Typo title={'회원가입'} type={'body9'} />
-          <Typo title={'아이디/비밀번호 찾기'} type={'body10'} />
-        </div>
-      </LoginDiv>
+        <SignUpBtn>
+          <Typo title={'SIGN UP'} type={'body2'} />
+        </SignUpBtn>
+      </SignUPDiv>
     </>
   )
 }

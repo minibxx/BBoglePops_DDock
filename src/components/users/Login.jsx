@@ -15,7 +15,6 @@ z-index: -2;
 
 const LoginDiv = styled.div`
   width: 714px;
-  height: 553px;
   font-size: 40px;
   margin: 15% auto;
   border: 2px solid white;
@@ -62,12 +61,18 @@ function Login() {
         </div>
         <div className='ml-[145px]'>
           <Insert placeholder='ID'/>
+          <div className='mx-[20px] mt-[5px] mb-[10px]'>
+            <Typo title={'가입되어 있지 않은 아이디입니다.'} type={'passwordError'}/>
+          </div>
           <Insert placeholder='PASSWORD'/>
+          <div className='mx-[20px] mt-[5px] mb-[10px]'>
+            <Typo title={'비밀번호가 틀렸습니다.'} type={'passwordError'}/>
+          </div>
         </div>
         <LoginBtn>
           <Typo title={'LOGIN'} type={'body2'} />
         </LoginBtn>
-        <div className='flex justify-between w-[320px] m-[auto]'>
+        <div className='flex justify-between w-[320px] m-[auto] mb-[70px]'>
           <Typo title={'회원가입'} type={'body9'} />
           <Typo title={'아이디/비밀번호 찾기'} type={'body10'} />
         </div>

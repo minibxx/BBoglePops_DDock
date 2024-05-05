@@ -26,6 +26,9 @@ export default function Typography({title, type, m=0}) {
         else if(type === 'small3'){
             return <div className={`text-[17px]  m-[${m}px] leading-[150%]`}>{title}</div>
         } 
+        else if(type === 'passwordError'){
+            return <div className={`text-[15px]  m-[${m}px] leading-[150%] text-[#ff7979]`}>{title}</div>
+        } 
     }
 
     return (
