@@ -22,20 +22,52 @@ const Container = styled.div`
   align-items: center;
 
   background-color: #000;
+  .inactive {
+    opacity: 0.7;
+  }
+
+  .active {
+    opacity: 1;
+  }
 `;
 function Header() {
+  const location = useLocation();
+
   return (
-    <Container>
-      <div className='flex fixed flex-row justify-between text-white'>
+    <>
+      <Container className='flex fixed flex-row justify-between text-white'>
         <div>Header</div>
         <ul className='flex flex-row gap-[30px]'>
-          <li><Typo title={'똑똑 평가기준'} type={'heading1'} /></li>
-          <li><Typo title={'면접 시작'} type={'heading1'} /></li>
-          <li><Typo title={'내 면접 기록'} type={'heading1'} /></li>
+          <NavLink
+            to={`/home`}
+            className={({ isActive }) =>
+              isActive || location.pathname === `/` ? 'active' : 'inactive'
+            }
+          >
+            <li><Typo title={'똑똑 평가기준'} type={'heading1'} /></li>
+          </NavLink>
+          
+          <NavLink
+            to={`/home`}
+            className={({ isActive }) =>
+              isActive || location.pathname === `/` ? 'active' : 'inactive'
+            }
+          >
+            <li><Typo title={'면접 시작'} type={'heading1'} /></li>
+          </NavLink>
+          
+          <NavLink
+            to={`/home`}
+            className={({ isActive }) =>
+              isActive || location.pathname === `/` ? 'active' : 'inactive'
+            }
+          >
+            <li><Typo title={'내 면접 기록'} type={'heading1'} /></li>
+          </NavLink>
         </ul>
         <LoginBtn><Typo title={'로그인'} type={'heading1'} /></LoginBtn>
-      </div>
-    </Container>
+      </Container>
+    </>
   )
 }
 
