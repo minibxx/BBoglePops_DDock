@@ -18,10 +18,9 @@ z-index: -2;
 const Insert = styled.input`
   width: 362px;
   padding: 20px;
-  font-size: 20px;
+  font-size: 24px;
   height: 60px;
-  border: 2px solid white;
-  border-radius: 35px;
+  border-bottom: 2px solid white;
   background-color: rgb(255,255,255,0.3);
   color: white;
   &::placeholder{
@@ -70,10 +69,16 @@ function InterviewSetting() {
             <Background />
             <Header />
 
-            <div className='w-[1214px] m-[auto]'>
+            <div className='w-[1214px] m-[auto] relative'>
                 <div className='flex justify-between'>
-                    <Insert placeholder='희망 분야를 입력해주세요' />
-                    <Insert placeholder='직무를 입력해주세요' />
+                    <div className='text-white flex flex-col gap-[10px]'>
+                        <Typo title={'희망 분야를 입력해주세요'} type={'body2'} />
+                        <Insert placeholder='예시) IT' />
+                    </div>
+                    <div className='text-white flex flex-col gap-[10px]'>
+                        <Typo title={'지원 직무를 입력해주세요'} type={'body2'} />
+                        <Insert placeholder='예시) 프론트엔드 개발자' />
+                    </div>
                 </div>
 
                 <div className='mt-[214px]'>
@@ -109,8 +114,8 @@ function InterviewSetting() {
                     </div>
                 </CheckAlign>
             </div>
-            <InterviewQuit/>
-            <InterviewCaution/>
+            {/* <InterviewQuit /> */}
+            <InterviewCaution />
         </>
     )
 }

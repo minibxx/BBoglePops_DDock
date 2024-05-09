@@ -10,35 +10,23 @@ const QuitBox = styled.div`
   border: 2px solid white;
   color: white;
   border-radius: 52px;
-  padding: 0 30px;
   background-color: rgb(255,255,255,0.1);
-`;
-
-const QuitBtn = styled.div`
-  text-align: center;
-  width: 200px;
-  height: 60px;
-  margin: 20px auto 50px auto;
-  border: 2px solid white;
-  color: black;
-  border-radius: 35px;
-  padding: 10px 30px;
-  background-color: rgb(255,255,255);
+  padding: 10px;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translateX(-50%);
 `;
 
 function InterviewCaution() {
     return (
         <>
             <QuitBox>
-                <div className='text-center mt-[50px]'>
-                    <Typo title={'보다 정확한 결과 제공을 위해'} type={'body7'} />
-                </div>
-                <div className='text-center '>
+                <div className='text-right pr-[25px]'>×</div>
+
+                <div className='text-center pt-[10px] pb-[60px]'>
+                    <Typo title={'정확한 결과 제공을 위해'} type={'body7'} />
                     <Typo title={'이어폰 착용을 권고드립니다.'} type={'body7'} />
                 </div>
-                    <QuitBtn>
-                        <Typo title={'확인'} type={'body2'} />
-                    </QuitBtn>
             </QuitBox>
         </>
     )

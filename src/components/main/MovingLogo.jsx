@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import DDock from '/images/ddockEng.png';
 
 const Move = styled.button`
-animation: moveLeft 20s linear infinite;
+animation: moveLeft 15s linear infinite;
 @keyframes moveLeft {
   from {
     transform: translateX(0);
