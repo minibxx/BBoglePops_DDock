@@ -22,6 +22,7 @@ const Container = styled.div`
   align-items: center;
 
   background-color: #000;
+  
   .inactive {
     opacity: 0.7;
   }
@@ -41,12 +42,12 @@ function Header() {
           <NavLink
             to={`/home`}
             className={({ isActive }) =>
-              isActive || location.pathname === `/` ? 'active' : 'inactive'
+              isActive || location.pathname === `/interview` ? 'active' : 'inactive'
             }
           >
             <li><Typo title={'똑똑 평가기준'} type={'heading1'} /></li>
           </NavLink>
-          
+
           <NavLink
             to={`/home`}
             className={({ isActive }) =>

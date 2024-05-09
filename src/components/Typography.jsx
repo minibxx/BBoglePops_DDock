@@ -20,6 +20,9 @@ export default function Typography({title, type, m=0}) {
         else if(type === 'body7'){
             return <div className={`text-[28px] font-bold m-[${m}px]`}>{title}</div>
         } 
+        else if(type === 'body8'){
+            return <div className={`text-[24px] font-semibold m-[${m}px]`}>{title}</div>
+        } 
         else if(type === 'body9'){
             return <div className={`text-[16px] font-semibold m-[${m}px] leading-[150%]`}>{title}</div>
         } 

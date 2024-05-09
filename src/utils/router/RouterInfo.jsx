@@ -19,7 +19,7 @@ export const RouterInfo = [
         element: <App/>,
       },
       {
-        path: 'Interview',
+        path: 'interview',
         element: <InterviewSetting />,
       },
       {
