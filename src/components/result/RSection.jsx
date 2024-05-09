@@ -15,7 +15,7 @@ const Feedback = styled.div`
 function RSection() {
     return (
         <>
-            <div className='text-white flex gap-[10px]'>
+            <div className='text-white flex gap-[10px] mt-[50px]'>
                 <Feedback>
                     <div className='mx-[20px]'>
                         <Typo title={'답변 내용 피드백'} type={'body2'} />

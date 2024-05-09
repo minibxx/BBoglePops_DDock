@@ -9,6 +9,7 @@ import Login from '@components/users/Login';
 import SignUp from '../../components/users/SignUp';
 import InterviewSetting from '../../components/interview/InterviewSetting';
 import Criterion from '../../components/criterion/Criterion';
+import About from '../../components/About/About';
 
 
 export const RouterInfo = [
@@ -38,6 +39,10 @@ export const RouterInfo = [
       {
         path: 'signup',
         element: <SignUp />,
+      },
+      {
+        path: 'about',
+        element: <About/>,
       }
     ],
   },

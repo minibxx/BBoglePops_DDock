@@ -3,6 +3,7 @@ import Header from '@components/Header';
 import styled from 'styled-components';
 import Typo from '@components/Typography'
 import InterviewQuit from './InterviewQuit';
+import InterviewCaution from './InterviewCaution';
 
 const Background = styled.div`
 position: fixed;
@@ -71,8 +72,8 @@ function InterviewSetting() {
 
             <div className='w-[1214px] m-[auto]'>
                 <div className='flex justify-between'>
-                    <Insert placeholder='희망 분야를 선택해주세요' />
-                    <Insert placeholder='직무를 선택해주세요' />
+                    <Insert placeholder='희망 분야를 입력해주세요' />
+                    <Insert placeholder='직무를 입력해주세요' />
                 </div>
 
                 <div className='mt-[214px]'>
@@ -109,6 +110,7 @@ function InterviewSetting() {
                 </CheckAlign>
             </div>
             <InterviewQuit/>
+            <InterviewCaution/>
         </>
     )
 }

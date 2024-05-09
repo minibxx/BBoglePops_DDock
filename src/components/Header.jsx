@@ -75,9 +75,9 @@ function Header() {
           </NavLink>
 
           <NavLink
-            to={`/`}
+            to={`/about`}
             className={({ isActive }) =>
-              isActive || location.pathname === `/` ? 'active' : 'inactive'
+              isActive || location.pathname === `/about` ? 'active' : 'inactive'
             }
           >
             <li><Typo title={'팀원 소개'} type={'heading1'} /></li>
