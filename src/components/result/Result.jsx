@@ -12,7 +12,7 @@ height: 100vh;
 background-image: linear-gradient(#000,#002A84);
 background-repeat : no-repeat;
 background-size : cover;
-z-index: -2;ㅋㅋ
+z-index: -2;
 `;
 
 function Result() {
@@ -20,8 +20,10 @@ function Result() {
     <>
       <Background />
       <Header />
-      <RSection/>
-      <Answer/>
+      <div className='w-[1214px] m-[auto]'>
+        <RSection/>
+        <Answer/>
+      </div>
     </>
   )
 }
