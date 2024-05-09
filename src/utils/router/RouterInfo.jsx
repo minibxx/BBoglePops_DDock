@@ -8,6 +8,7 @@ import Result from '@components/result/Result';
 import Login from '@components/users/Login';
 import SignUp from '../../components/users/SignUp';
 import InterviewSetting from '../../components/interview/InterviewSetting';
+import Criterion from '../../components/criterion/Criterion';
 
 
 export const RouterInfo = [
@@ -17,6 +18,10 @@ export const RouterInfo = [
       {
         index: true,
         element: <App/>,
+      },
+      {
+        path: 'criterion',
+        element: <Criterion/>,
       },
       {
         path: 'interview',

@@ -37,33 +37,50 @@ function Header() {
   return (
     <>
       <Container className='flex fixed flex-row justify-between text-white'>
-        <div>Header</div>
+       
+        <NavLink
+            to={`/`}
+            className={({ isActive }) =>
+              isActive || location.pathname === `/` 
+            }
+          >
+             <div>Header</div>
+          </NavLink>
         <ul className='flex flex-row gap-[30px]'>
           <NavLink
-            to={`/home`}
+            to={`/interview`}
             className={({ isActive }) =>
               isActive || location.pathname === `/interview` ? 'active' : 'inactive'
             }
           >
-            <li><Typo title={'똑똑 평가기준'} type={'heading1'} /></li>
+            <li><Typo title={'면접 연습'} type={'heading1'} /></li>
           </NavLink>
 
           <NavLink
-            to={`/home`}
+            to={`/criterion`}
             className={({ isActive }) =>
-              isActive || location.pathname === `/` ? 'active' : 'inactive'
+              isActive || location.pathname === `/criterion` ? 'active' : 'inactive'
             }
           >
-            <li><Typo title={'면접 시작'} type={'heading1'} /></li>
+            <li><Typo title={'평가 기준'} type={'heading1'} /></li>
           </NavLink>
           
           <NavLink
-            to={`/home`}
+            to={`/result`}
+            className={({ isActive }) =>
+              isActive || location.pathname === `/result` ? 'active' : 'inactive'
+            }
+          >
+            <li><Typo title={'면접 기록'} type={'heading1'} /></li>
+          </NavLink>
+
+          <NavLink
+            to={`/`}
             className={({ isActive }) =>
               isActive || location.pathname === `/` ? 'active' : 'inactive'
             }
           >
-            <li><Typo title={'내 면접 기록'} type={'heading1'} /></li>
+            <li><Typo title={'팀원 소개'} type={'heading1'} /></li>
           </NavLink>
         </ul>
         <LoginBtn><Typo title={'로그인'} type={'heading1'} /></LoginBtn>
