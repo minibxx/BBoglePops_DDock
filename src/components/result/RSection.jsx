@@ -18,22 +18,22 @@ function RSection() {
             <div className='text-white flex gap-[10px]'>
                 <Feedback>
                     <div className='mx-[20px]'>
-                        <Typo title={'답변 내용 피드백'} type={'body7'} />
+                        <Typo title={'답변 내용 피드백'} type={'body2'} />
                     </div>
                 </Feedback>
                 <Feedback>
                     <div className='mx-[20px]'>
-                        <Typo title={'음석 분석 피드백'} type={'body7'} />
+                        <Typo title={'음석 분석 피드백'} type={'body2'} />
                     </div>
                 </Feedback>
                 <Feedback>
                     <div className='mx-[20px]'>
-                        <Typo title={'시선 분석 피드백'} type={'body7'} />
+                        <Typo title={'시선 분석 피드백'} type={'body2'} />
                     </div>
                 </Feedback>
                 <Feedback>
                     <div className='mx-[20px]'>
-                        <Typo title={'자세 분석 피드백'} type={'body7'} />
+                        <Typo title={'자세 분석 피드백'} type={'body2'} />
                     </div>
                 </Feedback>
             </div>
