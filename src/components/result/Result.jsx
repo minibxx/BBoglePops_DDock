@@ -3,7 +3,7 @@ import Header from '@components/Header';
 import styled from 'styled-components';
 import Typo from '@components/Typography'
 import RSection from './RSection'
-import Answer from './Answer';
+
 
 const Background = styled.div`
 position: fixed;
@@ -22,7 +22,6 @@ function Result() {
       <Header />
       <div className='w-[1214px] m-[auto]'>
         <RSection/>
-        <Answer/>
       </div>
     </>
   )

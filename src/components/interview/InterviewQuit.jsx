@@ -15,7 +15,8 @@ const QuitBox = styled.div`
   background-color: rgb(255,255,255,0.1);
   position: absolute;
   top: 50%; left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-90%);
+  backdrop-filter: blur(6px);
 `;
 
 const QuitBtn = styled.div`

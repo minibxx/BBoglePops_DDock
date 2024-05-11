@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Header from '@components/Header';
 import styled from 'styled-components';
 import Typo from '@components/Typography'
@@ -64,6 +64,7 @@ const CheckAlign = styled.div`
 `;
 
 function InterviewSetting() {
+    const [openModal, setOpenModal] = useState(false);
     return (
         <>
             <Background />
@@ -108,14 +109,19 @@ function InterviewSetting() {
                         />면접 시간 중 녹화된 영상 제공을 희망하십니까?
                     </label>
                     <div>
-                        <NextBtn>
+                        <NextBtn onClick={()=>{
+                            setOpenModal(true)
+                        }}>
                             <Typo title={'다음'} type={'body2'} />
                         </NextBtn>
                     </div>
                 </CheckAlign>
             </div>
+            {
+                openModal &&  <InterviewCaution onCloseClick={()=>{ setOpenModal(false)}}/>
+            }
             {/* <InterviewQuit /> */}
-            <InterviewCaution />
+           
         </>
     )
 }

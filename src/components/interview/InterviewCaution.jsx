@@ -12,20 +12,36 @@ const QuitBox = styled.div`
   border-radius: 52px;
   background-color: rgb(255,255,255,0.1);
   padding: 10px;
-  position: absolute;
+  position: fixed;
   top: 50%; left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-100%);
+  backdrop-filter: blur(6px);
 `;
-
-function InterviewCaution() {
+const QuitBtn = styled.div`
+  text-align: center;
+  width: 200px;
+  height: 60px;
+  margin: 30px auto 10px auto;
+  border: 2px solid white;
+  color: white;
+  border-radius: 35px;
+  padding: 10px;
+  background-color: rgb(255,255,255,0.2);
+`;
+function InterviewCaution({ onCloseClick }) {
     return (
         <>
-            <QuitBox>
-                <div className='text-right pr-[25px]'>×</div>
-
-                <div className='text-center pt-[10px] pb-[60px]'>
-                    <Typo title={'정확한 결과 제공을 위해'} type={'body7'} />
-                    <Typo title={'이어폰 착용을 권고드립니다.'} type={'body7'} />
+            <QuitBox >
+                <div
+                    onClick={onCloseClick}
+                    className='text-right pr-[25px]'>×</div>
+                <div className='text-center pt-[40px] pb-[60px]'>
+                    <Typo title={'정확한 분석을 위해 이어폰 착용을 권고드립니다.'} type={'body7'} />
+                    <Typo title={''} type={'body7'} />
+                    <Typo title={'준비가 되셨다면 확인 버튼을 눌러주세요.'} type={'body7'} />
+                    <QuitBtn>
+                        <Typo title={'확인'} type={'body2'} />
+                    </QuitBtn>
                 </div>
             </QuitBox>
         </>

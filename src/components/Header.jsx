@@ -1,7 +1,7 @@
 import React from 'react'
 import Typo from '@components/Typography'
 import { styled } from 'styled-components';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 const LoginBtn = styled.button`
   border: 2px solid white;
@@ -33,6 +33,7 @@ const Container = styled.div`
 `;
 function Header() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -83,7 +84,9 @@ function Header() {
             <li><Typo title={'팀원 소개'} type={'heading1'} /></li>
           </NavLink>
         </ul>
-        <LoginBtn><Typo title={'로그인'} type={'heading1'} /></LoginBtn>
+        <LoginBtn onClick={() => navigate('/users')}>
+          <Typo title={'로그인'} type={'heading1'} />
+        </LoginBtn>
       </Container>
     </>
   )

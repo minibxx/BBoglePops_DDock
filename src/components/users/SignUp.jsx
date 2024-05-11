@@ -60,25 +60,16 @@ function SignUp() {
         </div>
         <div className='ml-[145px]'>
 
-          {/* <div className='mx-[20px] mt-[5px]'>
-            <Typo title={'ID'} type={'body2'} />
-          </div> */}
           <Insert placeholder='ID' />
           <div className='mx-[20px] mt-[10px] mb-[20px]'>
             <Typo title={'이미 사용중인 아이디입니다.'} type={'passwordError'} />
           </div>
 
-          {/* <div className='mx-[20px] mt-[5px]'>
-            <Typo title={'비밀번호'} type={'body2'} />
-          </div> */}
           <Insert placeholder='PASSWORD' />
           <div className='mx-[20px] mt-[10px] mb-[20px]'>
             <Typo title={'숫자, 영어 포함 8자 이상으로 입력해주세요.'} type={'passwordError'} />
           </div>
 
-          {/* <div className='mx-[20px] mt-[5px]'>
-            <Typo title={'비밀번호 확인'} type={'body2'} />
-          </div> */}
           <Insert placeholder='PASSWORD' />
           <div className='mx-[20px] mt-[10px] mb-[20px]'>
             <Typo title={'비밀번호를 다시 확인해주세요.'} type={'passwordError'} />
