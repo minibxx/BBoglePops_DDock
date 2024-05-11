@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '@components/Header';
 import styled from 'styled-components';
-import Typo from '@components/Typography'
+import Typo from '@components/Typography';
+import { postLogIn } from '../../apis/login';
+import { useNavigate } from 'react-router-dom';
 
 const Background = styled.div`
 position: fixed;
@@ -51,6 +53,9 @@ const LoginBtn = styled.div`
 `;
 
 function Login() {
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
   return (
     <>
       <Background />
@@ -60,16 +65,27 @@ function Login() {
           <Typo title={'LOGIN'} type={'body5'} />
         </div>
         <div className='ml-[145px]'>
-          <Insert placeholder='ID'/>
+          <Insert placeholder='ID'
+            value={id}
+            onChange={(e) => { setId(e.target.value) }} />
           <div className='mx-[20px] mt-[5px] mb-[10px]'>
-            <Typo title={'가입되어 있지 않은 아이디입니다.'} type={'passwordError'}/>
+            <Typo title={'가입되어 있지 않은 아이디입니다.'} type={'passwordError'} />
           </div>
-          <Insert placeholder='PASSWORD'/>
+          <Insert
+            type={'password'}
+            placeholder='PASSWORD'
+            value={password}
+            onChange={(e) => { setPassword(e.target.value) }} />
           <div className='mx-[20px] mt-[5px] mb-[10px]'>
-            <Typo title={'비밀번호가 틀렸습니다.'} type={'passwordError'}/>
+            <Typo title={'비밀번호가 틀렸습니다.'} type={'passwordError'} />
           </div>
         </div>
-        <LoginBtn>
+        <LoginBtn onClick={() => {
+          postLogIn(id, password).then((data) => {
+            localStorage.setItem("Authorization", data.access)
+            navigate('/')
+          })
+        }}>
           <Typo title={'LOGIN'} type={'body2'} />
         </LoginBtn>
         <div className='flex justify-between w-[320px] m-[auto] mb-[70px]'>

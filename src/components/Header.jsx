@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Typo from '@components/Typography'
 import { styled } from 'styled-components';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { postLogOut } from '../apis/login';
 
 const LoginBtn = styled.button`
   border: 2px solid white;
@@ -34,19 +35,27 @@ const Container = styled.div`
 function Header() {
   const location = useLocation();
   const navigate = useNavigate();
-
+  const [isLogin, setIsLogin] = useState(false);
+ 
+  useEffect(()=>{
+    if (localStorage.getItem("Authorization")) {
+      setIsLogin(true)
+    } else {
+      setIsLogin(false)
+    }
+  },[])
   return (
     <>
       <Container className='flex fixed flex-row justify-between text-white'>
-       
+
         <NavLink
-            to={`/`}
-            className={({ isActive }) =>
-              isActive || location.pathname === `/` 
-            }
-          >
-             <div>Header</div>
-          </NavLink>
+          to={`/`}
+          className={({ isActive }) =>
+            isActive || location.pathname === `/`
+          }
+        >
+          <div>Header</div>
+        </NavLink>
         <ul className='flex flex-row gap-[30px]'>
           <NavLink
             to={`/interview`}
@@ -65,7 +74,7 @@ function Header() {
           >
             <li><Typo title={'평가 기준'} type={'heading1'} /></li>
           </NavLink>
-          
+
           <NavLink
             to={`/result`}
             className={({ isActive }) =>
@@ -84,9 +93,21 @@ function Header() {
             <li><Typo title={'팀원 소개'} type={'heading1'} /></li>
           </NavLink>
         </ul>
-        <LoginBtn onClick={() => navigate('/users')}>
-          <Typo title={'로그인'} type={'heading1'} />
-        </LoginBtn>
+        {
+          isLogin
+            ?
+            <LoginBtn onClick={() => { postLogOut().then(()=>{
+              localStorage.removeItem("Authorization")
+              setIsLogin(false)
+            }) }}>
+              <Typo title={'로그아웃'} type={'heading1'} />
+            </LoginBtn>
+            :
+            <LoginBtn onClick={() => navigate('/users')}>
+              <Typo title={'로그인'} type={'heading1'} />
+            </LoginBtn>
+
+        }
       </Container>
     </>
   )

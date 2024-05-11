@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import Typo from '@components/Typography'
 import InterviewQuit from './InterviewQuit';
 import InterviewCaution from './InterviewCaution';
+import { useRecoilState } from 'recoil';
+import { myJobAtom } from '@store/atom';
 
 const Background = styled.div`
 position: fixed;
@@ -65,6 +67,7 @@ const CheckAlign = styled.div`
 
 function InterviewSetting() {
     const [openModal, setOpenModal] = useState(false);
+    const [myJob, setMyJob] = useRecoilState(myJobAtom);
     return (
         <>
             <Background />
@@ -74,11 +77,17 @@ function InterviewSetting() {
                 <div className='flex justify-between'>
                     <div className='text-white flex flex-col gap-[10px]'>
                         <Typo title={'희망 분야를 입력해주세요'} type={'body2'} />
-                        <Insert placeholder='예시) IT' />
+                        <Insert 
+                        value={myJob.myPart}
+                        onChange={(e)=>{setMyJob({...myJob, myPart: e.target.value})}}
+                        placeholder='예시) IT' />
                     </div>
                     <div className='text-white flex flex-col gap-[10px]'>
                         <Typo title={'지원 직무를 입력해주세요'} type={'body2'} />
-                        <Insert placeholder='예시) 프론트엔드 개발자' />
+                        <Insert 
+                        value={myJob.myJob}
+                        onChange={(e)=>{setMyJob({...myJob, myJob: e.target.value})}}
+                        placeholder='예시) 프론트엔드 개발자' />
                     </div>
                 </div>
 

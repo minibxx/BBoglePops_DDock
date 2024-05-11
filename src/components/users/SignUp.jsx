@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import Typo from '@components/Typography'
 import Header from '../Header';
+import { postSignUP } from '../../apis/login';
 
 const Background = styled.div`
 position: fixed;
@@ -50,6 +51,10 @@ const SignUpBtn = styled.div`
 `;
 
 function SignUp() {
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const [password2, setPassword2] = useState('');
+
   return (
     <>
       <Background />
@@ -60,22 +65,38 @@ function SignUp() {
         </div>
         <div className='ml-[145px]'>
 
-          <Insert placeholder='ID' />
-          <div className='mx-[20px] mt-[10px] mb-[20px]'>
+          <Insert
+            placeholder='ID'
+            value={id}
+            onChange={(e) => { setId(e.target.value) }}
+          />
+          <div className='mx-[20px] mt-[10px] mb-[20px] '>
             <Typo title={'이미 사용중인 아이디입니다.'} type={'passwordError'} />
           </div>
 
-          <Insert placeholder='PASSWORD' />
+          <Insert
+            type={'password'}
+            placeholder='PASSWORD'
+            value={password}
+            onChange={(e) => { setPassword(e.target.value) }}
+          />
           <div className='mx-[20px] mt-[10px] mb-[20px]'>
             <Typo title={'숫자, 영어 포함 8자 이상으로 입력해주세요.'} type={'passwordError'} />
           </div>
 
-          <Insert placeholder='PASSWORD' />
+          <Insert
+            type={'password'}
+            placeholder='PASSWORD'
+            value={password2}
+            onChange={(e) => { setPassword2(e.target.value) }}
+          />
           <div className='mx-[20px] mt-[10px] mb-[20px]'>
             <Typo title={'비밀번호를 다시 확인해주세요.'} type={'passwordError'} />
           </div>
         </div>
-        <SignUpBtn>
+        <SignUpBtn onClick={() => {
+          postSignUP(id, password, password2)
+        }}>
           <Typo title={'SIGN UP'} type={'body2'} />
         </SignUpBtn>
       </SignUPDiv>

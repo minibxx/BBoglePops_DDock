@@ -6,11 +6,11 @@ import App from '../../App';
 /* 서비스 */
 import Result from '@components/result/Result';
 import Login from '@components/users/Login';
-import SignUp from '../../components/users/SignUp';
-import InterviewSetting from '../../components/interview/InterviewSetting';
-import Criterion from '../../components/criterion/Criterion';
-import About from '../../components/About/About';
-
+import SignUp from '@components/users/SignUp';
+import InterviewSetting from '@components/interview/InterviewSetting';
+import Criterion from '@components/criterion/Criterion';
+import About from '@components/about/About';
+import InterviewPage from '@components/interview/InterviewPage';
 
 export const RouterInfo = [
   {
@@ -43,6 +43,10 @@ export const RouterInfo = [
       {
         path: 'about',
         element: <About/>,
+      },
+      {
+        path: 'interview/start',
+        element: <InterviewPage/>
       }
     ],
   },

@@ -8,7 +8,9 @@ function RandomQ({myJobQuestion}) {
         <div 
           className=' whitespace-pre w-[90%] h-[260px] outline-none bg-[#ECECEC] text-[black] p-[10px]' 
         >
-          {myJobQuestion}
+          {myJobQuestion.map((item)=>{
+            return <div>{item}</div>
+          })}
         </div>
       </div>
     </>

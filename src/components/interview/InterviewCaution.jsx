@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 import Typo from '@components/Typography'
-
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { myJobQuestionAtom, myJobAtom } from '@store/atom';
+import { postMyJob } from '@apis/interview';
 
 const QuitBox = styled.div`
   width: 714px;
@@ -29,6 +32,9 @@ const QuitBtn = styled.div`
   background-color: rgb(255,255,255,0.2);
 `;
 function InterviewCaution({ onCloseClick }) {
+    const [myJobQuestion, setMyJobQuestion] = useRecoilState(myJobQuestionAtom);
+    const [myJob, setMyJob] = useRecoilState(myJobAtom);
+    const navigate = useNavigate();
     return (
         <>
             <QuitBox >
@@ -39,7 +45,12 @@ function InterviewCaution({ onCloseClick }) {
                     <Typo title={'정확한 분석을 위해 이어폰 착용을 권고드립니다.'} type={'body7'} />
                     <Typo title={''} type={'body7'} />
                     <Typo title={'준비가 되셨다면 확인 버튼을 눌러주세요.'} type={'body7'} />
-                    <QuitBtn>
+                    <QuitBtn onClick={() =>
+                        postMyJob(myJob.myPart, myJob.myJob).then(data => {
+                            setMyJobQuestion(data.questions)
+                            navigate('/interview/start')
+                        })
+                    }>
                         <Typo title={'확인'} type={'body2'} />
                     </QuitBtn>
                 </div>
