@@ -2,6 +2,8 @@ import React from 'react'
 import Header from '@components/Header';
 import styled from 'styled-components';
 import Typo from '@components/Typography'
+import ComputerChat from './ComputerChat';
+import UserChat from './UserChat';
 
 const Background = styled.div`
 position: fixed;
@@ -17,6 +19,8 @@ function Criterion() {
         <>
             <Background />
             <Header />
+            <ComputerChat />
+            <UserChat />
         </>
     )
 }
