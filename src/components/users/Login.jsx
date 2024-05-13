@@ -50,6 +50,7 @@ const LoginBtn = styled.div`
   border-radius: 35px;
   padding: 10px 30px;
   background-color: rgb(255,255,255);
+  cursor: pointer;
 `;
 
 function Login() {

@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import Speech from "speak-tts";
+import RandomAnswer from './RandomAnswer';
 
-function RandomQ({myJobQuestion}) {
+function RandomQ({ myJobQuestion }) {
   useEffect(() => {
     var voices = window.speechSynthesis.getVoices();
     // console.log(voices.filter(item => item.lang == 'ko-KR'))
@@ -11,7 +12,7 @@ function RandomQ({myJobQuestion}) {
   speech
     .init({
       lang: "ko-KR",
-      voice:'Google 한국의',
+      voice: 'Google 한국의',
       pitch: 0
     })
     .then((data) => {
@@ -37,19 +38,20 @@ function RandomQ({myJobQuestion}) {
 
   return (
     <>
-      <div className='flex flex-row gap-[15px] mt-[15px] ml-[10px] h-[30px]'>
+      <div className='flex flex-row gap-[15px] mt-[15px] ml-[10px] h-[30px] '>
         <div>질문 리스트</div>
-        <div 
-          className=' whitespace-pre w-[90%] h-[260px] outline-none bg-[#ECECEC] text-[black] p-[10px]' 
+        <div
+          className=' whitespace-pre w-[90%] h-[260px] outline-none bg-[#ECECEC] text-[black] p-[10px]'
         >
-          {myJobQuestion.map((item)=>{
+          {myJobQuestion.map((item) => {
             return <div>{item}</div>
           })}
-           <button onClick={handleClick}>Speak</button>
         </div>
       </div>
+      <button onClick={handleClick}>질문듣기</button>
+      <RandomAnswer/>
     </>
   )
 }
 
-      export default RandomQ
+export default RandomQ

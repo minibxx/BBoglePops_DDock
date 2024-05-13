@@ -30,6 +30,7 @@ const QuitBtn = styled.div`
   border-radius: 35px;
   padding: 10px;
   background-color: rgb(255,255,255,0.2);
+  cursor: pointer;
 `;
 function InterviewCaution({ onCloseClick }) {
     const [myJobQuestion, setMyJobQuestion] = useRecoilState(myJobQuestionAtom);

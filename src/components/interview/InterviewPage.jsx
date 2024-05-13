@@ -16,9 +16,8 @@ function InterviewPage() {
 
   return (
     <>
-    <div className='w-[900px] m-[auto]'>
-
-      <div className='m-[auto] my-[30px]'>
+    <div className='w-[100%]'>
+      <div className=''>
         <video
           muted
           autoPlay
