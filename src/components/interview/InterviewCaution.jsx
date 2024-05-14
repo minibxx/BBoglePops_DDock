@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Typo from '@components/Typography'
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
-import { myJobQuestionAtom, myJobAtom } from '@store/atom';
+import { myJobQuestionAtom, myJobQuestionIdAtom, myJobAtom } from '@store/atom';
 import { postMyJob } from '@apis/interview';
 
 const QuitBox = styled.div`
@@ -34,6 +34,8 @@ const QuitBtn = styled.div`
 `;
 function InterviewCaution({ onCloseClick }) {
     const [myJobQuestion, setMyJobQuestion] = useRecoilState(myJobQuestionAtom);
+    const [myJobQuestionId, setMyJobQuestionId] = useRecoilState(myJobQuestionIdAtom);
+    
     const [myJob, setMyJob] = useRecoilState(myJobAtom);
     const navigate = useNavigate();
     return (
@@ -49,6 +51,7 @@ function InterviewCaution({ onCloseClick }) {
                     <QuitBtn onClick={() =>
                         postMyJob(myJob.myPart, myJob.myJob).then(data => {
                             setMyJobQuestion(data.questions)
+                            setMyJobQuestionId(data.id)
                             navigate('/interview/start')
                         })
                     }>

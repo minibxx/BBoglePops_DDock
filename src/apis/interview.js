@@ -14,3 +14,15 @@ export const postMyJob = async (input_field, input_job) => {
     return response.data;
 };
 
+export const postMyAnswer = async (formData, questionId = 0) => {
+    console.log(formData.keys)
+    console.log(formData.values)
+    const response = await axios.post(`${url}/interview/responses/${questionId}/`, formData
+    ,{
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
+        'Content-Type': 'multipart/form-data',
+    }
+    })
+    return response.data;
+};

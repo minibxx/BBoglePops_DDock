@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Video from '@assets/videos/gabin.mp4';
 import RandomQ from './RandomQ';
 import { useRecoilState } from 'recoil';
-import { myJobQuestionAtom } from '@store/atom';
+import { myJobQuestionAtom, myJobQuestionIdAtom } from '@store/atom';
 
 
 function InterviewPage() {
@@ -13,6 +13,7 @@ function InterviewPage() {
     videoRef.current.playbackRate = 0.5;
   };
   const [myJobQuestion, setMyJobQuestion] = useRecoilState(myJobQuestionAtom);
+  const [myJobQuestionId, setMyJobQuestionId] = useRecoilState(myJobQuestionIdAtom);
 
   return (
     <>
@@ -29,7 +30,7 @@ function InterviewPage() {
         </video>
       </div>
       
-      { myJobQuestion &&  <RandomQ myJobQuestion={myJobQuestion}/>}
+      { myJobQuestion &&  <RandomQ myJobQuestion={myJobQuestion} myJobQuestionId={myJobQuestionId}/>}
       
     </div>
     </>
