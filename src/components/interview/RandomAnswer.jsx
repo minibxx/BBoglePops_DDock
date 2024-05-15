@@ -13,11 +13,6 @@ function RandomAnswer(){
   const [audioUrl, setAudioUrl] = useState();
   const [currentIndex, setCurrentIndex] = useState(0);
   const chunks = []; // 오디오 청크 데이터를 저장할 배열
-  const texts = ['녹음기능',
-    '구현해보자',
-    '화이팅',
-    '모든 문장녹음을 완료하였습니다.'
-  ]
 
   const buttonClassName = currentIndex >= 3 ? `${styles.finishbutton}` : ""; 
   const buttonText = currentIndex >= 3 ? "보이스 추가" : "저장 후 다음"; 

@@ -2,17 +2,45 @@ import React, { useEffect, useState } from 'react'
 import Speech from "speak-tts";
 import RandomAnswer from './RandomAnswer';
 import useRecord from '../../hooks/useRecord';
+import useSTT from '../../hooks/useSTT';
+import styled from 'styled-components';
+import Mic from '/images/mic.svg'
+import Send from '/images/send.svg'
+import Sound from '/images/sound.svg'
+
+const Btns = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: absolute;
+  bottom:5%; right:3%;
+`;
+const Btn = styled.img`
+  width: 90px;
+  height: 90px;
+  border-radius: 100px;
+  background-color: rgb(255,255,255,0.3);
+  border:  3px solid white;
+  padding: 17px;
+`;
+const Timer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: absolute;
+  top: 0; left:0;
+`;
 
 const timerSecond = 6;
 
 function RandomQ({ myJobQuestion, myJobQuestionId }) {
-  const [questionCount, setQuestionCount]  = useState(0);
+  const [questionCount, setQuestionCount] = useState(0);
   const [isStarted, setIsStarted] = useState(false);
   const [isQuestionEnd, setIsQuestionEnd] = useState(true);
   const [timer, setTimer] = useState(timerSecond);
   const [timerInterval, setTimerInterval] = useState();
   const { onRecAudio, offRecAudio, onSubmitAudioFile } = useRecord();
-
+  const { onSTTStart, onSTTEnd } = useSTT();
 
   // useEffect(() => {
   //   var voices = window.speechSynthesis.getVoices();
@@ -20,7 +48,7 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
   //   console.log(voices.filter(item => item.lang == 'ko-KR'))
   // }, [])
   const speech = new Speech();
-  
+
   const speechQuestion = () => {
     speech
       .init({
@@ -30,19 +58,19 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
       })
       .then((data) => {
         speech
-        .speak({
-          text: myJobQuestion[questionCount],
-          listeners: {
-            onend: () => {}
-          }
-        })
-        .then(() => {
-          console.log("Success !");
-          setIsQuestionEnd(true);
-        })
-        .catch((e) => {
-          console.error("An error occurred :", e);
-        });
+          .speak({
+            text: myJobQuestion[questionCount],
+            listeners: {
+              onend: () => { }
+            }
+          })
+          .then(() => {
+            console.log("Success !");
+            setIsQuestionEnd(true);
+          })
+          .catch((e) => {
+            console.error("An error occurred :", e);
+          });
       })
       .catch((e) => {
         // console.error("An error occured while initializing : ", e);
@@ -67,6 +95,7 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
   }
 
   const onAnswerStart = () => {
+    onSTTStart();
     onRecAudio();
     startTimer();
   }
@@ -77,6 +106,7 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
 
   useEffect(() => {
     if (questionCount > 0) {
+      onSTTEnd();
       offRecAudio();
       speechQuestion()
     }
@@ -84,22 +114,22 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
 
   return (
     <>
-      <div className='flex flex-col gap-[15px] mt-[15px] ml-[10px] '>
-        <button className='w-[150px] h-[100px] bg-[lightblue]' onClick={speechQuestion}>면접 시작하기</button>
-        <button className='w-[150px] h-[100px] bg-[yellowgreen]' onClick={onAnswerStart} >답변 시작하기</button>
-        <button className='w-[150px] h-[100px] bg-[orange]' onClick={onSubmit} >제출하기</button>
+      <Btns>
+        <div onClick={speechQuestion}><Btn className='w-[90%] fill-white' src={Sound}/></div>
+        <div onClick={onAnswerStart} ><Btn className='w-[90%] fill-white' src={Mic}/></div>
+        <div onClick={onSubmit} ><Btn className='w-[90%] fill-white' src={Send}/></div>
+      </Btns>
+      <Timer>
         <div className='w-[150px] h-[50px] bg-[lightpink]'>{timer}</div>
-        <div>질문 리스트</div>
-        <div
-          className=' whitespace-pre w-[90%] h-[260px] outline-none bg-[#ECECEC] text-[black] p-[10px]'
-        >
-          {myJobQuestion.map((item) => {
-            return <div>{item}</div>
-          })}
-        </div>
+      </Timer>
+      <div
+        className='hidden whitespace-pre w-[90%] h-[260px] outline-none bg-[#ECECEC] text-[black] p-[10px]'
+      >
+        {myJobQuestion.map((item) => {
+          return <div>{item}</div>
+        })}
       </div>
-      
-      <RandomAnswer/>
+
     </>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components'; 
+import styled from 'styled-components';
 import Video from '@assets/videos/gabin.mp4';
 import RandomQ from './RandomQ';
 import { useRecoilState } from 'recoil';
@@ -17,22 +17,21 @@ function InterviewPage() {
 
   return (
     <>
-    <div className='w-[100%]'>
-      <div className=''>
+      <div className='w-[100%] relative'>
         <video
           muted
           autoPlay
           loop
           ref={videoRef}
           onCanPlay={() => setPlayBackRate()}
+          className='w-[100vw]'
         >
           <source src={Video} type="video/mp4" />
         </video>
+
+        {myJobQuestion && <RandomQ myJobQuestion={myJobQuestion} myJobQuestionId={myJobQuestionId} />}
+
       </div>
-      
-      { myJobQuestion &&  <RandomQ myJobQuestion={myJobQuestion} myJobQuestionId={myJobQuestionId}/>}
-      
-    </div>
     </>
   );
 }
