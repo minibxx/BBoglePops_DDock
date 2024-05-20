@@ -85,6 +85,8 @@ function Login() {
           postLogIn(id, password).then((data) => {
             localStorage.setItem("Authorization", data.access)
             navigate('/')
+          }).catch((error)=>{
+            console.log(error.response.data.error)
           })
         }}>
           <Typo title={'LOGIN'} type={'body2'} />

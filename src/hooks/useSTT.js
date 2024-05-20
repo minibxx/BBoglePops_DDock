@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react'
-import { postMyAnswer } from '@apis/interview'
+import { postMyAnswerText } from '@apis/interview'
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -34,11 +34,17 @@ const useSTT = () => {
     setValue('');
   }
 
+  const onSubmitResult = (questionId=0) => {
+    postMyAnswerText(results, questionId).then(data => {
+
+    }).catch(error => console.log(error))
+  }
+
   useEffect(() => {
     console.log(results);
   }, [results]);
 
-  return { onSTTStart, onSTTEnd }
+  return { onSTTStart, onSTTEnd, onSubmitResult }
 }
 
 export default useSTT

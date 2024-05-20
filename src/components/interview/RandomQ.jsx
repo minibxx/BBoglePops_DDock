@@ -40,7 +40,7 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
   const [timer, setTimer] = useState(timerSecond);
   const [timerInterval, setTimerInterval] = useState();
   const { onRecAudio, offRecAudio, onSubmitAudioFile } = useRecord();
-  const { onSTTStart, onSTTEnd } = useSTT();
+  const { onSTTStart, onSTTEnd, onSubmitResult } = useSTT();
 
   // useEffect(() => {
   //   var voices = window.speechSynthesis.getVoices();
@@ -101,7 +101,8 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
   }
 
   const onSubmit = () => {
-    onSubmitAudioFile(myJobQuestionId);
+    console.log('onSubmit')
+    onSubmitResult(myJobQuestionId);
   }
 
   useEffect(() => {
@@ -115,7 +116,16 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
   return (
     <>
       <Btns>
-        <div onClick={speechQuestion}><Btn className='w-[90%] fill-white' src={Sound}/></div>
+        {!isStarted && 
+          <div 
+            onClick={() => {
+              speechQuestion();
+              setIsStarted(true);
+            }}
+          >
+            <Btn className='w-[90%] fill-white' src={Sound}/>
+          </div>
+        }
         <div onClick={onAnswerStart} ><Btn className='w-[90%] fill-white' src={Mic}/></div>
         <div onClick={onSubmit} ><Btn className='w-[90%] fill-white' src={Send}/></div>
       </Btns>

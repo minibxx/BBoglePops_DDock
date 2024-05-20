@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Typo from '@components/Typography'
 import ComputerChat from './ComputerChat';
 import UserChat from './UserChat';
+import AnswerChat from './AnswerChat';
 
 const Background = styled.div`
 position: fixed;
@@ -19,8 +20,12 @@ function Criterion() {
         <>
             <Background />
             <Header />
+            <div className=' w-[1214px] m-[auto]'>
             <ComputerChat />
             <UserChat />
+            <AnswerChat/>
+
+            </div>
         </>
     )
 }

@@ -5,6 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
+import Card1  from '/images/card1.png'
+import Card2  from '/images/card2.png'
+import Card3  from '/images/card3.png'
 
 import './style.css';
 
@@ -25,7 +28,7 @@ function FunctionCard() {
         <>
             <Swiper
                 slidesPerView={'1.4'}
-                centeredSlides={true}
+                // centeredSlides={true}
                 spaceBetween={30}
                 pagination={{
                   clickable: true,
@@ -36,7 +39,9 @@ function FunctionCard() {
 
                 <SwiperSlide>
                     <Card className='w-[877px] h-[317px]'>
-                        <div>이미지</div>
+                        <div className='w-[40%]'>
+                        <img src={Card1} />
+                        </div>
                         <div>
                             <div className='mb-[20px]'>
                                 <Typo title={'가상 면접관 '} type={'body1'} />
@@ -49,7 +54,9 @@ function FunctionCard() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Card className='w-[877px] h-[317px]'>
-                        <div>이미지</div>
+                    <div className='w-[30%] ml-[5%]'>
+                        <img src={Card2}/>
+                        </div>
                         <div>
                             <div className='mb-[20px]'>
                                 <Typo title={'가상 면접관 '} type={'body1'} />
@@ -62,7 +69,9 @@ function FunctionCard() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Card className='w-[877px] h-[317px]'>
-                        <div>이미지</div>
+                    <div className='w-[28%] ml-[5%]'>
+                        <img src={Card3} />
+                        </div>
                         <div>
                             <div className='mb-[20px]'>
                                 <Typo title={'가상 면접관 '} type={'body1'} />
