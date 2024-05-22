@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-three/drei": "^9.105.5",
     "@react-three/fiber": "^8.16.2",
+    "@svgr/webpack": "^8.1.0",
     "@types/three": "^0.163.0",
     "axios": "^1.6.8",
     "leva": "^0.9.35",

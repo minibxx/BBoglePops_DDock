@@ -19,8 +19,7 @@ const Btn = styled.img`
   width: 90px;
   height: 90px;
   border-radius: 100px;
-  background-color: rgb(255,255,255,0.3);
-  border:  3px solid white;
+  border:  3px solid ${({isRecorded}) => isRecorded ? 'red' : 'white'};
   padding: 17px;
 `;
 const Timer = styled.div`
@@ -41,6 +40,7 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
   const [timerInterval, setTimerInterval] = useState();
   const { onRecAudio, offRecAudio, onSubmitAudioFile } = useRecord();
   const { onSTTStart, onSTTEnd, onSubmitResult } = useSTT();
+  const [isRecorded, setIsRecorded] = useState(false);
 
   // useEffect(() => {
   //   var voices = window.speechSynthesis.getVoices();
@@ -87,6 +87,7 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
           //답변종료 -> 녹음완료, stt 완료
           clearInterval(temp);
           setQuestionCount(org => org + 1)
+          setIsRecorded(false)
           return timerSecond;
         }
         return org - 1;
@@ -98,6 +99,7 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
     onSTTStart();
     onRecAudio();
     startTimer();
+    setIsRecorded(true)
   }
 
   const onSubmit = () => {
@@ -126,8 +128,8 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
             <Btn className='w-[90%] fill-white' src={Sound}/>
           </div>
         }
-        <div onClick={onAnswerStart} ><Btn className='w-[90%] fill-white' src={Mic}/></div>
-        <div onClick={onSubmit} ><Btn className='w-[90%] fill-white' src={Send}/></div>
+        <div onClick={onAnswerStart} ><Btn src={Mic} isRecorded={isRecorded}/></div>
+        <div onClick={onSubmit} ><Btn src={Send}/></div>
       </Btns>
       <Timer>
         <div className='w-[150px] h-[50px] bg-[lightpink]'>{timer}</div>
