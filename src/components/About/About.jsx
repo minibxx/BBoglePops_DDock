@@ -19,7 +19,6 @@ function About() {
         <>
             <Background />
             <Header />
-            <RandomAnswer/>
         </>
     )
 }

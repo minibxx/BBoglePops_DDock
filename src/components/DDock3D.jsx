@@ -3,14 +3,14 @@ import { useControls } from 'leva'
 import React, { useEffect, useState } from 'react'
 
 function DDock3D() {
-    const model = useGLTF("./models/DDock3D.glb")
+    const model = useGLTF("./models/DDock3.glb")
     
     const animations = useAnimations(model.animations, model.scene) 
     const { actionName} = useControls({
-        actionName:{
-            value: animations.names[1],
-            options: animations.names
-        }
+        // actionName:{
+        //     value: animations.names[1],
+        //     options: animations.names
+        // }
     })
     useEffect(()=>{
         const action = animations.actions["HEADAction"]
@@ -40,8 +40,8 @@ function DDock3D() {
             <OrbitControls />
             <Environment preset='sunset' />
             <primitive
-                scale={50}
-                position-y = {-(height/2)*40}
+                scale={4}
+                position-y = {-(height/2)*8}
                 object={model.scene}
             />
         </>

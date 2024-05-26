@@ -48,7 +48,7 @@ function App() {
           <DDock3D />
         </Canvas>
       </Char3D>
-      {/* <div className='relative '>
+      <div className='relative '>
         <Header/>
         <div className='w-[1214px] m-[auto]'>
           <div className='text-white text-[50px] mt-[780px]'>똑부러지는 취업?</div>
@@ -74,7 +74,7 @@ function App() {
             <StartBtn>면접 보러가기</StartBtn>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   )
 }
