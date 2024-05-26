@@ -129,7 +129,7 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
         <div onClick={onSubmit}><Btn src={Send} /></div>
       </Btns>
       <Timer>
-        <div className='m-[30px] text-[40px] text-[white] font-bold'>
+        <div className='m-[35px] text-[40px] text-[white] font-bold'>
           <CountdownCircleTimer
             isPlaying={isRecorded}
             duration={timer}
