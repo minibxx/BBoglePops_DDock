@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import Video from '@assets/videos/1_1.mp4';
+import Video from '@assets/videos/2_2.mp4';
 import RandomQ from './RandomQ';
 import { useRecoilState } from 'recoil';
 import { myJobQuestionAtom, myJobQuestionIdAtom } from '@store/atom';
