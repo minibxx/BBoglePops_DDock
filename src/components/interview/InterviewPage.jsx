@@ -1,35 +1,34 @@
-import React, { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-import Video from '@assets/videos/2_2.mp4';
+import React, { useState } from 'react';
 import RandomQ from './RandomQ';
 import { useRecoilState } from 'recoil';
 import { myJobQuestionAtom, myJobQuestionIdAtom } from '@store/atom';
+import InterviewVideo from './InterviewVideo';
 
 
 function InterviewPage() {
-  const videoRef = useRef();
-
-  const setPlayBackRate = () => {
-    videoRef.current.playbackRate = 0.5;
-  };
+  
   const [myJobQuestion, setMyJobQuestion] = useRecoilState(myJobQuestionAtom);
   const [myJobQuestionId, setMyJobQuestionId] = useRecoilState(myJobQuestionIdAtom);
+  const [videoStatus, setVideoStatus] = useState('Idle');
+
+  const onQuestionReaction = (isSpeaking, isRecorded) => {
+    if (isSpeaking) {
+      setVideoStatus('Speaking')
+    } else if (!isSpeaking && !isRecorded) {
+      setVideoStatus('Idle');
+    } else if (!isSpeaking && isRecorded) {
+      setVideoStatus('Nodding')
+    }
+  }
 
   return (
     <>
       <div className='w-[100%] relative'>
-        <video
-          muted
-          autoPlay
-          loop
-          ref={videoRef}
-          onCanPlay={() => setPlayBackRate()}
-          className='w-[100vw]'
-        >
-          <source src={Video} type="video/mp4" />
-        </video>
+        <InterviewVideo videoStatus={'Speaking'} isDisplay={videoStatus === 'Speaking'}/>
+        <InterviewVideo videoStatus={'Idle'} isDisplay={videoStatus === 'Idle'}/>
+        <InterviewVideo videoStatus={'Nodding'} isDisplay={videoStatus === 'Nodding'}/>
 
-        {myJobQuestion && <RandomQ myJobQuestion={myJobQuestion} myJobQuestionId={myJobQuestionId} />}
+        {myJobQuestion && <RandomQ myJobQuestion={myJobQuestion} myJobQuestionId={myJobQuestionId} onQuestionReaction={onQuestionReaction} />}
 
       </div>
     </>

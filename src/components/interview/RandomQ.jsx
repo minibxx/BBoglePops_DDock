@@ -32,10 +32,13 @@ const Timer = styled.div`
   top: 0;
   left: 0;
 `;
+const TimerText = styled.div`
+  color: ${({ timerTextColor })=>timerTextColor};
+`
 
 const timerSecond = 60;
 
-function RandomQ({ myJobQuestion, myJobQuestionId }) {
+function RandomQ({ myJobQuestion, myJobQuestionId, onQuestionReaction }) {
   const [questionCount, setQuestionCount] = useState(0);
   const [isStarted, setIsStarted] = useState(false);
   const [isQuestionEnd, setIsQuestionEnd] = useState(true);
@@ -95,7 +98,7 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
   const onAnswerStart = () => {
     onSTTStart();
     onRecAudio();
-    startTimer();
+    // startTimer();
     setIsRecorded(true);
   };
 
@@ -111,6 +114,10 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
       speechQuestion();
     }
   }, [questionCount]);
+
+  useEffect(() => {
+    onQuestionReaction(!isQuestionEnd, isRecorded);
+  }, [isQuestionEnd, isRecorded])
 
   return (
     <>
@@ -132,14 +139,23 @@ function RandomQ({ myJobQuestion, myJobQuestionId }) {
         <div className='m-[35px] text-[40px] text-[white] font-bold'>
           <CountdownCircleTimer
             isPlaying={isRecorded}
-            duration={timer}
-            colors={['#FFFFFF', '#F7B801', '#FFA500', '#F43F3F', '#FFFFFF']}
-            colorsTime={[60, 30, 15, 1, 0]}
+            duration={timerSecond}
+            colors={['#FFFFFF','#FFFFFF', '#F7B801', '#FFA500', '#F43F3F', '#FFFFFF']}
+            colorsTime={[60, 40, 30, 15, 1, 0]}
             key={questionCount}
             strokeWidth={8}
             size={140}
+            isSmoothColorTransition={true}
+            onComplete={() => {
+              setIsRecorded(false);
+              setQuestionCount(org => org + 1);
+            }}
           >
-            {({ remainingTime }) => remainingTime}
+            {({ remainingTime, color }) => 
+              <TimerText timerTextColor={color}>
+                {remainingTime}
+              </TimerText>
+            }
           </CountdownCircleTimer>
         </div>
       </Timer>

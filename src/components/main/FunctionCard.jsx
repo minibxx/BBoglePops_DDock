@@ -5,20 +5,40 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
-import Card1  from '/images/card1.png'
-import Card2  from '/images/card2.png'
-import Card3  from '/images/card3.png'
+import Card1  from '/images/main5.png'
+import Card2  from '/images/main6.png'
+import Card3  from '/images/main7.png'
 
 import './style.css';
 
-const Card = styled.div`
+const CardFir = styled.div`
     width: 877px;
     height: 317px;
-    border: 2px solid white;
-    color: white;
     border-radius: 20px;
     padding: 2px 15px;
-    background-color: rgb(255,255,255,0.3);
+    background:linear-gradient(90deg, #FDFFA1, #9C84FF);
+    display: flex;
+    padding: 50px 80px;
+    justify-content: space-between;
+`;
+
+const CardSec = styled.div`
+    width: 877px;
+    height: 317px;
+    border-radius: 20px;
+    padding: 2px 15px;
+    background:linear-gradient(90deg, #9C84FF, #FFBCF0);
+    display: flex;
+    padding: 50px 80px;
+    justify-content: space-between;
+`;
+
+const CardThi = styled.div`
+    width: 877px;
+    height: 317px;
+    border-radius: 20px;
+    padding: 2px 15px;
+    background:linear-gradient(90deg, #FFBCF0, #FDFFA1);
     display: flex;
     padding: 50px 80px;
     justify-content: space-between;
@@ -38,8 +58,8 @@ function FunctionCard() {
             >
 
                 <SwiperSlide>
-                    <Card className='w-[877px] h-[317px]'>
-                        <div className='w-[40%]'>
+                    <CardFir className='w-[877px] h-[317px]'>
+                        <div className='w-[30%]'>
                         <img src={Card1} />
                         </div>
                         <div>
@@ -50,10 +70,10 @@ function FunctionCard() {
                             <Typo title={'통해 실제 면접관과 대화하는 연습을 '} type={'body2'} />
                             <Typo title={'해보세요! '} type={'body2'} />
                         </div>
-                    </Card>
+                    </CardFir>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Card className='w-[877px] h-[317px]'>
+                    <CardSec className='w-[877px] h-[317px]'>
                     <div className='w-[30%] ml-[5%]'>
                         <img src={Card2}/>
                         </div>
@@ -65,10 +85,10 @@ function FunctionCard() {
                             <Typo title={'통해 실제 면접관과 대화하는 연습을 '} type={'body2'} />
                             <Typo title={'해보세요! '} type={'body2'} />
                         </div>
-                    </Card>
+                    </CardSec>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Card className='w-[877px] h-[317px]'>
+                    <CardThi className='w-[877px] h-[317px]'>
                     <div className='w-[28%] ml-[5%]'>
                         <img src={Card3} />
                         </div>
@@ -80,7 +100,7 @@ function FunctionCard() {
                             <Typo title={'통해 실제 면접관과 대화하는 연습을 '} type={'body2'} />
                             <Typo title={'해보세요! '} type={'body2'} />
                         </div>
-                    </Card>
+                    </CardThi>
                 </SwiperSlide>
             </Swiper>
         </>
