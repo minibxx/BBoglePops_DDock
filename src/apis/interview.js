@@ -3,40 +3,42 @@ import axios from "axios";
 const url = 'http://34.22.107.112:8000'
 
 export const postMyJob = async (input_field, input_job) => {
-    const response = await axios.post(`${url}/interview_questions/`, {
-        input_field: input_field,
-        input_job: input_job
-    },{
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("Authorization")}`
+  const response = await axios.post(`${url}/interview_questions/`, {
+    input_field: input_field,
+    input_job: input_job
+  }, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("Authorization")}`
     }
-    })
-    return response.data;
+  })
+  return response.data;
 };
 
 export const postMyAnswer = async (formData, questionId = 0) => {
-    // console.log(formData.keys)
-    // console.log(formData.values)
-    // const response = await axios.post(`${url}/interview/responses/${questionId}/`, formData
-    // ,{
-    //   headers: {
-    //     Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
-    //     'Content-Type': 'multipart/form-data',
-    // }
-    // })
-    // return response.data;
+  const response = await axios.post(`${url}/interview/responses/${questionId}/`, formData
+    , {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
+        'Content-Type': 'multipart/form-data',
+      }
+    })
+  return response.data;
 };
+
+export const getMyAnalyze = async (formData, questionId = 0) => {
+  // const response
+}
 
 export const postMyAnswerText = async (results, questionId = 0) => {
   const reqData = {}
   results.forEach((item, index) => {
-    reqData[`script_${index+1}`] = item;
+    reqData[`script_${index + 1}`] = item;
   })
   const response = await axios.post(`${url}/interview/responses/${questionId}/`, reqData
-  ,{
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
-  }
-  })
+    , {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
+      }
+    })
   return response.data;
 };

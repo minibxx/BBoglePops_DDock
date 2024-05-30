@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Header from '@components/Header';
 import styled from 'styled-components';
 import Typo from '@components/Typography'
 import RSection from './RSection'
+import { useParams } from 'react-router-dom';
 
 
 const Background = styled.div`
@@ -16,6 +17,14 @@ z-index: -2;
 `;
 
 function Result() {
+  const { interviewId } = useParams();
+
+  useEffect(() => {
+    console.log('interviewId:', interviewId)
+  
+    
+  }, [])
+  
   return (
     <>
       <Background />

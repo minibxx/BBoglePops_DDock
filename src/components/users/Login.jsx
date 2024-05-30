@@ -31,20 +31,20 @@ const Insert = styled.input`
   padding: 20px;
   font-size: 20px;
   height: 60px;
-  border: 2px solid white;
-  border-radius: 35px;
-  background-color: rgb(255,255,255,0.3);
+  border-bottom: 2px solid white;
+  background-color: transparent;
   &::placeholder{
     color:rgb(255,255,255,0.3);
     font-size: 20px;
   }
+  
 `;
 
 const LoginBtn = styled.div`
   text-align: center;
   width: 362px;
   height: 60px;
-  margin: 50px auto 20px auto;
+  margin: 30px auto 20px auto;
   border: 2px solid white;
   color: black;
   border-radius: 35px;
@@ -57,6 +57,7 @@ function Login() {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [errorType, setErrorType] = useState("");
   return (
     <>
       <Background />
@@ -68,25 +69,40 @@ function Login() {
         <div className='ml-[145px]'>
           <Insert placeholder='ID'
             value={id}
-            onChange={(e) => { setId(e.target.value) }} />
-          <div className='mx-[20px] mt-[5px] mb-[10px]'>
-            <Typo title={'가입되어 있지 않은 아이디입니다.'} type={'passwordError'} />
+            onChange={(e) => { setId(e.target.value) }} 
+            autoComplete={"one-time-code"}/>
+          <div className='mx-[20px] mt-[5px] mb-[10px] h-[15px]'>
+            {
+              errorType == "id"
+              &&
+              <Typo title={'가입되어 있지 않은 아이디입니다.'} type={'passwordError'} />
+            }
           </div>
           <Insert
             type={'password'}
             placeholder='PASSWORD'
             value={password}
-            onChange={(e) => { setPassword(e.target.value) }} />
-          <div className='mx-[20px] mt-[5px] mb-[10px]'>
-            <Typo title={'비밀번호가 틀렸습니다.'} type={'passwordError'} />
+            onChange={(e) => { setPassword(e.target.value) }} 
+            autoComplete={"one-time-code"}
+            />
+          <div className='mx-[20px] mt-[5px] mb-[10px] h-[15px]'>
+            {
+              errorType == "password"
+              &&
+              <Typo title={'비밀번호가 틀렸습니다.'} type={'passwordError'} />
+            }
           </div>
         </div>
         <LoginBtn onClick={() => {
           postLogIn(id, password).then((data) => {
             localStorage.setItem("Authorization", data.access)
             navigate('/')
-          }).catch((error)=>{
-            console.log(error.response.data.error)
+          }).catch((error) => {
+            if (error.response.data.error == "Password is incorrect") {
+              setErrorType("password")
+            } else if (error.response.data.error == "No user found with this username") {
+              setErrorType("id")
+            }
           })
         }}>
           <Typo title={'LOGIN'} type={'body2'} />

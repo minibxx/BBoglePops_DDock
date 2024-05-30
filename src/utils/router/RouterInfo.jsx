@@ -29,7 +29,7 @@ export const RouterInfo = [
         element: <InterviewSetting />,
       },
       {
-        path: 'result',
+        path: 'result/:interviewId',
         element: <Result />,
       },
       {

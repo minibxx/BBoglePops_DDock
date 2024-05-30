@@ -36,7 +36,7 @@ const TimerText = styled.div`
   color: ${({ timerTextColor })=>timerTextColor};
 `
 
-const timerSecond = 60;
+const timerSecond = 6;
 
 function RandomQ({ myJobQuestion, myJobQuestionId, onQuestionReaction }) {
   const [questionCount, setQuestionCount] = useState(0);
@@ -105,6 +105,7 @@ function RandomQ({ myJobQuestion, myJobQuestionId, onQuestionReaction }) {
   const onSubmit = () => {
     console.log('onSubmit');
     onSubmitResult(myJobQuestionId);
+    
   };
 
   useEffect(() => {

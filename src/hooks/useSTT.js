@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { postMyAnswerText } from '@apis/interview'
+import { useNavigate } from 'react-router-dom';
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -9,6 +10,7 @@ const recog = new SpeechRecognition()
 const useSTT = () => {
   const [value, setValue] = useState('결과');
   const [results, setResults] = useState([]);
+  const navigate = useNavigate();
   
   // const recog = window.SpeechRecognition;
   recog.interimResults = false;
@@ -36,7 +38,7 @@ const useSTT = () => {
 
   const onSubmitResult = (questionId=0) => {
     postMyAnswerText(results, questionId).then(data => {
-
+      navigate(`/result/${data.interview_id}`)
     }).catch(error => console.log(error))
   }
 

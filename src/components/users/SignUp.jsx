@@ -68,6 +68,7 @@ function SignUp() {
           <Insert
             placeholder='ID'
             value={id}
+            autoComplete={"one-time-code"}
             onChange={(e) => { setId(e.target.value) }}
           />
           <div className='mx-[20px] mt-[10px] mb-[20px] '>
@@ -78,6 +79,7 @@ function SignUp() {
             type={'password'}
             placeholder='PASSWORD'
             value={password}
+            autoComplete={"one-time-code"}
             onChange={(e) => { setPassword(e.target.value) }}
           />
           <div className='mx-[20px] mt-[10px] mb-[20px]'>
@@ -88,6 +90,7 @@ function SignUp() {
             type={'password'}
             placeholder='PASSWORD'
             value={password2}
+            autoComplete={"one-time-code"}
             onChange={(e) => { setPassword2(e.target.value) }}
           />
           <div className='mx-[20px] mt-[10px] mb-[20px]'>
