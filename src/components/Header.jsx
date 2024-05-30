@@ -60,7 +60,7 @@ function Header() {
           <NavLink
             to={`/interview`}
             className={({ isActive }) =>
-              isActive || location.pathname === `/interview` ? 'active' : 'inactive'
+              isActive || location.pathname === `/interview` || location.pathname === `/` ? 'active' : 'inactive'
             }
           >
             <li><Typo title={'면접 연습'} type={'heading1'} /></li>
@@ -69,7 +69,7 @@ function Header() {
           <NavLink
             to={`/criterion`}
             className={({ isActive }) =>
-              isActive || location.pathname === `/criterion` ? 'active' : 'inactive'
+              isActive || location.pathname === `/criterion` || location.pathname === `/` ? 'active' : 'inactive'
             }
           >
             <li><Typo title={'평가 기준'} type={'heading1'} /></li>
@@ -78,7 +78,7 @@ function Header() {
           <NavLink
             to={`/result`}
             className={({ isActive }) =>
-              isActive || location.pathname === `/result` ? 'active' : 'inactive'
+              isActive || location.pathname === `/result` || location.pathname === `/` ? 'active' : 'inactive'
             }
           >
             <li><Typo title={'면접 기록'} type={'heading1'} /></li>
@@ -87,7 +87,7 @@ function Header() {
           <NavLink
             to={`/about`}
             className={({ isActive }) =>
-              isActive || location.pathname === `/about` ? 'active' : 'inactive'
+              isActive || location.pathname === `/about` || location.pathname === `/` ? 'active' : 'inactive'
             }
           >
             <li><Typo title={'팀원 소개'} type={'heading1'} /></li>

@@ -8,6 +8,13 @@ import Header from '@components/Header';
 import Typo from '@components/Typography';
 import FunctionCard from './FunctionCard';
 import MovingLogo from './MovingLogo';
+import DDock from '/images/ddockEng.png';
+import Main0 from '/images/main0.svg'
+import Main2 from '/images/main2.svg'
+import Main3 from '/images/main3.svg'
+import Main4 from '/images/main4-2.svg'
+import Title1 from '/images/mainWhat.svg'
+import Title2 from '/images/mainWhy.svg'
 
 const Char3D = styled.div`
 position: absolute;
@@ -42,33 +49,44 @@ function App() {
 
   return (
     <>
-      <Background/>
-      <Char3D className='w-[100%] h-[100vh]'>
+      <Background />
+      {/* <Char3D className='w-[100%] h-[100vh]'>
         <Canvas>
           <DDock3D />
         </Canvas>
-      </Char3D>
+      </Char3D> */}
       <div className='relative '>
-        <Header/>
+        <Header />
+        <img src={DDock} className='w-[98%]' />
+        <img src={Main0} className='ml-[25px]' />
+        <img src={Main2} className='w-[110%]' />
         <div className='w-[1214px] m-[auto]'>
-          <div className='text-white text-[50px] mt-[780px]'>똑부러지는 취업?</div>
-          <div className='text-white text-[50px] ml-[112px]'>똑바른 자세부터!</div>
-          <div className='text-white text-[50px] mt-[360px]'>똑똑이란?</div>
-          <div className='text-[#1CBDBB] mt-[256px] ml-[670px]'>
-            <Typo title={'“모의 면접, 실전처럼 연습하다.”'} type={'body4'}/>
+          {/* <div className='text-white text-[50px]'>똑부러지는 취업?</div>
+          <div className='text-white text-[50px] ml-[112px] mb-[50px]'>똑바른 자세부터!</div> */}
+          <img src={Title1} className='my-[80px]' />
+          <div className='flex justify-between'>
+            <img src={Main3} className='w-[400px]' />
+            <div className='mt-[70px]'>
+              <div className='text-[#1CBDBB]'>
+                <Typo title={'“모의 면접, 실전처럼 연습하다.”'} type={'body4'} />
+              </div>
+              <div className='text-white mt-[26px]'>
+                <Typo title={'똑똑은 면접 준비의 새로운 패러다임을 제시합니다. '} type={'body2'} />
+                <Typo title={'메타휴먼과의 면접 연습을 통해,  '} type={'body2'} />
+                <Typo title={'실제 면접관 앞에서의 경험을 완벽하게 재현합니다. '} type={'body2'} />
+                <Typo title={'답변 내용을 분석해 제공하여,  '} type={'body2'} />
+                <Typo title={'당신의 합격을 끊임없이 서포트합니다. '} type={'body2'} />
+              </div>
+            </div>
           </div>
-          <div className='text-white mt-[26px] ml-[670px]'>
-            <Typo title={'똑똑은 면접 준비의 새로운 패러다임을 제시합니다. '} type={'body2'}/>
-            <Typo title={'메타휴먼과의 면접 연습을 통해,  '} type={'body2'}/>
-            <Typo title={'실제 면접관 앞에서의 경험을 완벽하게 재현합니다. '} type={'body2'}/>
-            <Typo title={'답변 내용을 분석해 제공하여,  '} type={'body2'}/>
-            <Typo title={'당신의 합격을 끊임없이 서포트합니다. '} type={'body2'}/>
+          <MovingLogo />
+          <div className='flex justify-between items-end'>
+            <img src={Title2} className='mt-[180px] mb-[80px]' />
+            <img src={Main4} className='w-[250px] mr-[50px]' />
           </div>
-          <MovingLogo/>
-          <div className='text-white text-[50px] mt-[253px]'>똑똑이란?</div>
-          <FunctionCard/>
+          <FunctionCard />
           <div className='text-white mt-[370px]'>
-            <Typo title={'노크 요소'} type={'body2'}/>
+           
           </div>
           <div className='ml-[450px] mt-[90px]'>
             <StartBtn>면접 보러가기</StartBtn>

@@ -5,6 +5,7 @@ import Typo from '@components/Typography'
 import ComputerChat from './ComputerChat';
 import UserChat from './UserChat';
 import AnswerChat from './AnswerChat';
+import SoundChat from './SoundChat';
 
 const Background = styled.div`
 position: fixed;
@@ -24,7 +25,7 @@ function Criterion() {
             <ComputerChat />
             <UserChat />
             <AnswerChat/>
-
+            <SoundChat/>
             </div>
         </>
     )

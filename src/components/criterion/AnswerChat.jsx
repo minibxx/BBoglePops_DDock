@@ -15,7 +15,7 @@ function AnswerChat() {
                     <div className='bg-[white] w-fit px-[25px]  py-[15px]  rounded-[25px] my-[15px]'>
                         <Typo title={'똑똑의 답변 내용 분석 평가 기준에 대해 말씀드릴게요!'} type={'small3'} />
                     </div>
-                    <div className='bg-[white] w-fit p-[25px] rounded-[25px] my-[5px] flex gap-[10px] flex-col'>
+                    <div className='bg-[white] w-fit p-[25px] rounded-[25px] my-[5px] flex gap-[15px] flex-col'>
                         <div>
                             <Typo title={'언어적 적합성'} type={'small2'} />
                             <Typo title={'답변 내용 내 부적적한 용어의 포함 여부를 검사하고, '} type={'small3'} />
@@ -39,12 +39,7 @@ function AnswerChat() {
                         <button className='px-[20px] py-[10px] rounded-[50px] bg-[#15CDCA] text-[white]'>평가 기준 더보기</button>
                         <button className='px-[20px] py-[10px] rounded-[50px] bg-[white] text-[black]'>나가기</button>
                     </div>
-
                 </div>
-
-
-
-
             </div>
         </>
     )
