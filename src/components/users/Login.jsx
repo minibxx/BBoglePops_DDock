@@ -96,6 +96,7 @@ function Login() {
         <LoginBtn onClick={() => {
           postLogIn(id, password).then((data) => {
             localStorage.setItem("Authorization", data.access)
+            localStorage.setItem("userId", data.user.id)
             navigate('/')
           }).catch((error) => {
             if (error.response.data.error == "Password is incorrect") {

@@ -13,6 +13,7 @@ import Main0 from '/images/main0.svg'
 import Main2 from '/images/main2.svg'
 import Main3 from '/images/main3.svg'
 import Main4 from '/images/main4-2.svg'
+import Mainbottom from '/images/mainbottom.svg'
 import Title1 from '/images/mainWhat.svg'
 import Title2 from '/images/mainWhy.svg'
 
@@ -92,6 +93,7 @@ function App() {
             <StartBtn>면접 보러가기</StartBtn>
           </div>
         </div>
+          <img src={Mainbottom} />
       </div>
     </>
   )

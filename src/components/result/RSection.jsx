@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import Typo from '@components/Typography'
 import Answer from './Answer';
 import Sound from './Sound';
 import Sight from './Sight';
 import Posture from './Posture';
+import { getMyAnalyze } from '../../apis/interview';
+import { useParams } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { myAnalyzeAtom } from '@store/atom';
+
+
 
 const Feedback = styled.div`
     width: 250px;
@@ -17,9 +23,12 @@ const Feedback = styled.div`
     color: ${({ isClick }) => { return isClick ? 'black' : 'white' }};
     cursor: pointer;
 `;
-
 function RSection() {
     const [pageType, setPageType] = useState('answer');
+    const userId = localStorage.getItem("userId")
+    const { interviewId } = useParams();
+    const [analyze, setAnalyze] = useRecoilState(myAnalyzeAtom);
+
     const render = () => {
         if(pageType == 'answer'){
             return <Answer/>
@@ -31,6 +40,11 @@ function RSection() {
             return <Posture/>
         }
     }
+    useEffect(()=>{
+        getMyAnalyze(userId, interviewId).then((data)=>{
+            setAnalyze(data)
+        })
+    },[])
     return (
         <>
             <div className='text-white flex gap-[10px] mt-[50px]'>

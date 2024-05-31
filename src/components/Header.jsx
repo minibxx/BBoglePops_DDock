@@ -76,9 +76,9 @@ function Header() {
           </NavLink>
 
           <NavLink
-            to={`/result`}
+            to={`/list`}
             className={({ isActive }) =>
-              isActive || location.pathname === `/result` || location.pathname === `/` ? 'active' : 'inactive'
+              isActive || location.pathname === `/list` || location.pathname === `/` ? 'active' : 'inactive'
             }
           >
             <li><Typo title={'면접 기록'} type={'heading1'} /></li>

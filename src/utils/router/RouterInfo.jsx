@@ -11,6 +11,7 @@ import InterviewSetting from '@components/interview/InterviewSetting';
 import Criterion from '@components/criterion/Criterion';
 import About from '@components/about/About';
 import InterviewPage from '@components/interview/InterviewPage';
+import ResultList from '@components/resultList/ResultList';
 
 export const RouterInfo = [
   {
@@ -31,6 +32,10 @@ export const RouterInfo = [
       {
         path: 'result/:interviewId',
         element: <Result />,
+      },
+      {
+        path: 'list',
+        element: <ResultList />,
       },
       {
         path: 'users',

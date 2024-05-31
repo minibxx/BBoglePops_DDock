@@ -36,7 +36,7 @@ const TimerText = styled.div`
   color: ${({ timerTextColor })=>timerTextColor};
 `
 
-const timerSecond = 6;
+const timerSecond = 20;
 
 function RandomQ({ myJobQuestion, myJobQuestionId, onQuestionReaction }) {
   const [questionCount, setQuestionCount] = useState(0);

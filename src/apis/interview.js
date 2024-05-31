@@ -25,8 +25,14 @@ export const postMyAnswer = async (formData, questionId = 0) => {
   return response.data;
 };
 
-export const getMyAnalyze = async (formData, questionId = 0) => {
-  // const response
+export const getMyAnalyze = async (userId, interviewId) => {
+  const response = await axios.get(`${url}/mylog/${userId}/${interviewId}/scripts`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
+        'Content-Type': 'multipart/form-data',
+      }
+    })
+  return response.data;
 }
 
 export const postMyAnswerText = async (results, questionId = 0) => {

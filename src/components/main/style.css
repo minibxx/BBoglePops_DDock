@@ -19,3 +19,11 @@
     object-fit: cover;
   }
   
+  .swiper-button-prev{
+    top:0; 
+    
+  }
+
+  .swiper-button-next{
+
+  }

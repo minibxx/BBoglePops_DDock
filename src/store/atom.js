@@ -39,6 +39,16 @@ export const myJobAtom = atom({
     },
 });
 
+export const myAnalyzeAtom = atom({
+    key: "myAnalyzeAtom",
+    default: {
+        created_at: "",
+        id: 0,
+        overall_feedback: "",
+        question_list_id: 0,
+        responses: []
+    },
+});
 
 
 
