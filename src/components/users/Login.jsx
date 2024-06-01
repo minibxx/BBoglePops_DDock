@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Typo from '@components/Typography';
 import { postLogIn } from '../../apis/login';
 import { useNavigate } from 'react-router-dom';
+import loginBg from '/images/loginBg2.png'
 
 const Background = styled.div`
 position: fixed;
@@ -53,6 +54,12 @@ const LoginBtn = styled.div`
   cursor: pointer;
 `;
 
+const BackgroundImage = styled.div`
+position: fixed;
+width: 100%;
+z-index: -1;
+`;
+
 function Login() {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
@@ -62,6 +69,9 @@ function Login() {
     <>
       <Background />
       <Header />
+      <BackgroundImage className=''>
+                    <img src={loginBg} className='w-[100%] ' />
+                </BackgroundImage>
       <LoginDiv>
         <div className='text-center my-[50px]'>
           <Typo title={'LOGIN'} type={'body5'} />

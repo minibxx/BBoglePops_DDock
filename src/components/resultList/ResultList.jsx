@@ -49,6 +49,7 @@ const InterviewContents = styled.div`
     grid-gap: 20px;
     width: 1214px;
     margin: 0 auto;
+    margin-bottom : 150px;
     `;
 
 function ResultList() {
@@ -92,6 +93,77 @@ function ResultList() {
                         <Typo title={'11:22:33'} type={'small2'} />
                     </div>
                 </InterviewContent>
+                <InterviewContent >
+                    <img src={Robot1} className='w-[100px]' />
+                    <div className='flex gap-[20px] flex-col'>
+                        <Typo title={'2024.04.12'} type={'body8'} />
+                        <Typo title={'11:22:33'} type={'small2'} />
+                    </div>
+                </InterviewContent>
+                <InterviewContent >
+                    <img src={Robot1} className='w-[100px]' />
+                    <div className='flex gap-[20px] flex-col'>
+                        <Typo title={'2024.04.12'} type={'body8'} />
+                        <Typo title={'11:22:33'} type={'small2'} />
+                    </div>
+                </InterviewContent>
+                <InterviewContent >
+                    <img src={Robot1} className='w-[100px]' />
+                    <div className='flex gap-[20px] flex-col'>
+                        <Typo title={'2024.04.12'} type={'body8'} />
+                        <Typo title={'11:22:33'} type={'small2'} />
+                    </div>
+                </InterviewContent>
+                <InterviewContent >
+                    <img src={Robot1} className='w-[100px]' />
+                    <div className='flex gap-[20px] flex-col'>
+                        <Typo title={'2024.04.12'} type={'body8'} />
+                        <Typo title={'11:22:33'} type={'small2'} />
+                    </div>
+                </InterviewContent>
+                <InterviewContent >
+                    <img src={Robot1} className='w-[100px]' />
+                    <div className='flex gap-[20px] flex-col'>
+                        <Typo title={'2024.04.12'} type={'body8'} />
+                        <Typo title={'11:22:33'} type={'small2'} />
+                    </div>
+                </InterviewContent>
+                <InterviewContent >
+                    <img src={Robot1} className='w-[100px]' />
+                    <div className='flex gap-[20px] flex-col'>
+                        <Typo title={'2024.04.12'} type={'body8'} />
+                        <Typo title={'11:22:33'} type={'small2'} />
+                    </div>
+                </InterviewContent>
+                <InterviewContent >
+                    <img src={Robot1} className='w-[100px]' />
+                    <div className='flex gap-[20px] flex-col'>
+                        <Typo title={'2024.04.12'} type={'body8'} />
+                        <Typo title={'11:22:33'} type={'small2'} />
+                    </div>
+                </InterviewContent>
+                <InterviewContent >
+                    <img src={Robot1} className='w-[100px]' />
+                    <div className='flex gap-[20px] flex-col'>
+                        <Typo title={'2024.04.12'} type={'body8'} />
+                        <Typo title={'11:22:33'} type={'small2'} />
+                    </div>
+                </InterviewContent>
+                <InterviewContent >
+                    <img src={Robot1} className='w-[100px]' />
+                    <div className='flex gap-[20px] flex-col'>
+                        <Typo title={'2024.04.12'} type={'body8'} />
+                        <Typo title={'11:22:33'} type={'small2'} />
+                    </div>
+                </InterviewContent>
+                <InterviewContent >
+                    <img src={Robot1} className='w-[100px]' />
+                    <div className='flex gap-[20px] flex-col'>
+                        <Typo title={'2024.04.12'} type={'body8'} />
+                        <Typo title={'11:22:33'} type={'small2'} />
+                    </div>
+                </InterviewContent>
+
             </InterviewContents>
         </>
     )

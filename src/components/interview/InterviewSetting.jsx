@@ -6,6 +6,8 @@ import InterviewQuit from './InterviewQuit';
 import InterviewCaution from './InterviewCaution';
 import { useRecoilState } from 'recoil';
 import { myJobAtom } from '@store/atom';
+import { Canvas } from '@react-three/fiber'
+import DDock3D from '@components/DDock3D';
 
 const Background = styled.div`
 position: fixed;
@@ -65,6 +67,12 @@ const CheckAlign = styled.div`
   align-items: center;
 `;
 
+const Char3D = styled.div`
+position: absolute;
+top: 0;
+z-index: -1;
+`;
+
 function InterviewSetting() {
     const [openModal, setOpenModal] = useState(false);
     const [myJob, setMyJob] = useRecoilState(myJobAtom);
@@ -72,8 +80,13 @@ function InterviewSetting() {
         <>
             <Background />
             <Header />
+            <Char3D className='w-[100%] h-[100vh]'>
+        <Canvas>
+          <DDock3D />
+        </Canvas>
+      </Char3D>
 
-            <div className='w-[1214px] m-[auto] relative'>
+            <div className='my-[100px] w-[1214px] m-[auto] relative'>
                 <div className='flex justify-between'>
                     <div className='text-white flex flex-col gap-[10px]'>
                         <Typo title={'희망 분야를 입력해주세요'} type={'body2'} />

@@ -2,8 +2,6 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Canvas } from '@react-three/fiber'
-import DDock3D from '@components/DDock3D';
 import Header from '@components/Header';
 import Typo from '@components/Typography';
 import FunctionCard from './FunctionCard';
@@ -16,12 +14,8 @@ import Main4 from '/images/main4-2.svg'
 import Mainbottom from '/images/mainbottom.svg'
 import Title1 from '/images/mainWhat.svg'
 import Title2 from '/images/mainWhy.svg'
+import MainBg from '/images/mainBg.png'
 
-const Char3D = styled.div`
-position: absolute;
-top: 0;
-z-index: -1;
-`;
 
 const Background = styled.div`
 position: fixed;
@@ -45,19 +39,26 @@ const StartBtn = styled.button`
   }
 `;
 
+
+const BackgroundImage = styled.div`
+position: fixed;
+width: 150%;
+z-index: -1;
+left: -20%;
+`;
+
 function App() {
   const navigate = useNavigate();
 
   return (
     <>
       <Background />
-      {/* <Char3D className='w-[100%] h-[100vh]'>
-        <Canvas>
-          <DDock3D />
-        </Canvas>
-      </Char3D> */}
+     
       <div className='relative '>
         <Header />
+        <BackgroundImage className=''>
+          <img src={MainBg} />
+        </BackgroundImage>
         <img src={DDock} className='w-[98%]' />
         <img src={Main0} className='ml-[25px]' />
         <img src={Main2} className='w-[110%]' />
@@ -87,13 +88,12 @@ function App() {
           </div>
           <FunctionCard />
           <div className='text-white mt-[370px]'>
-           
+
           </div>
           <div className='ml-[450px] mt-[90px]'>
             <StartBtn>면접 보러가기</StartBtn>
           </div>
         </div>
-          <img src={Mainbottom} />
       </div>
     </>
   )
