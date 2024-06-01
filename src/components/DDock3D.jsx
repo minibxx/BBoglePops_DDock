@@ -3,17 +3,17 @@ import { useControls } from 'leva'
 import React, { useEffect, useState } from 'react'
 
 function DDock3D() {
-    const model = useGLTF("./models/DDock3.glb")
+    const model = useGLTF("./models/ROBOTZ3.glb")
     
     const animations = useAnimations(model.animations, model.scene) 
     const { actionName} = useControls({
-        // actionName:{
-        //     value: animations.names[1],
-        //     options: animations.names
-        // }
+        actionName:{
+            value: animations.names[1],
+            options: animations.names
+        }
     })
     useEffect(()=>{
-        const action = animations.actions["HEADAction"]
+        const action = animations.actions["Bot_waving"]
         if (action) {
             action.reset().fadeIn(0.5).play()
         }
