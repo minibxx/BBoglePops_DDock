@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Header from '@components/Header';
 import styled from 'styled-components';
 import Typo from '@components/Typography'
@@ -8,6 +8,7 @@ import { useRecoilState } from 'recoil';
 import { myJobAtom } from '@store/atom';
 import { Canvas } from '@react-three/fiber'
 import DDock3D from '@components/DDock3D';
+import MainBg2 from '/images/InterviewBg.png'
 
 const Background = styled.div`
 position: fixed;
@@ -73,6 +74,10 @@ top: 0;
 z-index: -1;
 `;
 
+const BackgroundImage = styled.div`
+position: absolute;
+z-index: -1;
+`;
 function InterviewSetting() {
     const [openModal, setOpenModal] = useState(false);
     const [myJob, setMyJob] = useRecoilState(myJobAtom);
@@ -81,30 +86,32 @@ function InterviewSetting() {
             <Background />
             <Header />
             <Char3D className='w-[100%] h-[100vh]'>
-        <Canvas>
-          <DDock3D />
-        </Canvas>
-      </Char3D>
-
+                <Canvas>
+                    <DDock3D />
+                </Canvas>
+            </Char3D>
+            <BackgroundImage >
+                <img src={MainBg2} className='w-[100vw]' />
+            </BackgroundImage>
             <div className='my-[100px] w-[1214px] m-[auto] relative'>
                 <div className='flex justify-between'>
                     <div className='text-white flex flex-col gap-[10px]'>
                         <Typo title={'희망 분야를 입력해주세요'} type={'body2'} />
-                        <Insert 
-                        value={myJob.myPart}
-                        onChange={(e)=>{setMyJob({...myJob, myPart: e.target.value})}}
-                        placeholder='예시) IT' />
+                        <Insert
+                            value={myJob.myPart}
+                            onChange={(e) => { setMyJob({ ...myJob, myPart: e.target.value }) }}
+                            placeholder='예시) IT' />
                     </div>
                     <div className='text-white flex flex-col gap-[10px]'>
                         <Typo title={'지원 직무를 입력해주세요'} type={'body2'} />
-                        <Insert 
-                        value={myJob.myJob}
-                        onChange={(e)=>{setMyJob({...myJob, myJob: e.target.value})}}
-                        placeholder='예시) 프론트엔드 개발자' />
+                        <Insert
+                            value={myJob.myJob}
+                            onChange={(e) => { setMyJob({ ...myJob, myJob: e.target.value }) }}
+                            placeholder='예시) 프론트엔드 개발자' />
                     </div>
                 </div>
 
-                <div className='mt-[214px]'>
+                <div className='mt-[314px]'>
                 </div>
                 <div className='mt-[190px] justify-between flex'>
                     <AbilityBtn>
@@ -131,7 +138,7 @@ function InterviewSetting() {
                         />면접 시간 중 녹화된 영상 제공을 희망하십니까?
                     </label>
                     <div>
-                        <NextBtn onClick={()=>{
+                        <NextBtn onClick={() => {
                             setOpenModal(true)
                         }}>
                             <Typo title={'다음'} type={'body2'} />
@@ -140,10 +147,10 @@ function InterviewSetting() {
                 </CheckAlign>
             </div>
             {
-                openModal &&  <InterviewCaution onCloseClick={()=>{ setOpenModal(false)}}/>
+                openModal && <InterviewCaution onCloseClick={() => { setOpenModal(false) }} />
             }
             {/* <InterviewQuit /> */}
-           
+
         </>
     )
 }

@@ -3,6 +3,7 @@ import Typo from '@components/Typography'
 import { styled } from 'styled-components';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { postLogOut } from '../apis/login';
+import Logo from '/images/main_logo 1.png'
 
 const LoginBtn = styled.button`
   border: 2px solid white;
@@ -46,7 +47,7 @@ function Header() {
   },[])
   return (
     <>
-      <Container className='flex fixed flex-row justify-between text-white'>
+      <Container className='flex fixed flex-row justify-between text-white text-[25px] px-[20px]'>
 
         <NavLink
           to={`/`}
@@ -54,7 +55,7 @@ function Header() {
             isActive || location.pathname === `/`
           }
         >
-          <div>Header</div>
+          <div> <img src={Logo} className='w-[75px]'/></div>
         </NavLink>
         <ul className='flex flex-row gap-[30px]'>
           <NavLink

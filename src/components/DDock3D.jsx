@@ -7,10 +7,10 @@ function DDock3D() {
     
     const animations = useAnimations(model.animations, model.scene) 
     const { actionName} = useControls({
-        actionName:{
-            value: animations.names[1],
-            options: animations.names
-        }
+        // actionName:{
+        //     value: animations.names[1],
+        //     options: animations.names
+        // }
     })
     useEffect(()=>{
         const action = animations.actions["Bot_waving"]
@@ -41,7 +41,7 @@ function DDock3D() {
             <Environment preset='sunset' />
             <primitive
                 scale={3}
-                position-y = {-(height/2)*2}
+                position-y = {-(height/2)*1}
                 object={model.scene}
             />
         </>

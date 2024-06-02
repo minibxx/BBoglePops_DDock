@@ -23,6 +23,7 @@ const SignUPDiv = styled.div`
   border-radius: 52px;
   padding: 10px 30px;
   background-color: rgb(255,255,255,0.1);
+  backdrop-filter: blur(20px);
 `;
 
 const Insert = styled.input`

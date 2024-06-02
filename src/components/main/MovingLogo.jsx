@@ -16,7 +16,7 @@ animation: moveLeft 15s linear infinite;
 function MovingLogo() {
   return (
     <>
-      <div className='mt-[150px]'></div>
+      <div className='mt-[220px]'></div>
       <Move className='h-[130px] flex gap-[40px] pt-[20px]'>
         <img src={DDock} className='w-[60%]'/>
         <img src={DDock} className='w-[60%]'/>

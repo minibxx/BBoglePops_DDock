@@ -25,6 +25,7 @@ const LoginDiv = styled.div`
   border-radius: 52px;
   padding: 10px 30px;
   background-color: rgb(255,255,255,0.1);
+  backdrop-filter: blur(20px);
 `;
 
 const Insert = styled.input`
@@ -55,7 +56,7 @@ const LoginBtn = styled.div`
 `;
 
 const BackgroundImage = styled.div`
-position: fixed;
+position: absolute;
 width: 100%;
 z-index: -1;
 `;

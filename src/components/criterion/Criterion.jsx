@@ -6,6 +6,7 @@ import ComputerChat from './ComputerChat';
 import UserChat from './UserChat';
 import AnswerChat from './AnswerChat';
 import SoundChat from './SoundChat';
+import CriterionBg from '/images/criterionBg2.png'
 
 const Background = styled.div`
 position: fixed;
@@ -16,11 +17,21 @@ background-repeat : no-repeat;
 background-size : cover;
 z-index: -2;
 `;
+
+const BackgroundImage = styled.div`
+position: absolute;
+width: 100%;
+z-index: -1;
+`;
+
 function Criterion() {
     return (
         <>
             <Background />
             <Header />
+            <BackgroundImage className=''>
+                    <img src={CriterionBg} className='w-[100%] ' />
+                </BackgroundImage>
             <div className=' w-[1214px] m-[auto]'>
             <ComputerChat />
             <UserChat />

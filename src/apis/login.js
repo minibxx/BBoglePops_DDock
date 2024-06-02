@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = 'http://34.22.107.112:8000'
+const url = 'http://34.64.35.81:8000'
 
 export const postSignUP = async (username, password, password2) => {
     const response = await axios.post(`${url}/users/signUp/`, {

@@ -8,14 +8,13 @@ import FunctionCard from './FunctionCard';
 import MovingLogo from './MovingLogo';
 import DDock from '/images/ddockEng.png';
 import Main0 from '/images/main0.svg'
-import Main2 from '/images/main2.svg'
+import Main00 from '/images/main00.svg'
 import Main3 from '/images/main3.svg'
 import Main4 from '/images/main4-2.svg'
-import Mainbottom from '/images/mainbottom.svg'
 import Title1 from '/images/mainWhat.svg'
 import Title2 from '/images/mainWhy.svg'
-import MainBg from '/images/mainBg.png'
-
+import MainBg2 from '/images/mainBgF.png'
+import MainEnd from '/images/mainEnd.svg'
 
 const Background = styled.div`
 position: fixed;
@@ -34,6 +33,7 @@ const StartBtn = styled.button`
   color: white;
   border-radius: 15px;
   padding: 10px 30px;
+  position: absolute;
   &:hover{
     background-color: rgb(255,255,255,0.3);
   }
@@ -41,10 +41,8 @@ const StartBtn = styled.button`
 
 
 const BackgroundImage = styled.div`
-position: fixed;
-width: 150%;
+position: absolute;
 z-index: -1;
-left: -20%;
 `;
 
 function App() {
@@ -53,19 +51,18 @@ function App() {
   return (
     <>
       <Background />
-     
       <div className='relative '>
         <Header />
-        <BackgroundImage className=''>
-          <img src={MainBg} />
+        <BackgroundImage >
+          <img src={MainBg2} className='w-[100vw] mt-[250px]' />
         </BackgroundImage>
         <img src={DDock} className='w-[98%]' />
         <img src={Main0} className='ml-[25px]' />
-        <img src={Main2} className='w-[110%]' />
         <div className='w-[1214px] m-[auto]'>
           {/* <div className='text-white text-[50px]'>똑부러지는 취업?</div>
           <div className='text-white text-[50px] ml-[112px] mb-[50px]'>똑바른 자세부터!</div> */}
-          <img src={Title1} className='my-[80px]' />
+          <img src={Main00} className='mt-[700px] w-[500px]' />
+          <img src={Title1} className='mb-[80px] mt-[100px]' />
           <div className='flex justify-between'>
             <img src={Main3} className='w-[400px]' />
             <div className='mt-[70px]'>
@@ -83,16 +80,14 @@ function App() {
           </div>
           <MovingLogo />
           <div className='flex justify-between items-end'>
-            <img src={Title2} className='mt-[180px] mb-[80px]' />
+            <img src={Title2} className='mt-[220px] mb-[80px]' />
             <img src={Main4} className='w-[250px] mr-[50px]' />
           </div>
           <FunctionCard />
-          <div className='text-white mt-[370px]'>
-
+          <div className='ml-[38%] mt-[150px] '>
+            <StartBtn onClick={()=>navigate('/interview')}>면접 보러가기</StartBtn>
           </div>
-          <div className='ml-[450px] mt-[90px]'>
-            <StartBtn>면접 보러가기</StartBtn>
-          </div>
+          <img src={MainEnd} className='w-[450px] mt-[600px] ml-[900px]' />
         </div>
       </div>
     </>

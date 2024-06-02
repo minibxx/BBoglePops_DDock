@@ -21,7 +21,7 @@ z-index: -2;
 `;
 
 const BackgroundImage = styled.div`
-position: fixed;
+position: absolute;
 width: 100%;
 z-index: -1;
 `;
@@ -38,6 +38,7 @@ padding: 10px 30px;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
+backdrop-filter: blur(20px);
 &:hover{
   background-color: rgb(255,255,255,0.3);
 }
@@ -49,7 +50,7 @@ const InterviewContents = styled.div`
     grid-gap: 20px;
     width: 1214px;
     margin: 0 auto;
-    margin-bottom : 150px;
+    margin-bottom : 100px;
     `;
 
 function ResultList() {
@@ -58,12 +59,12 @@ function ResultList() {
             <Background />
             <Header />
 
-                <BackgroundImage className=''>
-                    <img src={ListBg} className='w-[100%] ' />
-                </BackgroundImage>
-                <div className='text-white w-[1214px] mx-[auto] border-b-2 pb-[20px] mb-[80px]'>
-                    <div className='mt-[50px]'><Typo title={'내 면접 기록'} type={'body4'} /></div>
-                </div>
+            <BackgroundImage className=''>
+                <img src={ListBg} className='w-[100%] ' />
+            </BackgroundImage>
+            <div className='text-white w-[1214px] mx-[auto] border-b-2 pb-[20px] mb-[80px]'>
+                <div className='mt-[50px]'><Typo title={'내 면접 기록'} type={'body4'} /></div>
+            </div>
             <InterviewContents>
                 <InterviewContent >
                     <img src={Robot1} className='w-[100px]' />
@@ -73,7 +74,35 @@ function ResultList() {
                     </div>
                 </InterviewContent>
                 <InterviewContent >
-                    <img src={Robot1} className='w-[100px]' />
+                    <img src={Robot2} className='w-[100px]' />
+                    <div className='flex gap-[20px] flex-col'>
+                        <Typo title={'2024.04.12'} type={'body8'} />
+                        <Typo title={'11:22:33'} type={'small2'} />
+                    </div>
+                </InterviewContent>
+                <InterviewContent >
+                    <img src={Robot3} className='w-[100px]' />
+                    <div className='flex gap-[20px] flex-col'>
+                        <Typo title={'2024.04.12'} type={'body8'} />
+                        <Typo title={'11:22:33'} type={'small2'} />
+                    </div>
+                </InterviewContent>
+                <InterviewContent >
+                    <img src={Robot4} className='w-[100px]' />
+                    <div className='flex gap-[20px] flex-col'>
+                        <Typo title={'2024.04.12'} type={'body8'} />
+                        <Typo title={'11:22:33'} type={'small2'} />
+                    </div>
+                </InterviewContent>
+                <InterviewContent >
+                    <img src={Robot5} className='w-[100px]' />
+                    <div className='flex gap-[20px] flex-col'>
+                        <Typo title={'2024.04.12'} type={'body8'} />
+                        <Typo title={'11:22:33'} type={'small2'} />
+                    </div>
+                </InterviewContent>
+                <InterviewContent >
+                    <img src={Robot6} className='w-[100px]' />
                     <div className='flex gap-[20px] flex-col'>
                         <Typo title={'2024.04.12'} type={'body8'} />
                         <Typo title={'11:22:33'} type={'small2'} />
@@ -87,82 +116,34 @@ function ResultList() {
                     </div>
                 </InterviewContent>
                 <InterviewContent >
-                    <img src={Robot1} className='w-[100px]' />
+                    <img src={Robot2} className='w-[100px]' />
                     <div className='flex gap-[20px] flex-col'>
                         <Typo title={'2024.04.12'} type={'body8'} />
                         <Typo title={'11:22:33'} type={'small2'} />
                     </div>
                 </InterviewContent>
                 <InterviewContent >
-                    <img src={Robot1} className='w-[100px]' />
+                    <img src={Robot3} className='w-[100px]' />
                     <div className='flex gap-[20px] flex-col'>
                         <Typo title={'2024.04.12'} type={'body8'} />
                         <Typo title={'11:22:33'} type={'small2'} />
                     </div>
                 </InterviewContent>
                 <InterviewContent >
-                    <img src={Robot1} className='w-[100px]' />
+                    <img src={Robot4} className='w-[100px]' />
                     <div className='flex gap-[20px] flex-col'>
                         <Typo title={'2024.04.12'} type={'body8'} />
                         <Typo title={'11:22:33'} type={'small2'} />
                     </div>
                 </InterviewContent>
                 <InterviewContent >
-                    <img src={Robot1} className='w-[100px]' />
+                    <img src={Robot5} className='w-[100px]' />
                     <div className='flex gap-[20px] flex-col'>
                         <Typo title={'2024.04.12'} type={'body8'} />
                         <Typo title={'11:22:33'} type={'small2'} />
                     </div>
                 </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot1} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot1} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot1} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot1} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot1} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot1} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot1} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
+
 
             </InterviewContents>
         </>
