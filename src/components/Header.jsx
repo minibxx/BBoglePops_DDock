@@ -22,13 +22,9 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  background-color: #000;
-  
   .inactive {
     opacity: 0.7;
   }
-
   .active {
     opacity: 1;
   }
