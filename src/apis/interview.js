@@ -48,3 +48,13 @@ export const postMyAnswerText = async (results, questionId = 0) => {
     })
   return response.data;
 };
+
+export const getEyeTrackingStart = async (userId, interviewId) => {
+  const response = await axios.get(`${url}/eyetrack/start/${userId}/${interviewId}/`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
+        'Content-Type': 'multipart/form-data',
+      }
+    })
+  return response.data;
+}

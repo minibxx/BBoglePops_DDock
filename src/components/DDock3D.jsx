@@ -3,7 +3,7 @@ import { useControls } from 'leva'
 import React, { useEffect, useState } from 'react'
 
 function DDock3D() {
-    const model = useGLTF("./models/ROBOTZ3.glb")
+    const model = useGLTF("./models/Wave.glb")
     
     const animations = useAnimations(model.animations, model.scene) 
     const { actionName} = useControls({
