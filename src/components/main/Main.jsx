@@ -84,10 +84,10 @@ function App() {
             <img src={Main4} className='w-[250px] mr-[50px]' />
           </div>
           <FunctionCard />
-          <div className='ml-[38%] mt-[150px] '>
+          <img src={MainEnd} className='w-[450px] mt-[600px] ml-[900px]' />
+          <div className='ml-[38%] mt-[100px] '>
             <StartBtn onClick={()=>navigate('/interview')}>면접 보러가기</StartBtn>
           </div>
-          <img src={MainEnd} className='w-[450px] mt-[600px] ml-[900px]' />
         </div>
       </div>
     </>

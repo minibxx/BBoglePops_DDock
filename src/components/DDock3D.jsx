@@ -40,8 +40,8 @@ function DDock3D() {
             <OrbitControls />
             <Environment preset='sunset' />
             <primitive
-                scale={3}
-                position-y = {-(height/2)*1}
+                scale={4}
+                position-y = {-(height/2)*4}
                 object={model.scene}
             />
         </>
