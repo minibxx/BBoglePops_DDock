@@ -16,15 +16,6 @@ import ResultList from '@components/resultList/ResultList';
 import InterviewRecord from '@components/interview/InterviewRecord';
 import App from './App';
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <App />
-//   }
-// ], {basename: import.meta.env.BASE_URL});
-
-// console.log('router created: ', router)
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RecoilRoot>
