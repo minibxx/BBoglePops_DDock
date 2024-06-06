@@ -53,13 +53,20 @@ function InterviewRecord() {
         console.log(err);
       }
     }, []);
+
+    const startRecording = () => {
+        mediaRecorder.current?.start();
+    }
+
+    const stopRecording = () => {
+        mediaRecorder.current?.stop();
+    }
   
     useEffect(() => {
       getMediaPermission();
     }, []);
   
     const downloadVideo = () => {
-    //   const videoBlob = await EncodingWebmToMp4(new Blob(videoChunks.current, { type: 'video/webm' }), '123123123');
       const videoBlob = new Blob(videoChunks.current, { type: 'video/webm' });
       const videoUrl = URL.createObjectURL(videoBlob);
       const link = document.createElement('a');
@@ -73,7 +80,6 @@ function InterviewRecord() {
     return (
       <div>
         <StyledVideo ref={videoRef} autoPlay />
-        <canvas ref={canvas} style={{display: 'none'}}/>
         <button
           onClick={() => mediaRecorder.current?.start()}
         >

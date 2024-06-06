@@ -36,10 +36,9 @@ const useSTT = () => {
     setValue('');
   }
 
-  const onSubmitResult = (questionId=0) => {
-    postMyAnswerText(results, questionId).then(data => {
-      navigate(`/result/${data.interview_id}`)
-    }).catch(error => console.log(error))
+  const onSubmitResult = async (questionId=0) => {
+    const { interview_id } =  await postMyAnswerText(results, questionId)
+    return interview_id;
   }
 
   useEffect(() => {

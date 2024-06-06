@@ -92,16 +92,17 @@ const useRecord = () => {
   
     const onSubmitAudioFile = useCallback((questionId) => {
         let formData = new FormData();
+        formData.append('question_list_id', questionId);
       if (audioUrl.length > 0) {
         audioUrl.forEach((item, index) => {
             const audio = new Audio(URL.createObjectURL(item));
             const sound = new File([audioUrl], `audio_${index+1}.mp3`, { lastModified: new Date().getTime(), type: "audio" });
             formData.append(`audio_${index+1}`, sound);
             audio.play();
-        })
+          })
       }
       
-      postMyAnswer(formData, questionId);
+      postMyAnswer(formData);
     }, [audioUrl]);
 
     return { onRecAudio, offRecAudio, onSubmitAudioFile, }
