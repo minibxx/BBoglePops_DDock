@@ -128,6 +128,7 @@ function RandomQ({ myJobQuestion, myJobQuestionId, onQuestionReaction }) {
             onClick={() => {
               speechQuestion();
               setIsStarted(true);
+              
             }}
           >
             <Btn className='w-[90%] fill-white' src={Sound} />

@@ -12,6 +12,7 @@ import Criterion from '@components/criterion/Criterion';
 import About from '@components/about/About';
 import InterviewPage from '@components/interview/InterviewPage';
 import ResultList from '@components/resultList/ResultList';
+import InterviewRecord from '../../components/interview/InterviewRecord';
 
 export const RouterInfo = [
   {
@@ -52,6 +53,9 @@ export const RouterInfo = [
       {
         path: 'interview/start',
         element: <InterviewPage/>
+      },{
+        path: 'interview/record',
+        element: <InterviewRecord/>
       }
     ],
   },
