@@ -1,6 +1,11 @@
 import axios from "axios";
+import { getCookie } from "../utils/cookieUtil";
 
 const url = 'http://34.64.35.81:8000'
+
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+axios.defaults.headers.common['X-CSRFToken'] = getCookie("csrftoken");
 
 export const postSignUP = async (username, password, password2) => {
     const response = await axios.post(`${url}/users/signUp/`, {

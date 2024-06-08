@@ -144,6 +144,7 @@ function RandomQ({ myJobQuestion, myJobQuestionId, onQuestionReaction }) {
 
   return (
     <>
+    <div>{questionCount+1}/10</div>
       <Btns>
         {!isStarted &&
           <div

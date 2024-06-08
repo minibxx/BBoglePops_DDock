@@ -1,6 +1,12 @@
 import axios from "axios";
+import { getCookie } from "../utils/cookieUtil";
 
 const url = 'http://34.64.35.81:8000'
+
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+axios.defaults.headers.common['X-CSRFToken'] = getCookie("csrftoken");
+console.log(getCookie("csrftoken"))
 
 export const postMyJob = async (input_field, input_job) => {
   const response = await axios.post(`${url}/interview_questions/`, {
@@ -50,7 +56,7 @@ export const postMyAnswerText = async (results, questionId = 0) => {
 };
 
 export const postMyAnswerVideo = async (formData) => {
-  const response = await axios.post(`${url}/upload/`, formData
+  const response = await axios.post(`${url}/eyetrack/upload/`, formData
     , {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
