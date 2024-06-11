@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getCookie } from "../utils/cookieUtil";
 
-const url = 'http://34.64.35.81:8000'
+const url = 'https://ddok-2.duckdns.org'
 
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
