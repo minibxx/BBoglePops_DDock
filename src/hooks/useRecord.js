@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { postMyAnswer } from '@apis/interview'
+import { postMyAnswerVoice } from '../apis/interview';
 
 const useRecord = () => {
     const [stream, setStream] = useState();
@@ -93,16 +94,23 @@ const useRecord = () => {
     const onSubmitAudioFile = useCallback((questionId) => {
         let formData = new FormData();
         formData.append('question_list_id', questionId);
+        const fileData =  [];
       if (audioUrl.length > 0) {
         audioUrl.forEach((item, index) => {
             const audio = new Audio(URL.createObjectURL(item));
             const sound = new File([audioUrl], `audio_${index+1}.mp3`, { lastModified: new Date().getTime(), type: "audio" });
-            formData.append(`audio_${index+1}`, sound);
+            // formData.append(`audio_${index+1}`, sound);
+            // fileData.push(sound)
+            formData.append('files', sound, `audio_${index+1}.mp3`);
             audio.play();
           })
       }
+      // formData.append('files', fileData);
+
       
-      postMyAnswer(formData);
+      postMyAnswer(formData).then(data=>{
+        postMyAnswerVoice(data);
+      });
     }, [audioUrl]);
 
     return { onRecAudio, offRecAudio, onSubmitAudioFile, }

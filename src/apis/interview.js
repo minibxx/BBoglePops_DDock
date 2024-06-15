@@ -21,11 +21,21 @@ export const postMyJob = async (input_field, input_job) => {
 };
 
 export const postMyAnswer = async (formData) => {
-  const response = await axios.post(`${url}/interview/voice/`, formData
+  const response = await axios.post(`${url}/interview/voice/?action=upload`, formData
     , {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
         'Content-Type': 'multipart/form-data',
+      }
+    })
+  return response.data;
+};
+
+export const postMyAnswerVoice = async (results) => {
+  const response = await axios.post(`${url}/interview/voice/?action=merge`, results
+    , {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
       }
     })
   return response.data;

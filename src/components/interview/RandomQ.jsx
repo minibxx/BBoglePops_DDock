@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import Mic from '/images/mic.svg'
 import Send from '/images/send.svg'
 import Sound from '/images/sound.svg'
+import { useNavigate } from 'react-router-dom';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import useVideoRecord from '../../hooks/useVideoRecord';
 
@@ -54,6 +55,8 @@ function RandomQ({ myJobQuestion, myJobQuestionId, onQuestionReaction }) {
   const { onSTTStart, onSTTEnd, onSubmitResult } = useSTT();
   const { videoRef, startRecording, stopRecording, onSubmitVideo } = useVideoRecord();
   const [isRecorded, setIsRecorded] = useState(false);
+  const navigate = useNavigate();
+  
   const userId = localStorage.getItem('userId');
 
   const speech = new Speech();
