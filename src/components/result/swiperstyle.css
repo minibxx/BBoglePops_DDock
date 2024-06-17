@@ -1,11 +1,11 @@
   .swiper-button-prev{
-    top:25%; 
+    top: 35%; 
     color: gray;
     left: 2.5%;
   }
 
   .swiper-button-next{
-    top:25%; 
+    top: 25%; 
     color: gray;
     right: 2.5%;
   }
