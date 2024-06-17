@@ -5,7 +5,7 @@ import { useRecoilState } from 'recoil';
 import { myAnalyzeAtom } from '@store/atom';
 
 const RectBorder2 = styled.div`
-    width: 155px;
+    width: 180px;
     margin-bottom: 30px;
     padding-left: 10px;
     background-color: white;
