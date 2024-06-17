@@ -1,16 +1,21 @@
 import React from 'react'
 import styled from 'styled-components';
 import Typo from '@components/Typography'
-import Logo from '/images/cImg.svg'
-import Card3  from '/images/card3.png'
+import Logo from '/images/Logo.png'
+import Card3  from '/images/cImg.png'
 
 const CriterionBtn = styled.button`
 width: 100%;
 height: 45px;
 background-color: #e3e3e3;
 border-radius: 10px;
-
 `;
+
+const BgBox = styled.button`
+background: linear-gradient(90deg, #4A92FF 0%, #88FFC6 35%, #CEFF8F 100%);
+width: 450px;
+`;
+
 function ComputerChat() {
   return (
     <div className='w-[1214px] m-auto flex'>
@@ -19,7 +24,7 @@ function ComputerChat() {
       </div>
       <div className=' w-[450px]'>
         <div className='text-[white] mb-[10px]'><Typo title={'똑똑'} type={'body8'} /></div>
-        <div className='bg-[#E3E3E3] rounded-t-[25px]  p-[20px] flex justify-between'>
+        <BgBox className='rounded-t-[25px]  p-[20px] flex justify-between'>
           <div>
             <Typo title={'똑부러지는 취업,'} type={'body7'} />
             <Typo title={'똑바른 자세부터!'} type={'body7'} />
@@ -28,7 +33,7 @@ function ComputerChat() {
 
           <img className='item-end object-cover' src={Card3} />
           </div>
-        </div>
+        </BgBox>
         <div className='flex flex-col rounded-b-[25px] bg-[white] gap-[10px] p-[20px]'>
           <Typo title={'궁금하신 평가 기준을 선택해주세요.'} type={'small3'} />
           <CriterionBtn>답변 내용 분석 평가 기준</CriterionBtn>
