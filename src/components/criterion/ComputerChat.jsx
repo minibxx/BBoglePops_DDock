@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import Typo from '@components/Typography'
-import Logo from '/images/Logo.png'
+import Logo from '/images/cImg.svg'
 import Card3  from '/images/card3.png'
 
 const CriterionBtn = styled.button`
