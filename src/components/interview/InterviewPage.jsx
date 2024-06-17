@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import RandomQ from './RandomQ';
 import { useRecoilState } from 'recoil';
 import { myJobQuestionAtom, myJobQuestionIdAtom } from '@store/atom';
@@ -11,8 +11,10 @@ function InterviewPage() {
   const [myJobQuestionId, setMyJobQuestionId] = useRecoilState(myJobQuestionIdAtom);
   const [videoStatus, setVideoStatus] = useState('Idle');
 
-  const onQuestionReaction = (isSpeaking, isRecorded) => {
-    if (isSpeaking) {
+  const onQuestionReaction = (isSpeaking, isRecorded, isCalibration) => {
+    if (isCalibration) {
+      setVideoStatus('Calibration')
+    } else if (isSpeaking) {
       setVideoStatus('Speaking')
     } else if (!isSpeaking && !isRecorded) {
       setVideoStatus('Idle');
@@ -21,12 +23,17 @@ function InterviewPage() {
     }
   }
 
+  useEffect(() => {
+    console.log('videoStatus:', videoStatus)
+  }, [videoStatus])
+
   return (
     <>
       <div className='w-[100%] relative'>
         <InterviewVideo videoStatus={'Speaking'} isDisplay={videoStatus === 'Speaking'}/>
         <InterviewVideo videoStatus={'Idle'} isDisplay={videoStatus === 'Idle'}/>
         <InterviewVideo videoStatus={'Nodding'} isDisplay={videoStatus === 'Nodding'}/>
+        <InterviewVideo videoStatus={'Calibration'} isDisplay={videoStatus === 'Calibration'}/>
 
         {myJobQuestion && <RandomQ myJobQuestion={myJobQuestion} myJobQuestionId={myJobQuestionId} onQuestionReaction={onQuestionReaction} />}
 

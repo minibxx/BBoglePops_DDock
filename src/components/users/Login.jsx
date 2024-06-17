@@ -71,8 +71,8 @@ function Login() {
       <Background />
       <Header />
       <BackgroundImage className=''>
-                    <img src={loginBg} className='w-[100%] ' />
-                </BackgroundImage>
+        <img src={loginBg} className='w-[100%] ' />
+      </BackgroundImage>
       <LoginDiv>
         <div className='text-center my-[50px]'>
           <Typo title={'LOGIN'} type={'body5'} />
@@ -80,8 +80,8 @@ function Login() {
         <div className='ml-[145px]'>
           <Insert placeholder='ID'
             value={id}
-            onChange={(e) => { setId(e.target.value) }} 
-            autoComplete={"one-time-code"}/>
+            onChange={(e) => { setId(e.target.value) }}
+            autoComplete={"one-time-code"} />
           <div className='mx-[20px] mt-[5px] mb-[10px] h-[15px]'>
             {
               errorType == "id"
@@ -93,9 +93,9 @@ function Login() {
             type={'password'}
             placeholder='PASSWORD'
             value={password}
-            onChange={(e) => { setPassword(e.target.value) }} 
+            onChange={(e) => { setPassword(e.target.value) }}
             autoComplete={"one-time-code"}
-            />
+          />
           <div className='mx-[20px] mt-[5px] mb-[10px] h-[15px]'>
             {
               errorType == "password"
@@ -120,7 +120,12 @@ function Login() {
           <Typo title={'LOGIN'} type={'body2'} />
         </LoginBtn>
         <div className='flex justify-between w-[320px] m-[auto] mb-[70px]'>
-          <Typo title={'회원가입'} type={'body9'} />
+          <div onClick={()=>{
+            navigate('/signup')
+          }}>
+
+            <Typo title={'회원가입'} type={'body9'} />
+          </div>
           <Typo title={'아이디/비밀번호 찾기'} type={'body10'} />
         </div>
       </LoginDiv>

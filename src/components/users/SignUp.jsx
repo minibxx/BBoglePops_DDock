@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Typo from '@components/Typography'
 import Header from '../Header';
 import { postSignUP } from '../../apis/login';
+import { useNavigate } from 'react-router-dom';
 
 const Background = styled.div`
 position: fixed;
@@ -55,6 +56,7 @@ function SignUp() {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
+  const navigate = useNavigate();
 
   return (
     <>
@@ -72,9 +74,9 @@ function SignUp() {
             autoComplete={"one-time-code"}
             onChange={(e) => { setId(e.target.value) }}
           />
-          <div className='mx-[20px] mt-[10px] mb-[20px] '>
+          {/* <div className='mx-[20px] mt-[10px] mb-[20px] '>
             <Typo title={'이미 사용중인 아이디입니다.'} type={'passwordError'} />
-          </div>
+          </div> */}
 
           <Insert
             type={'password'}
@@ -83,9 +85,9 @@ function SignUp() {
             autoComplete={"one-time-code"}
             onChange={(e) => { setPassword(e.target.value) }}
           />
-          <div className='mx-[20px] mt-[10px] mb-[20px]'>
+          {/* <div className='mx-[20px] mt-[10px] mb-[20px]'>
             <Typo title={'숫자, 영어 포함 8자 이상으로 입력해주세요.'} type={'passwordError'} />
-          </div>
+          </div> */}
 
           <Insert
             type={'password'}
@@ -94,12 +96,14 @@ function SignUp() {
             autoComplete={"one-time-code"}
             onChange={(e) => { setPassword2(e.target.value) }}
           />
-          <div className='mx-[20px] mt-[10px] mb-[20px]'>
+          {/* <div className='mx-[20px] mt-[10px] mb-[20px]'>
             <Typo title={'비밀번호를 다시 확인해주세요.'} type={'passwordError'} />
-          </div>
+          </div> */}
         </div>
         <SignUpBtn onClick={() => {
-          postSignUP(id, password, password2)
+          postSignUP(id, password, password2).then(data => {
+            navigate('/users')
+          })
         }}>
           <Typo title={'SIGN UP'} type={'body2'} />
         </SignUpBtn>

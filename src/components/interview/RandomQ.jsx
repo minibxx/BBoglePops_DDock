@@ -43,12 +43,13 @@ const StyledVideo = styled.video`
 `
 
 const timerSecond = 20;
-const calibrationSecond = 10;
+const calibrationSecond = 28;
 
 function RandomQ({ myJobQuestion, myJobQuestionId, onQuestionReaction }) {
   const [questionCount, setQuestionCount] = useState(0);
   const [isStarted, setIsStarted] = useState(false);
   const [isQuestionEnd, setIsQuestionEnd] = useState(true);
+  const [isCalibration, setIsCalibration] = useState(false);
   const [timer, setTimer] = useState(timerSecond);
   const [timerInterval, setTimerInterval] = useState();
   const { onRecAudio, offRecAudio, onSubmitAudioFile } = useRecord();
@@ -109,8 +110,10 @@ function RandomQ({ myJobQuestion, myJobQuestionId, onQuestionReaction }) {
   const onInterviewStart = () => {
     startRecording();
     setIsStarted(true);
+    setIsCalibration(true);
     setTimeout(() => {
       speechQuestion();
+      setIsCalibration(false);
     }, calibrationSecond * 1000)
   }
 
@@ -142,8 +145,8 @@ function RandomQ({ myJobQuestion, myJobQuestionId, onQuestionReaction }) {
   }, [questionCount]);
 
   useEffect(() => {
-    onQuestionReaction(!isQuestionEnd, isRecorded);
-  }, [isQuestionEnd, isRecorded])
+    onQuestionReaction(!isQuestionEnd, isRecorded, isCalibration);
+  }, [isQuestionEnd, isRecorded, isCalibration])
 
   return (
     <>
