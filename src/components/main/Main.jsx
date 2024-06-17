@@ -85,7 +85,7 @@ function App() {
           </div>
           <FunctionCard />
           <img src={MainEnd} className='w-[450px] mt-[600px] ml-[900px]' />
-          <div className='ml-[38%] mt-[300px] '>
+          <div className='ml-[38%] mt-[800px] '>
             <StartBtn onClick={()=>navigate('/interview')}>면접 보러가기</StartBtn>
           </div>
         </div>
