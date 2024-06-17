@@ -8,7 +8,7 @@ import reactStringReplace from 'react-string-replace';
 const RectBorder = styled.div`
     border: 2px solid black;
     margin: 20px 0;
-    width: 110px;
+    width: 125px;
     padding-left: 10px;
 `;
 
@@ -21,7 +21,7 @@ const BlueSpan = styled.span`
 `;
 
 const RectBorder2 = styled.div`
-    width: 210px;
+    width: 230px;
     margin-bottom: 30px;
     padding-left: 10px;
     background-color: white;
