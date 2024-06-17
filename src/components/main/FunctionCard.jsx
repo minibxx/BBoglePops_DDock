@@ -80,7 +80,7 @@ function FunctionCard() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <CardSec className='w-[877px] h-[317px]'>
-                    <div className='w-[40%]'>
+                    <div className='w-[37%]'>
                         <img src={Card3}/>
                         </div>
                         <div>
@@ -95,7 +95,7 @@ function FunctionCard() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <CardThi className='w-[877px] h-[317px]'>
-                    <div className='w-[37%]'>
+                    <div className='w-[35%]'>
                         <img src={Card2} />
                         </div>
                         <div>
