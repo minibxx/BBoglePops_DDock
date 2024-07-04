@@ -7,7 +7,6 @@ axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 axios.defaults.headers.common['X-CSRFToken'] = getCookie("csrftoken");
 
-
 console.log(getCookie("csrftoken"))
 
 export const postMyJob = async (input_field, input_job) => {
