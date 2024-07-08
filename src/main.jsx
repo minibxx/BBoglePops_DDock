@@ -5,12 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 import { RecoilRoot } from 'recoil';
-
-
-
 import Router from './components/main/Router';
-
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
