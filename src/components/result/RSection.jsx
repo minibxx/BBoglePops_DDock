@@ -10,8 +10,6 @@ import { useParams } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { myAnalyzeAtom } from '@store/atom';
 
-
-
 const Feedback = styled.div`
     width: 250px;
     font-size: 20px;
@@ -23,6 +21,8 @@ const Feedback = styled.div`
     color: ${({ isClick }) => { return isClick ? 'black' : 'white' }};
     cursor: pointer;
 `;
+
+
 function RSection() {
     const [pageType, setPageType] = useState('answer');
     const userId = localStorage.getItem("userId")
@@ -45,6 +45,7 @@ function RSection() {
             setAnalyze(data)
         })
     },[])
+    
     return (
         <>
             <div className='text-white flex gap-[10px] mt-[50px]'>
@@ -92,6 +93,7 @@ function RSection() {
             {
                 render()
             }
+            
         </>
     )
 }
