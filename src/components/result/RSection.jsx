@@ -9,9 +9,10 @@ import { getMyAnalyze } from '../../apis/interview';
 import { useParams } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { myAnalyzeAtom } from '@store/atom';
+import DownloadPDF from './DownloadPDF';
 
 const Feedback = styled.div`
-    width: 250px;
+    width: 200px;
     font-size: 20px;
     border: 2px solid white;
     padding: 10px;
@@ -38,6 +39,8 @@ function RSection() {
             return <Sight/>
         } else if(pageType == 'posture'){
             return <Posture/>
+        } else if(pageType == 'pdf'){
+            return <DownloadPDF/>
         }
     }
     useEffect(()=>{
@@ -48,45 +51,58 @@ function RSection() {
     
     return (
         <>
-            <div className='text-white flex gap-[10px] mt-[50px]'>
+            <div className='text-white flex mt-[50px] flex justify-between'>
+                <div className='flex gap-[15px]'>
+
+                    <Feedback 
+                        onClick={() => {
+                            setPageType('answer')
+                        }} 
+                        isClick={pageType == 'answer'}
+                    >
+                        <div className='mx-[20px]'>
+                            <Typo title={'답변 분석'} type={'body2'} />
+                        </div>
+                    </Feedback>
+                    <Feedback 
+                        onClick={() => {
+                            setPageType('sound')
+                        }} 
+                        isClick={pageType == 'sound'}
+                    >
+                        <div className='mx-[20px]'>
+                            <Typo title={'음성 분석'} type={'body2'} />
+                        </div>
+                    </Feedback>
+                    <Feedback 
+                        onClick={() => {
+                            setPageType('sight')
+                        }} 
+                        isClick={pageType == 'sight'}
+                    >
+                        <div className='mx-[20px]'>
+                            <Typo title={'시선 분석'} type={'body2'} />
+                        </div>
+                    </Feedback>
+                    <Feedback 
+                        onClick={() => {
+                            setPageType('posture')
+                        }} 
+                        isClick={pageType == 'posture'}
+                    >
+                        <div className='mx-[20px]'>
+                            <Typo title={'자세 분석'} type={'body2'} />
+                        </div>
+                    </Feedback>
+                </div>
                 <Feedback 
                     onClick={() => {
-                        setPageType('answer')
+                        setPageType('pdf')
                     }} 
-                    isClick={pageType == 'answer'}
+                    isClick={pageType == 'pdf'}
                 >
                     <div className='mx-[20px]'>
-                        <Typo title={'답변 내용 피드백'} type={'body2'} />
-                    </div>
-                </Feedback>
-                <Feedback 
-                    onClick={() => {
-                        setPageType('sound')
-                    }} 
-                    isClick={pageType == 'sound'}
-                >
-                    <div className='mx-[20px]'>
-                        <Typo title={'음성 분석 피드백'} type={'body2'} />
-                    </div>
-                </Feedback>
-                <Feedback 
-                    onClick={() => {
-                        setPageType('sight')
-                    }} 
-                    isClick={pageType == 'sight'}
-                >
-                    <div className='mx-[20px]'>
-                        <Typo title={'시선 분석 피드백'} type={'body2'} />
-                    </div>
-                </Feedback>
-                <Feedback 
-                    onClick={() => {
-                        setPageType('posture')
-                    }} 
-                    isClick={pageType == 'posture'}
-                >
-                    <div className='mx-[20px]'>
-                        <Typo title={'자세 분석 피드백'} type={'body2'} />
+                        <Typo title={'최종 결과지'} type={'body2'} />
                     </div>
                 </Feedback>
             </div>
