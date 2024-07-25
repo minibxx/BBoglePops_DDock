@@ -40,15 +40,13 @@ function DownloadPDF() {
     return (
         <>
             <div id="pdf-download" >DownloadPDF</div>
-            {/* {analyze.responses.map((item, i) => {
+            {analyze.responses.map((item, i) => {
                 if (item.response) {
                     return (
-                        <SwiperSlide key={i}>
                             <AnswerContent answerIndex={i} />
-                        </SwiperSlide>
                     )
                 }
-            })} */}
+            })}
             <PdfBtn onClick={downloadPDF}>결과지 다운로드</PdfBtn>
         </>
     )
