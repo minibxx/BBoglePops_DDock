@@ -77,6 +77,25 @@ export const postMyAnswerVideo = async (formData) => {
   return response.data;
 };
 
+export const getSignedUrl = async (userId, interviewId, fileName, contentType) => {
+  const response = await axios.post(`${url}/eyetrack/generate-signed-url/${userId}/${interviewId}/`, {file_name: fileName, content_type: contentType}
+  ,{
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
+      }
+    })
+  return response.data;
+}
+
+export const putInterviewVideo = async (signedUrl, file) => {
+  const response = await axios.put(signedUrl, file,{
+      headers: {
+        'Content-Type': file.type
+      }
+    })
+  return response.data;
+}
+
 export const getEyeTrackingStart = async (userId, interviewId) => {
   const response = await axios.get(`${url}/eyetrack/start/${userId}/${interviewId}/`, {
       headers: {
