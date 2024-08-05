@@ -90,7 +90,7 @@ export const getSignedUrl = async (userId, interviewId, fileName, contentType) =
 export const putInterviewVideo = async (signedUrl, file) => {
   const response = await axios.put(signedUrl, file,{
       headers: {
-        'Content-Type': file.type
+        'Content-Type': ''
       }
     })
   return response.data;

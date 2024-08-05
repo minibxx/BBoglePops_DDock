@@ -76,6 +76,7 @@ const useVideoRecord = () => {
       console.log(data)
       const { signed_url } = data;
       putInterviewVideo(signed_url, videoBlob);
+      // putInterviewVideo(signed_url, videoFile);
     });
     
     const link = document.createElement('a');
