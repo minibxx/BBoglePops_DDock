@@ -21,8 +21,8 @@ export const postMyJob = async (input_field, input_job) => {
   return response.data;
 };
 
-export const postMyAnswer = async (formData) => {
-  const response = await axios.post(`${url}/interview/voice/?action=upload`, formData
+export const postMyAnswer = async (formData, userId, interviewId) => {
+  const response = await axios.post(`${url}/interview/voice/${userId}/${interviewId}/?action=upload`, formData
     , {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
@@ -52,12 +52,12 @@ export const getMyAnalyze = async (userId, interviewId) => {
   return response.data;
 }
 
-export const postMyAnswerText = async (results, questionId = 0) => {
+export const postMyAnswerText = async (results, userId, questionId = 0) => {
   const reqData = {}
   results.forEach((item, index) => {
     reqData[`script_${index + 1}`] = item;
   })
-  const response = await axios.post(`${url}/interview/responses/${questionId}/`, reqData
+  const response = await axios.post(`${url}/interview/responses/${userId}/${questionId}/`, reqData
     , {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("Authorization")}`,

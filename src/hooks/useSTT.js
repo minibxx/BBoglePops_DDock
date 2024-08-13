@@ -11,6 +11,7 @@ const useSTT = () => {
   const [value, setValue] = useState('결과');
   const [results, setResults] = useState([]);
   const navigate = useNavigate();
+  const userId = localStorage.getItem("userId")
   
   // const recog = window.SpeechRecognition;
   recog.interimResults = false;
@@ -37,7 +38,7 @@ const useSTT = () => {
   }
 
   const onSubmitResult = async (questionId=0) => {
-    const { interview_id } =  await postMyAnswerText(results, questionId)
+    const { interview_id } =  await postMyAnswerText(results, userId, questionId)
     return interview_id;
   }
 

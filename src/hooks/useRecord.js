@@ -11,11 +11,7 @@ const useRecord = () => {
   const [audioUrl, setAudioUrl] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const chunks = []; // 오디오 청크 데이터를 저장할 배열
-  const texts = ['녹음기능',
-    '구현해보자',
-    '화이팅',
-    '모든 문장녹음을 완료하였습니다.'
-  ]
+  const userId = localStorage.getItem("userId")
 
   function handleClickNext() {
     setCurrentIndex((prevIndex) => {
@@ -113,7 +109,7 @@ const useRecord = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    postMyAnswer(formData).then(data => {
+    postMyAnswer(formData, userId, questionId).then(data => {
       postMyAnswerVoice(data);
     });
   }, [audioUrl]);
