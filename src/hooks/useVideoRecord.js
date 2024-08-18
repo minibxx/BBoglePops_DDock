@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback } from 'react';
-import { getSignedUrl, postMyAnswerVideo, putInterviewVideo } from '../apis/interview';
+import { getSignedUrl, postMyAnswerVideo, postEyeTrackingStart, putInterviewVideo } from '../apis/interview';
 
 const useVideoRecord = () => {
   const videoRef = useRef(null);
@@ -61,6 +61,13 @@ const useVideoRecord = () => {
     getMediaPermission();
   }, []);
 
+  const onSubmitApiCall = async (userId, interviewId, videoBlob) => {
+    const data = await getSignedUrl(userId, interviewId, `${interviewId}.webm`, 'video/webm')
+    const { signed_url } = data;
+    await putInterviewVideo(signed_url, videoBlob);
+    await postEyeTrackingStart(userId, interviewId);
+  }
+
   const onSubmitVideo = (questionId, interviewId, userId) => {
     const videoBlob = new Blob(videoChunks.current, { type: 'video/webm' });
     const videoUrl = URL.createObjectURL(videoBlob);
@@ -70,14 +77,16 @@ const useVideoRecord = () => {
     formData.append('user_id', userId);
     formData.append('question_id', questionId);
     formData.append('interviewId', interviewId);
-    // postMyAnswerVideo(formData).then(data => console.log(data));
-    getSignedUrl(userId, interviewId, `${interviewId}.webm`, 'video/webm')
-    .then(data => {
-      console.log(data)
-      const { signed_url } = data;
-      putInterviewVideo(signed_url, videoBlob);
-      // putInterviewVideo(signed_url, videoFile);
-    });
+    
+    // getSignedUrl(userId, interviewId, `${interviewId}.webm`, 'video/webm')
+    // .then(data => {
+    //   console.log(data)
+    //   const { signed_url } = data;
+    //   putInterviewVideo(signed_url, videoBlob);
+    //   // putInterviewVideo(signed_url, videoFile);
+    // });
+
+    onSubmitApiCall(userId, interviewId, videoBlob)
     
     const link = document.createElement('a');
     link.download = `My video - .webm`;

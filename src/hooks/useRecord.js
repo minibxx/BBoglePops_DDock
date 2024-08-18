@@ -110,7 +110,7 @@ const useRecord = () => {
     link.click();
     document.body.removeChild(link);
     postMyAnswer(formData, userId, questionId).then(data => {
-      postMyAnswerVoice(data);
+      postMyAnswerVoice(data, userId, questionId);
     });
   }, [audioUrl]);
 

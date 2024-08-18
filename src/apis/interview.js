@@ -32,8 +32,8 @@ export const postMyAnswer = async (formData, userId, interviewId) => {
   return response.data;
 };
 
-export const postMyAnswerVoice = async (results) => {
-  const response = await axios.post(`${url}/interview/voice/?action=merge`, results
+export const postMyAnswerVoice = async (results, userId, questionId) => {
+  const response = await axios.post(`${url}/interview/voice/${userId}/${questionId}/?action=merge`, results
     , {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
@@ -96,11 +96,19 @@ export const putInterviewVideo = async (signedUrl, file) => {
   return response.data;
 }
 
-export const getEyeTrackingStart = async (userId, interviewId) => {
-  const response = await axios.get(`${url}/eyetrack/start/${userId}/${interviewId}/`, {
+export const postEyeTrackingStart = async (userId, interviewId) => {
+  const response = await axios.post(`${url}/eyetrack/start/${userId}/${interviewId}/`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
-        'Content-Type': 'multipart/form-data',
+      }
+    })
+  return response.data;
+}
+
+export const postEyeTrackingStop = async (userId, interviewId) => {
+  const response = await axios.post(`${url}/eyetrack/stop/${userId}/${interviewId}/`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
       }
     })
   return response.data;
