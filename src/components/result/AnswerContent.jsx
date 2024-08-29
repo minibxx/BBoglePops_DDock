@@ -21,9 +21,7 @@ const BlueSpan = styled.span`
 `;
 
 const RectBorder2 = styled.div`
-    width: 270px;
     margin-bottom: 30px;
-    padding-left: 5px;
     background-color: white;
     color: black;
 `;
