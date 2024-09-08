@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { postEyeTrackingStop } from '../../apis/interview';
-import SightResult from '../../../dist/images/sightResult.png'
+import SightResult from '../../../dist/images/sightResultt.png'
 import styled from 'styled-components';
 import Typo from '@components/Typography';
 
@@ -34,8 +34,7 @@ function Sight() {
           <Typo title={'시선 분석 총평'} type={'body8'} />
         </RectBorder2>
           <div className='text-[white] text-[25px]'>
-            가상 면접관의 얼굴 부분을 쳐다본 횟수가 가장 많습니다. 전체적으로 시선 처리가 매우 훌륭한 편
-            입니다. 다만, 배경으로 시선이 쏠리는 경우가 있어 그 부분은 앞으로 조금 더 유의하면 좋을 것 같습니다. </div>
+          면접자의 시선 분석 결과, 면접관을 잘 응시하며 대화에 집중하는 모습을 보였습니다. 시선 교환이 자연스러워 면접관에게 자신감 있는 인상을 주었습니다. 그러나 일부 순간에는 시선이 허공을 향하거나 집중력이 분산되는 경향이 관찰되었습니다. 이로 인해 긴장하거나 생각에 잠기는 모습으로 비칠 수 있어 주의가 필요합니다. 면접 중에는 시선을 유지하며 적극적인 태도를 지속하는 연습이 도움이 될 것입니다. </div>
 
 
       </FeedbackBox>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getCookie } from "../utils/cookieUtil";
 
-const url = 'https://ddok-2.duckdns.org'
+const url = 'https://django-app-1093993747989.asia-northeast3.run.app'
 
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'

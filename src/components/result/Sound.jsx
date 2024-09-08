@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { postEyeTrackingStop } from '../../apis/interview';
-import SightResult from '../../../dist/images/soundResult.png'
+import SightResult from '../../../dist/images/soundResultt.png'
 import styled from 'styled-components';
 import Typo from '@components/Typography';
 
@@ -29,9 +29,7 @@ function Sound() {
           <Typo title={'시선 분석 총평'} type={'body8'} />
         </RectBorder2>
         <div className='text-[white] text-[25px]'>
-          어디서 어디까지는 말이 빠르고 목소리 크기가 큽니다. 또 어디서 어디까지는 말이 상대적으로 느리며
-          목소리 크기가 작습니다. 전반적으로 목소리 크기가 살짝 작습니다. 발음이 부정확한 부분은 어디어디
-          이며 발음을 정확하게 개선해야 할 필요가 있어보입니다.  </div>
+        면접자의 음성 분석 결과, 말 빠르기는 적당하여 듣기에 무리가 없었습니다. 목소리가 다소 큰 편입니다. 조금만 더 부드럽고 차분하게 말하면 좋을 것 같습니다. 면접관에게 강한 인상을 주는 것도 좋지만, 너무 큰 목소리는 오히려 부담을 줄 수 있습니다. 말씀하시는 속도가 조금 빠른 편입니다. 천천히 말하면 면접관이 더 잘 이해할 수 있고, 자신감 있는 모습을 보일 수 있습니다. 천천히 말하는 연습을 통해 전달력을 높여 보세요.  </div>
 
 
       </FeedbackBox>
