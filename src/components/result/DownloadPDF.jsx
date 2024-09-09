@@ -47,13 +47,13 @@ function DownloadPDF() {
                     )
                 }
             })}
-            {analyze.responses.map((item, i) => {
+            {/* {analyze.responses.map((item, i) => {
                 if (item.response) {
                     return (
                             <AnswerContent answerIndex={i} />
                     )
                 }
-            })}
+            })} */}
             <PdfBtn onClick={downloadPDF}>결과지 다운로드</PdfBtn>
         </>
     )
