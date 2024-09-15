@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { postEyeTrackingStop } from '../../apis/interview';
-import SightResult from '../../../dist/images/soundResultt.png'
+import SightResult from '/images/soundResultt.png'
 import styled from 'styled-components';
 import Typo from '@components/Typography';
 
