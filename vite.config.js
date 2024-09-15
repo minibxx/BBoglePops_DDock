@@ -4,6 +4,20 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    'process.env': {},
+    global: {},
+    Lame: {},
+    Presets: {},
+    GainAnalysis: {},
+    QuantizePVT: {},
+    Quantize: {},
+    Takehiro: {},
+    Reservoir: {},
+    MPEGMode: {},
+    BitStream: {},
+    Encoder: {},
+  },
   plugins: [react()],
   base: './',
   resolve: {
