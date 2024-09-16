@@ -77,6 +77,8 @@ const useVideoRecord = () => {
     formData.append('user_id', userId);
     formData.append('question_id', questionId);
     formData.append('interviewId', interviewId);
+
+    postMyAnswerVideo(formData, userId, interviewId);
     
     // getSignedUrl(userId, interviewId, `${interviewId}.webm`, 'video/webm')
     // .then(data => {
@@ -86,7 +88,7 @@ const useVideoRecord = () => {
     //   // putInterviewVideo(signed_url, videoFile);
     // });
 
-    onSubmitApiCall(userId, interviewId, videoBlob)
+    // onSubmitApiCall(userId, interviewId, videoBlob)
     
     const link = document.createElement('a');
     link.download = `My video - .webm`;

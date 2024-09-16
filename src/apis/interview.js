@@ -67,8 +67,8 @@ export const postMyAnswerText = async (results, userId, questionId = 0) => {
   return response.data;
 };
 
-export const postMyAnswerVideo = async (formData) => {
-  const response = await axios.post(`${url}/eyetrack/upload/`, formData
+export const postMyAnswerVideo = async (formData, userId, interviewId) => {
+  const response = await axios.post(`${url}/eyetrack/upload-video/${userId}/${interviewId}`, formData
     , {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
