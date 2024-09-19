@@ -73,7 +73,7 @@ const useVideoRecord = () => {
     const videoUrl = URL.createObjectURL(videoBlob);
     const videoFile = new File([videoUrl], 'input.webm');
     let formData = new FormData();
-    formData.append('file', videoFile);
+    formData.append('file', videoBlob);
     formData.append('user_id', userId);
     formData.append('question_id', questionId);
     formData.append('interviewId', interviewId);

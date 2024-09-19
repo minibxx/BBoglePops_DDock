@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { postMyAnswer } from '@apis/interview'
 import { postMyAnswerVoice } from '../apis/interview';
-import WavEncoder from "wav-encoder";
 import MicRecorder from 'mic-recorder-to-mp3';
 
 const useRecord = () => {
@@ -129,55 +128,9 @@ const useRecord = () => {
     link.click();
     document.body.removeChild(link);
     postMyAnswer(formData, userId, questionId).then(data => {
-      postMyAnswerVoice(data, userId, questionId);
+      // postMyAnswerVoice(data, userId, questionId);
     });
   }, [audioUrl]);
-
-  const convertToMp3 = async (audioBlob) => {
-    // WebM 파일을 ArrayBuffer로 변환
-    const arrayBuffer = await audioBlob.arrayBuffer();
-
-    // PCM 데이터로 변환
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)({sampleRate:44100});
-    const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
-    
-    const wavData = await WavEncoder.encode({
-      sampleRate: audioBuffer.sampleRate,
-      channelData: [
-        audioBuffer.getChannelData(0),
-        audioBuffer.numberOfChannels > 1 ? audioBuffer.getChannelData(1) : new Float32Array(audioBuffer.length)
-      ]
-    });
-
-    // WAV 데이터를 MP3로 변환
-    const wav = lamejs.WavHeader.readHeader(new DataView(wavData));
-    const samples = new Int16Array(wavData, wav.dataOffset, wav.dataLen / 2);
-
-    console.warn('wav.channels:', wav.channels)
-    console.warn('wav.channels:', wav.sampleRate)
-    const Mp3Encoder = lamejs.Mp3Encoder;
-    Mp3Encoder.MPEGMode = {
-      STEREO: 0,
-      JOINT_STEREO: 1,
-      DUAL_CHANNEL: 2,
-      MONO: 3
-    };
-    const mp3Encoder = new Mp3Encoder(wav.channels, wav.sampleRate, 128);
-    const mp3Data = [];
-    let mp3Buffer = mp3Encoder.encodeBuffer(samples);
-
-    if (mp3Buffer.length > 0) {
-      mp3Data.push(mp3Buffer);
-    }
-
-    mp3Buffer = mp3Encoder.flush();
-    if (mp3Buffer.length > 0) {
-      mp3Data.push(mp3Buffer);
-    }
-
-    const mp3Blob = new Blob(mp3Data, { type: "audio/mp3" });
-    return mp3Blob;
-  };
 
   return { onRecAudio, offRecAudio, onSubmitAudioFile, }
 }
