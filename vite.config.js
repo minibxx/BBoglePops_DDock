@@ -49,4 +49,8 @@ export default defineConfig({
       },
     ],
   },
+  assetsInclude: ['**/*.wasm'],
+  optimizeDeps: {
+    exclude: ['@ffmpeg/ffmpeg', '@ffmpeg/util'],
+  }
 })

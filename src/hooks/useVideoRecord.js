@@ -1,3 +1,6 @@
+import { FFmpeg } from '@ffmpeg/ffmpeg';
+import coreURL from '@ffmpeg/core?url';
+import wasmURL from '@ffmpeg/core/wasm?url';
 import { useEffect, useRef, useCallback } from 'react';
 import { getSignedUrl, postMyAnswerVideo, postEyeTrackingStart, putInterviewVideo } from '../apis/interview';
 
@@ -49,6 +52,47 @@ const useVideoRecord = () => {
     }
   }, []);
 
+const convertBlobToMp4 = async (webmBlob) => {
+  const ffmpeg = new FFmpeg();
+  await ffmpeg.load({ coreURL, wasmURL });
+
+  const arrayBuffer = await webmBlob.arrayBuffer();
+  
+  // ArrayBuffer를 Uint8Array로 변환하여 FFmpeg에 전달
+  const uint8Array = new Uint8Array(arrayBuffer);
+
+  // Blob을 fetchFile로 변환하여 FFmpeg 파일 시스템에 쓰기
+  // ffmpeg.FS('writeFile', 'input.webm', await fetchFile(webmBlob));
+  const fileName = 'input.webm';
+  await ffmpeg.writeFile(fileName, uint8Array);
+
+  // WebM 파일을 MP4로 변환
+  await ffmpeg.exec(['-i', fileName, 'output.mp4']);
+
+  // 변환된 MP4 파일 읽기
+  const mp4Data = await ffmpeg.readFile('output.mp4');
+
+  // MP4 파일을 Blob으로 변환
+  const mp4Blob = new Blob([mp4Data.buffer], { type: 'video/mp4' });
+  const mp4Url = URL.createObjectURL(mp4Blob);
+
+  // 변환된 파일을 다운로드할 수 있게 링크 생성
+  const a = document.createElement('a');
+  a.href = mp4Url;
+  a.download = 'output.mp4';
+  a.click();
+
+  return mp4Blob;
+};
+
+// 파일 변환을 실행하는 코드
+// 예: input에서 사용자가 업로드한 webm 파일을 받아서 실행
+const handleFileUpload = (event) => {
+  const webmFile = event.target.files[0];
+  convertWebmToMp4(webmFile);
+};
+
+
   const startRecording = () => {
       mediaRecorder.current?.start();
   }
@@ -72,13 +116,15 @@ const useVideoRecord = () => {
     const videoBlob = new Blob(videoChunks.current, { type: 'video/webm' });
     const videoUrl = URL.createObjectURL(videoBlob);
     const videoFile = new File([videoUrl], 'input.webm');
-    let formData = new FormData();
-    formData.append('file', videoBlob);
-    formData.append('user_id', userId);
-    formData.append('question_id', questionId);
-    formData.append('interviewId', interviewId);
-
-    postMyAnswerVideo(formData, userId, interviewId);
+    convertBlobToMp4(videoBlob).then(mp4Blob => {
+      let formData = new FormData();
+      formData.append('file', mp4Blob);
+      formData.append('user_id', userId);
+      formData.append('question_id', questionId);
+      formData.append('interviewId', interviewId);
+  
+      postMyAnswerVideo(formData, userId, interviewId);
+    });
     
     // getSignedUrl(userId, interviewId, `${interviewId}.webm`, 'video/webm')
     // .then(data => {
@@ -90,12 +136,12 @@ const useVideoRecord = () => {
 
     // onSubmitApiCall(userId, interviewId, videoBlob)
     
-    const link = document.createElement('a');
-    link.download = `My video - .webm`;
-    link.href = videoUrl;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // const link = document.createElement('a');
+    // link.download = `My video - .webm`;
+    // link.href = videoUrl;
+    // document.body.appendChild(link);
+    // link.click();
+    // document.body.removeChild(link);
   };
 
   return { videoRef, startRecording, stopRecording, onSubmitVideo }
