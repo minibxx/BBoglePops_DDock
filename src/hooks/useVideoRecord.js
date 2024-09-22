@@ -61,9 +61,8 @@ const convertBlobToMp4 = async (webmBlob) => {
   // ArrayBuffer를 Uint8Array로 변환하여 FFmpeg에 전달
   const uint8Array = new Uint8Array(arrayBuffer);
 
-  // Blob을 fetchFile로 변환하여 FFmpeg 파일 시스템에 쓰기
-  // ffmpeg.FS('writeFile', 'input.webm', await fetchFile(webmBlob));
   const fileName = 'input.webm';
+  // Unit8Array를 fileName인 파일로 만듬
   await ffmpeg.writeFile(fileName, uint8Array);
 
   // WebM 파일을 MP4로 변환
@@ -74,9 +73,9 @@ const convertBlobToMp4 = async (webmBlob) => {
 
   // MP4 파일을 Blob으로 변환
   const mp4Blob = new Blob([mp4Data.buffer], { type: 'video/mp4' });
-  const mp4Url = URL.createObjectURL(mp4Blob);
-
+  
   // 변환된 파일을 다운로드할 수 있게 링크 생성
+  const mp4Url = URL.createObjectURL(mp4Blob);
   const a = document.createElement('a');
   a.href = mp4Url;
   a.download = 'output.mp4';

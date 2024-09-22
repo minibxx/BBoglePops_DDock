@@ -114,3 +114,12 @@ export const postEyeTrackingStop = async (userId, interviewId) => {
     })
   return response.data;
 }
+
+export const getMySoundLog = async (userId, interviewId) => {
+  const response = await axios.get(`${url}/mylog/${userId}/${interviewId}/voice/`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
+      }
+    })
+  return response.data;
+}
