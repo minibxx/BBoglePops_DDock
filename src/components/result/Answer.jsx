@@ -1,10 +1,8 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-import Typo from '@components/Typography'
 import AnswerFeedback from './AnswerFeedback';
 import { useRecoilState } from 'recoil';
 import { myAnalyzeAtom } from '@store/atom';
-import reactStringReplace from 'react-string-replace';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -12,7 +10,7 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import './swiperstyle.css';
 import AnswerContent from './AnswerContent';
-import html2pdf from 'html2pdf.js';
+import AnswerSuggestion from './AnswerSuggestion';
 
 const RectBorder = styled.div`
     border: 2px solid black;
@@ -79,7 +77,7 @@ function Answer({ }) {
                         )
                     }
                 })}
-
+                <AnswerSuggestion/>
             </Swiper>
             <AnswerFeedback />
 

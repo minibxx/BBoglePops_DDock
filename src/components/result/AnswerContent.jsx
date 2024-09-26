@@ -20,32 +20,7 @@ const BlueSpan = styled.span`
     color: #5A8EFF;
 `;
 
-const RectBorder2 = styled.div`
-    margin-bottom: 30px;
-    background-color: white;
-    color: black;
-`;
-const FeedbackDetailBoxs = styled.div`
-    font-size: 22px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
-    `;
-const FeedbackBox = styled.div`
-    padding: 60px ;
-    border-radius: 40px;
-    border: 2px solid white;
-    color: white;
-    margin-top: 50px;
-`;
-const FeedbackDetailBox = styled.div`
-    box-shadow: 0 0 10px white;
-    border-radius: 10px;
-    padding: 30px;
-    white-space: pre-wrap;
-`;
-
-function AnswerContent({answerIndex}) {
+function AnswerContent({ answerIndex }) {
     const [analyze, setAnalyze] = useRecoilState(myAnalyzeAtom);
 
     const renderAnswer = () => {
@@ -64,10 +39,10 @@ function AnswerContent({answerIndex}) {
         return replacedAnswer
     }
     return (
-        <div>
-            <div className='w-[1214px] px-[90px] py-[50px] bg-white rounded-[40px] mt-[50px]'>
+        <di className='mt-[30px]'>
+            <div className='w-[1214px] px-[90px] py-[50px] bg-white rounded-[40px] mt-[20px]'>
                 <div className='flex items-center gap-[5%]'>
-                    <Typo title={`Q. ${answerIndex+1}번 질문 내용`} type={'body7'} />
+                    <Typo title={`Q. ${answerIndex + 1}번 질문 내용`} type={'body7'} />
                     <div className='text-[#FF5A5A] text-[20px]'>● 지양해야 할 표현</div>
                     <div className='text-[#5A8EFF] text-[20px]'>● 음성적 잉여 표현</div>
                 </div>
@@ -78,22 +53,7 @@ function AnswerContent({answerIndex}) {
                     {renderAnswer()}
                 </div>
             </div>
-            <FeedbackBox>
-                <RectBorder2>
-                    <Typo title={'이런 표현은 어때요?'} type={'body8'} />
-                </RectBorder2>
-
-                <FeedbackDetailBoxs>
-                    {analyze.responses[answerIndex] && analyze.responses[answerIndex].corrections.slice(1, -1).split(',').map((item) => {
-                        return (
-                            <FeedbackDetailBox>
-                                {item.replace(':', '\n⇒')}
-                            </FeedbackDetailBox>
-                        )
-                    })}
-                </FeedbackDetailBoxs>
-            </FeedbackBox>
-        </div>
+        </di>
     )
 }
 

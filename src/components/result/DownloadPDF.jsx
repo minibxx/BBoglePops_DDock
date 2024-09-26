@@ -20,11 +20,18 @@ const PdfBtn = styled.div`
     margin: 50px auto;
 `;
 
+const PdfContent = styled.div`
+    font-size: 12px; 
+    line-height: 1.5;
+`;
+
 function DownloadPDF() {
     const [analyze, setAnalyze] = useRecoilState(myAnalyzeAtom);
 
     const downloadPDF = () => {
         const element = document.getElementById("pdf-download"); // PDF로 변환할 요소 선택
+        element.style.transform = "scale(0.65)";
+        element.style.transformOrigin = "top left";
         html2pdf(element, {
             filename: "file.pdf", // default : file.pdf
             html2canvas: { scale: 2 }, // 캡처한 이미지의 크기를 조절, 값이 클수록 더 선명하다.
@@ -39,21 +46,15 @@ function DownloadPDF() {
     };
     return (
         <>
-            <div id="pdf-download" >DownloadPDF</div>
+            <PdfContent id="pdf-download" className='mt-[50px]'>
             {analyze.responses.map((item, i) => {
                 if (item.response) {
                     return (
-                            <AnswerContent answerIndex={i} />
+                        <AnswerContent answerIndex={i} />
                     )
                 }
             })}
-            {/* {analyze.responses.map((item, i) => {
-                if (item.response) {
-                    return (
-                            <AnswerContent answerIndex={i} />
-                    )
-                }
-            })} */}
+            </PdfContent>
             <PdfBtn onClick={downloadPDF}>결과지 다운로드</PdfBtn>
         </>
     )
