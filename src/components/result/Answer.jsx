@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import styled from 'styled-components';
 import AnswerFeedback from './AnswerFeedback';
 import { useRecoilState } from 'recoil';
@@ -10,7 +10,6 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import './swiperstyle.css';
 import AnswerContent from './AnswerContent';
-import AnswerSuggestion from './AnswerSuggestion';
 
 const RectBorder = styled.div`
     border: 2px solid black;
@@ -56,9 +55,11 @@ const FeedbackDetailBox = styled.div`
 
 function Answer({ }) {
     const [analyze, setAnalyze] = useRecoilState(myAnalyzeAtom);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     return (
         <>
+               <AnswerFeedback />
             <Swiper
                 pagination={{
                     type: 'fraction',
@@ -77,9 +78,8 @@ function Answer({ }) {
                         )
                     }
                 })}
-                <AnswerSuggestion/>
+         
             </Swiper>
-            <AnswerFeedback />
 
         </>
     )

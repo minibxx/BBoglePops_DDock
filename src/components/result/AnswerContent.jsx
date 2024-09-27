@@ -20,6 +20,33 @@ const BlueSpan = styled.span`
     color: #5A8EFF;
 `;
 
+const RectBorder2 = styled.div`
+margin-bottom: 30px;
+padding-left: 10px;
+background-color: white;
+color: black;
+text-align: center;
+`;
+const FeedbackDetailBoxs = styled.div`
+    font-size: 22px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    `;
+const FeedbackBox = styled.div`
+    padding: 60px ;
+    border-radius: 40px;
+    border: 2px solid white;
+    color: white;
+    margin-top: 50px;
+`;
+const FeedbackDetailBox = styled.div`
+    box-shadow: 0 0 10px white;
+    border-radius: 10px;
+    padding: 30px;
+    white-space: pre-wrap;
+`;
+
 function AnswerContent({ answerIndex }) {
     const [analyze, setAnalyze] = useRecoilState(myAnalyzeAtom);
 
@@ -53,6 +80,26 @@ function AnswerContent({ answerIndex }) {
                     {renderAnswer()}
                 </div>
             </div>
+            { 
+              analyze.responses[answerIndex].corrections != '{}' 
+              && 
+              <FeedbackBox>
+                <RectBorder2>
+                    <Typo title={'이런 표현은 어때요?'} type={'body8'} />
+                </RectBorder2>
+
+                <FeedbackDetailBoxs>
+                    {analyze.responses[answerIndex] && analyze.responses[answerIndex].corrections.slice(1, -1).split(',').map((item) => {
+                        return (
+                            <FeedbackDetailBox>
+                                {item.replace(':', '\n⇒')}
+                            </FeedbackDetailBox>
+                        )
+                    })}
+                </FeedbackDetailBoxs>
+                </FeedbackBox>
+            }
+            
         </di>
     )
 }
