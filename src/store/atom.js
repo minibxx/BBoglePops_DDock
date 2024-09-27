@@ -50,8 +50,4 @@ export const myAnalyzeAtom = atom({
     },
 });
 
-// export const mySoundLogAtom = atom({
-
-// })
-
 
