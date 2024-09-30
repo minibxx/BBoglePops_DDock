@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useParams } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { postMyAnswer } from '@apis/interview'
 import { postMyAnswerVoice } from '../apis/interview';
 import MicRecorder from 'mic-recorder-to-mp3';
@@ -13,7 +13,6 @@ const useRecord = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const chunks = []; // 오디오 청크 데이터를 저장할 배열
   const userId = localStorage.getItem("userId")
-  const { interviewId } = useParams();
   const [recorder, setRecorder] = useState(new MicRecorder({
     bitRate: 128,
   }));
@@ -106,7 +105,7 @@ const useRecord = () => {
       .catch((e) => console.error(e));
   };
 
-  const onSubmitAudioFile = useCallback((questionId) => {
+  const onSubmitAudioFile = useCallback((questionId, interviewId) => {
     let formData = new FormData();
     formData.append('question_list_id', questionId);
     const fileData = [];
