@@ -127,7 +127,7 @@ const useRecord = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    postMyAnswer(formData, userId, interviewId, questionId).then(data => {
+    postMyAnswer(formData, userId, interviewId).then(data => {
       // postMyAnswerVoice(data, userId, questionId);
     });
   }, [audioUrl]);

@@ -39,7 +39,7 @@ function About() {
             <BackgroundImage >
                 <img src={MainBg} className='w-[100vw]' />
             </BackgroundImage>
-            <img src={Members} className='mt-[100px] ml-[250px] mb-[50px]'/>
+            <img src={Members} className='mt-[100px] ml-[250px] mb-[50px]' />
             <div className='flex justify-center gap-[20px] text-[white] '>
                 <MemberCard className='flex  w-[384px] justify-evenly items-center bg-[white]'>
                     <img src={Member1} />
@@ -60,15 +60,6 @@ function About() {
                 </MemberCard>
             </div>
             <div className='flex justify-center gap-[20px] text-[white] mt-[30px]'>
-            <MemberCard className='flex  w-[384px] justify-evenly items-center bg-[white]'>
-                    <img src={Member3} />
-                    <div className='w-[3px] h-[120px] mt-[10px] bg-[white]'></div>
-                    <div className='mr-[20px]'> 
-                        <Typo title={'이서진'} type={'body8'} />
-                        <Typo title={'INFRA'} type={'body10'} />
-                        <Typo title={'BACKEND'} type={'body10'} />
-                    </div>
-                </MemberCard>
                 <MemberCard className='flex  w-[384px] justify-evenly items-center bg-[white]'>
                     <img src={Member5} />
                     <div className='w-[3px] h-[120px] mt-[10px] bg-[white]'></div>
