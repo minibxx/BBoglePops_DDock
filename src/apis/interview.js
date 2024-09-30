@@ -22,8 +22,8 @@ export const postMyJob = async (input_field, input_job) => {
   return response.data;
 };
 
-export const postMyAnswer = async (formData, userId, interviewId) => {
-  const response = await axios.post(`${url}/interview/voice/${userId}/${interviewId}/?action=upload`, formData
+export const postMyAnswer = async (formData, userId, quesitonId) => {
+  const response = await axios.post(`${url}/interview/voice/${userId}/${quesitonId}/?action=upload`, formData
     , {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
