@@ -24,7 +24,6 @@ const PdfBtn = styled.div`
 const RectBorder2 = styled.div`
     width: 270px;
     margin-bottom: 30px;
-    padding-left: 5px;
 `;
 // const testData = {
 //     "id": 1,
@@ -72,38 +71,38 @@ function DownloadPDF() {
     }, [analyzeLog]);
     return (
         <>
-            <div id="pdf-download" className='mt-[50px] bg-[white] rounded-[30px]'>
-                <div className='pl-[90px] pt-[50px]'>
-
-                    <Typo title={'[ 내 답변 분석 ]'} type={'body4'} />
+            <div className='h-[40px] bg-[white] mt-[50px]'></div>        
+            <div id="pdf-download" className=' bg-[white] '>
+                <div className='pl-[40px] '>
+                    <Typo title={'[ 내 답변 분석 ]'} type={'body8'} />
                 </div>
                 {analyzeLog && analyzeLog.responses.map((item, i) => {
                     if (item.response) {
                         return (
                             <>
-                                <div key={i} className='text-[25px] mb-[60px] px-[90px]'>
-                                <div>{i+1}번째 질문</div>
-                                    <p>{item.response}</p>
+                                <div key={i} className='text-[18px] mt-[30px] mb-[30px] px-[40px]'>
+                                <Typo title={`${i+1}번째 질문`} type={'small2'} />
+                                    <p className='mt-[10px]'>{item.response}</p>
                                 </div>
                             </>
                         )
                     }
                 })}
-                <div className='pl-[90px] py-[50px]'>
+                <div className='pl-[40px] py-[50px]'>
 
-                    <Typo title={'[ 내 음성 분석 ]'} type={'body4'} />
+                    <Typo title={'[ 내 음성 분석 ]'} type={'body8'} />
                 </div>
-                <div className='px-[90px]'>
+                <div className='px-[40px]'>
                     <RectBorder2>
-                        <Typo title={'강도 분석 평가'} type={'body8'} />
+                        <Typo title={'강도 분석 평가'} type={'small2'} />
                     </RectBorder2>
-                    <div className='text-[25px] mb-[60px]'>
+                    <div className='text-[15px] mb-[60px]'>
                         {soundLog.intensity_summary}
                     </div>
                     <RectBorder2>
-                        <Typo title={'피치 분석 평가'} type={'body8'} />
+                        <Typo title={'피치 분석 평가'} type={'small2'} />
                     </RectBorder2>
-                    <div className='text-[25px]'>
+                    <div className='text-[15px]'>
                         {soundLog.pitch_summary}
                     </div>
                 </div>
