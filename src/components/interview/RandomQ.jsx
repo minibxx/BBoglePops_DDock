@@ -127,9 +127,9 @@ function RandomQ({ myJobQuestion, myJobQuestionId, onQuestionReaction }) {
   const onSubmit = () => {
     console.log('onSubmit');
     stopRecording();
+    onSubmitAudioFile(myJobQuestionId);
     onSubmitResult(myJobQuestionId).then(interviewId => {
       setTimeout(() => {
-        onSubmitAudioFile(myJobQuestionId, interviewId);
         onSubmitVideo(myJobQuestionId, interviewId, userId);
       }, 500)
       navigate(`/result/${interviewId}`)
