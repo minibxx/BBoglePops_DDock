@@ -2,7 +2,7 @@ import React, {useRef} from 'react';
 import VideoSpeaking from '@assets/videos/2_2.mp4';
 import VideoIdle from '@assets/videos/1_1.mp4';
 import VideoNodding from '@assets/videos/4.mp4';
-import VideoCalibration from '@assets/videos/calibration2.mp4';
+import VideoCalibration from '@assets/videos/calv.mp4';
 
 const InterviewVideo = ({videoStatus, isDisplay}) => {
   const videoRef = useRef();

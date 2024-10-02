@@ -50,12 +50,14 @@ function Sound() {
         </RectBorder2>
         <div className='text-[white] text-[25px] mb-[60px]'>
           {soundLog.intensity_summary}
+          피치가 일관되게 유지되며 적절한 높낮이를 보여줍니다.
         </div>
         <RectBorder2>
           <Typo title={'피치 분석 평가'} type={'body8'} />
         </RectBorder2>
         <div className='text-[white] text-[25px]'>
           {soundLog.pitch_summary}
+          강도가 일부 섹션에서 불규칙함을 보이나 전반적으로 안정적입니다. 강도가 일부 섹션에서 불규칙함을 보이나 전반적으로 안정적입니다.
         </div>
       </FeedbackBox>
       <div>
