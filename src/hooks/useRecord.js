@@ -108,6 +108,7 @@ const useRecord = () => {
   const onSubmitAudioFile = useCallback((questionId, interviewId) => {
     let formData = new FormData();
     formData.append('question_list_id', questionId);
+    formData.append('interviewId', interviewId);
     const fileData = [];
     if (audioUrl.length > 0) {
       audioUrl.forEach((item, index) => {

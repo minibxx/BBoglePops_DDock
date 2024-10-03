@@ -127,14 +127,22 @@ function RandomQ({ myJobQuestion, myJobQuestionId, onQuestionReaction }) {
   const onSubmit = () => {
     console.log('onSubmit');
     stopRecording();
-    onSubmitAudioFile(myJobQuestionId);
+  
+    // First, get the interviewId from onSubmitResult
     onSubmitResult(myJobQuestionId).then(interviewId => {
+      // Once interviewId is available, submit the audio file
+      onSubmitAudioFile(myJobQuestionId, interviewId); 
+      
+      // Submit the video file
       setTimeout(() => {
         onSubmitVideo(myJobQuestionId, interviewId, userId);
-      }, 500)
-      navigate(`/result/${interviewId}`)
+      }, 500);
+  
+      // Navigate to result page
+      navigate(`/result/${interviewId}`);
     });
   };
+  
 
   useEffect(() => {
     if (questionCount > 0) {
