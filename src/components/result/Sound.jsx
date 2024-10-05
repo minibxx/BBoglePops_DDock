@@ -23,7 +23,12 @@ const FeedbackBox = styled.div`
 function Sound() {
   const { interviewId } = useParams();
   const userId = localStorage.getItem('userId');
-  const [soundLog, setSoundLog] = useState('');
+  const [soundLog, setSoundLog] = useState({
+    "pitch_graph": "",
+    "intensity_graph": "",
+    "pitch_summary": "",
+    "intensity_summary": "",
+  });
 
   useEffect(() => {
     getMySoundLog(userId, interviewId).then(data => setSoundLog(data));
