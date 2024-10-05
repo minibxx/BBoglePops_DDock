@@ -19,15 +19,6 @@ const FeedbackBox = styled.div`
     color: white;
     marign-bottom: 30px;
 `;
-// const testData = {
-//   "id": 1,
-//   "question_list_id": 5,
-//   "pitch_graph": "https://ddok-2.duckdns.org/static/pitch_graph_1.png",
-//   "intensity_graph": "https://ddok-2.duckdns.org/static/intensity_graph_1.png",
-//   "pitch_summary": "피치가 일관되게 유지되며 적절한 높낮이를 보여줍니다.",
-//   "intensity_summary": "강도가 일부 섹션에서 불규칙함을 보이나 전반적으로 안정적입니다. 강도가 일부 섹션에서 불규칙함을 보이나 전반적으로 안정적입니다. 강도가 일부 섹션에서 불규칙함을 보이나 전반적으로 안정적입니다.",
-//   "created_at": "2024-08-15T09:00:00Z"
-// }
 
 function Sound() {
   const { interviewId } = useParams();
@@ -43,6 +34,12 @@ function Sound() {
     <>
       <img src={SightResult} className='w-[100%] p-[5%]' />
       {/* <div className='text-[white] text-[20px]'>마이크와의 거리에 따라 검사 결과가 상이할 수 있습니다. </div> */}
+      {soundLog.intensity_summary && (
+      <img 
+        src={`/${sightLog.intensity_summary}`} 
+        className='w-[100%] p-[5%]' 
+      />
+    )}
 
       <FeedbackBox>
         <RectBorder2>
