@@ -36,13 +36,13 @@ function Sound() {
       {/* <div className='text-[white] text-[20px]'>마이크와의 거리에 따라 검사 결과가 상이할 수 있습니다. </div> */}
       {soundLog.intensity_summary && (
         <img
-          src={`/${soundLog.intensity_summary}`}
+          src={`${soundLog.intensity_graph}`}
           className='w-[100%] p-[5%]'
         />
       )}
       {soundLog.pitch_summary && (
         <img
-          src={`/${soundLog.pitch_summary}`}
+          src={`${soundLog.pitch_graph}`}
           className='w-[100%] p-[5%]'
         />
       )}
