@@ -35,12 +35,17 @@ function Sound() {
       <img src={SightResult} className='w-[100%] p-[5%]' />
       {/* <div className='text-[white] text-[20px]'>마이크와의 거리에 따라 검사 결과가 상이할 수 있습니다. </div> */}
       {soundLog.intensity_summary && (
-      <img 
-        src={`/${sightLog.intensity_summary}`} 
-        className='w-[100%] p-[5%]' 
-      />
-    )}
-
+        <img
+          src={`/${soundLog.intensity_summary}`}
+          className='w-[100%] p-[5%]'
+        />
+      )}
+      {soundLog.pitch_summary && (
+        <img
+          src={`/${soundLog.pitch_summary}`}
+          className='w-[100%] p-[5%]'
+        />
+      )}
       <FeedbackBox>
         <RectBorder2>
           <Typo title={'강도 분석 평가'} type={'body8'} />
