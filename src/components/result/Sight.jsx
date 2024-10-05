@@ -34,7 +34,15 @@ function Sight() {
 
   return (
     <>
-      <img src={SightResult} className='w-[100%] p-[5%]' />
+      {/* {<img src={SightResult} className='w-[100%] p-[5%]' />} */}
+      
+      {sightLog.image_url && (
+      <img 
+        src={`/eyeresult${sightLog.image_url}`} 
+        alt="Gaze Heatmap" 
+        className='w-[100%] p-[5%]' 
+      />
+    )}
 
       <FeedbackBox>
         <RectBorder2>
