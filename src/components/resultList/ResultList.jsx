@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Header from '@components/Header';
 import styled from 'styled-components';
 import Typo from '@components/Typography'
@@ -10,6 +11,7 @@ import Robot4 from '/images/listRobot4.svg'
 import Robot5 from '/images/listRobot5.svg'
 import Robot6 from '/images/listRobot6.svg'
 import { getMyLogList } from '../../apis/interviewList';
+import dayjs from 'dayjs';
 
 const Background = styled.div`
 position: fixed;
@@ -58,7 +60,7 @@ const ImgArray = [Robot1, Robot2, Robot3, Robot4, Robot5, Robot6];
 function ResultList() {
     const userId = localStorage.getItem('userId');
     const [logList, setLogList] = useState([]);
-
+    const navigate = useNavigate();
 
     useEffect(() => {
         getMyLogList(userId).then(data => setLogList(data));
@@ -79,11 +81,11 @@ function ResultList() {
             <InterviewContents>
             {logList.map((item, index) => (
                 <>
-                    <InterviewContent >
+                    <InterviewContent onClick={() => navigate(`/result/${item.id}`)}>
                         <img src={ImgArray[index%6]} className='w-[100px]' />
                         <div className='flex gap-[20px] flex-col'>
-                            <Typo title={`${item.created_at}`} type={'body8'} />
-                            <Typo title={'11:22:33'} type={'small2'} />
+                            <Typo title={`${dayjs(item.created_at).format('YYYY-MM-DD')}`} type={'body8'} />
+                            <Typo title={`${dayjs(item.created_at).format('HH:mm:ss')}`} type={'small2'} />
                         </div>
                     </InterviewContent>
                 </>

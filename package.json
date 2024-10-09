@@ -17,6 +17,7 @@
     "@svgr/webpack": "^8.1.0",
     "@types/three": "^0.163.0",
     "axios": "^1.6.8",
+    "dayjs": "^1.11.13",
     "ffmpeg": "^0.0.4",
     "html2pdf.js": "^0.10.2",
     "lamejs": "^1.2.1",
