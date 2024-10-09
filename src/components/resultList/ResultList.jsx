@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '@components/Header';
 import styled from 'styled-components';
 import Typo from '@components/Typography'
@@ -9,6 +9,7 @@ import Robot3 from '/images/listRobot3.svg'
 import Robot4 from '/images/listRobot4.svg'
 import Robot5 from '/images/listRobot5.svg'
 import Robot6 from '/images/listRobot6.svg'
+import { getMyLogList } from '../../apis/interviewList';
 
 const Background = styled.div`
 position: fixed;
@@ -53,7 +54,17 @@ const InterviewContents = styled.div`
     margin-bottom : 100px;
     `;
 
+const ImgArray = [Robot1, Robot2, Robot3, Robot4, Robot5, Robot6];
 function ResultList() {
+    const userId = localStorage.getItem('userId');
+    const [logList, setLogList] = useState([]);
+
+
+    useEffect(() => {
+        getMyLogList(userId).then(data => setLogList(data));
+    }, []);
+
+    getMyLogList
     return (
         <>
             <Background />
@@ -66,83 +77,18 @@ function ResultList() {
                 <div className='mt-[50px]'><Typo title={'내 면접 기록'} type={'body4'} /></div>
             </div>
             <InterviewContents>
-                <InterviewContent >
-                    <img src={Robot1} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot2} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot3} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot4} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot5} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot6} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot1} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot2} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot3} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot4} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
-                <InterviewContent >
-                    <img src={Robot5} className='w-[100px]' />
-                    <div className='flex gap-[20px] flex-col'>
-                        <Typo title={'2024.04.12'} type={'body8'} />
-                        <Typo title={'11:22:33'} type={'small2'} />
-                    </div>
-                </InterviewContent>
+            {logList.map((item, index) => (
+                <>
+                    <InterviewContent >
+                        <img src={ImgArray[index%6]} className='w-[100px]' />
+                        <div className='flex gap-[20px] flex-col'>
+                            <Typo title={`${item.created_at}`} type={'body8'} />
+                            <Typo title={'11:22:33'} type={'small2'} />
+                        </div>
+                    </InterviewContent>
+                </>
+            ))}
+           
 
 
             </InterviewContents>
