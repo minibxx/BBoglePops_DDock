@@ -32,15 +32,7 @@ const RectBorder2 = styled.div`
     width: 270px;
     margin-bottom: 30px;
 `;
-// const testData = {
-//     "id": 1,
-//     "question_list_id": 5,
-//     "pitch_graph": "https://ddok-2.duckdns.org/static/pitch_graph_1.png",
-//     "intensity_graph": "https://ddok-2.duckdns.org/static/intensity_graph_1.png",
-//     "pitch_summary": "피치가 일관되게 유지되며 적절한 높낮이를 보여줍니다.",
-//     "intensity_summary": "강도가 일부 섹션에서 불규칙함을 보이나 전반적으로 안정적입니다. 강도가 일부 섹션에서 불규칙함을 보이나 전반적으로 안정적입니다. 강도가 일부 섹션에서 불규칙함을 보이나 전반적으로 안정적입니다.",
-//     "created_at": "2024-08-15T09:00:00Z"
-// }
+
 function DownloadPDF() {
     const [analyze, setAnalyze] = useRecoilState(myAnalyzeAtom);
     const { interviewId } = useParams();
@@ -48,6 +40,14 @@ function DownloadPDF() {
     const myJobQuestionAtom = localStorage.getItem('myJobQuestionAtom');
     const [soundLog, setSoundLog] = useState('');
     const [analyzeLog, setAnalyzeLog] = useState('');
+    const [sightLog, setSightLog] = useState({
+        "message": "",
+        "image_data": "",
+        "video_url": "",
+        "feedback": "",
+        "status": ""
+    });
+
 
     const downloadPDF = () => {
         const element = document.getElementById("pdf-download"); // PDF로 변환할 요소 선택
@@ -71,7 +71,7 @@ function DownloadPDF() {
     useEffect(() => {
         getMySoundLog(userId, interviewId).then(data => setSoundLog(data));
         getMyAnalyze(userId, interviewId).then(data => setAnalyzeLog(data));
-        console.log(analyzeLog);
+        postEyeTrackingStop(userId, interviewId).then(data => setSightLog(data));
     }, []);
 
     useEffect(() => {
@@ -132,20 +132,25 @@ function DownloadPDF() {
                         </div>
                     </div>
                 </DivFlex>
+
+
                 <div className='pl-[40px] py-[30px]'>
                     <Typo title={'[ 내 시선 분석 ]'} type={'body8'} />
                 </div>
                 <DivFlex>
-                    <img src={SightResult} className='w-[40%] pl-[5%]' />
+                    {sightLog.image_url && (
+                        <img
+                            src={`/eyeresult${sightLog.image_url}`}
+                            alt="Gaze Heatmap"
+                            className='w-[100%] p-[5%]'
+                        />
+                    )}
                     <div className='px-[40px] py-[20px]'>
                         <RectBorder2>
                             <Typo title={'시선 분석 평가'} type={'small2'} />
                         </RectBorder2>
                         <div className='text-[15px] mb-[60px]'>
-                            {soundLog.intensity_summary}
-                            가상 면접관의 얼굴을 쳐다본 횟수가 가장 많습니다. 전체적으로 시선 처리가 매우 훌륭한 편
-                            입니다. 다만, 면접관 주변의 배경으로 시선이 분산되는 경우가 있습니다. 이 부분은 앞으로 조금 더
-                            유의하면 좋을 것 같습니다.
+                            {sightLog.feedback}
                         </div>
 
                     </div>

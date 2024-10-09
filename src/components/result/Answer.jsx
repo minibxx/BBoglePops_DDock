@@ -59,6 +59,7 @@ function Answer({ }) {
 
     return (
         <>
+                    <AnswerFeedback />
             <Swiper
                 pagination={{
                     type: 'fraction',
@@ -79,7 +80,6 @@ function Answer({ }) {
                 })}
          
             </Swiper>
-                <AnswerFeedback />
 
         </>
     )
