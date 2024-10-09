@@ -43,7 +43,7 @@ const StyledVideo = styled.video`
 `
 
 const timerSecond = 20;
-const calibrationSecond = 28;
+const calibrationSecond = 22;
 
 function RandomQ({ myJobQuestion, myJobQuestionId, onQuestionReaction }) {
   const [questionCount, setQuestionCount] = useState(0);

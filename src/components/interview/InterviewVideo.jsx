@@ -33,6 +33,7 @@ const InterviewVideo = ({videoStatus, isDisplay}) => {
   return (
 
     <video
+      muted
       autoPlay
       loop
       ref={videoRef}
