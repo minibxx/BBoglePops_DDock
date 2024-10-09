@@ -7,6 +7,7 @@ import AnswerContent from './AnswerContent';
 import html2pdf from 'html2pdf.js';
 import { useParams } from 'react-router-dom';
 import { getMySoundLog } from '../../apis/interview';
+import { postEyeTrackingStop } from '../../apis/interview';
 import { getMyAnalyze } from '../../apis/interview';
 import SoundResult from '/images/soundResultt.png';
 import SightResult from '/images/sightResultt.png';
