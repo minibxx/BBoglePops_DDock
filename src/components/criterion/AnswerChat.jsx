@@ -7,7 +7,7 @@ function AnswerChat({setChatList}) {
     return (
         <>
             <div className='w-[1214px] m-auto flex flex-row-reverse'>
-                <div className='flex flex-col'>
+                <div className='flex flex-col items-end'>
                     <div className='bg-[white] w-fit px-[25px]  py-[15px]  rounded-[25px] my-[15px]'>
                         <Typo title={'똑똑의 답변 내용 분석 평가 기준에 대해 말씀드릴게요!'} type={'small3'} />
                     </div>

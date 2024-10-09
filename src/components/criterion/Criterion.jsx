@@ -7,6 +7,7 @@ import UserChat from './UserChat';
 import AnswerChat from './AnswerChat';
 import SoundChat from './SoundChat';
 import CriterionBg from '/images/criterionBg2.png'
+import SightChat from './SightChat';
 
 const Background = styled.div`
 position: fixed;
@@ -39,6 +40,9 @@ function Criterion() {
         }
         if (chatType == "sound"){
             return  <SoundChat setChatList={setChatList}/>
+        }
+        if (chatType == "sight"){
+            return  <SightChat setChatList={setChatList}/>
         }
     }
        

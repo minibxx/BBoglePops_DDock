@@ -9,6 +9,10 @@ width: 100%;
 height: 45px;
 background-color: #e3e3e3;
 border-radius: 10px;
+&:hover{
+  background-color: gray;
+  color: white;
+}
 `;
 
 const BgBox = styled.button`
@@ -38,7 +42,7 @@ function ComputerChat({setChatList}) {
           <Typo title={'궁금하신 평가 기준을 선택해주세요.'} type={'small3'} />
           <CriterionBtn onClick={() =>  setChatList(org => [...org, 'answer'])}>답변 내용 분석 평가 기준</CriterionBtn>
           <CriterionBtn onClick={() =>  setChatList(org => [...org, 'sound'])}>음성 분석 평가 기준</CriterionBtn>
-          <CriterionBtn>시선 분석 평가 기준</CriterionBtn>
+          <CriterionBtn onClick={() =>  setChatList(org => [...org, 'sight'])}>시선 분석 평가 기준</CriterionBtn>
           <CriterionBtn>자세 분석 평가 기준</CriterionBtn>
         </div>
       </div>

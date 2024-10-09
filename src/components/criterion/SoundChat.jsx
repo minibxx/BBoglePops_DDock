@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
 import Typo from '@components/Typography'
-import Logo from '/images/Logo.png'
-import Card3 from '/images/card3.png'
 
 const CriterionBtn = styled.button`
 width: 100%;
@@ -11,14 +9,10 @@ background-color: #e3e3e3;
 border-radius: 10px;
 
 `;
-function SoundChat() {
+function SoundChat({setChatList}) {
     return (
-        <div className='w-[1214px] m-auto flex'>
-            <div>
-                <img className='item-end mr-[20px]' src={Logo} />
-            </div>
-            <div className='flex flex-col'>
-                <div className='text-[white] mb-[0px]'><Typo title={'똑똑'} type={'body8'} /></div>
+        <div className='w-[1214px] m-auto flex flex-row-reverse'>
+            <div className='flex flex-col items-end'>
                 <div className='bg-[white] w-fit px-[25px]  py-[15px]  rounded-[25px] my-[15px]'>
                     <Typo title={'똑똑의 음성 분석 평가 기준에 대해 말씀드릴게요!'} type={'small3'} />
                 </div>
@@ -42,8 +36,7 @@ function SoundChat() {
                     </div>
                 </div>
                 <div className='flex gap-[10px] my-[15px]'>
-                    <button className='px-[20px] py-[10px] rounded-[50px] bg-[#15CDCA] text-[white]'>평가 기준 더보기</button>
-                    <button className='px-[20px] py-[10px] rounded-[50px] bg-[white] text-[black]'>나가기</button>
+                    <button className='px-[20px] py-[10px] rounded-[50px] bg-[#15CDCA] text-[white]' onClick={() => setChatList(org => [...org, 'computer'])}> 평가 기준 더보기</button>
                 </div>
             </div>
         </div>
