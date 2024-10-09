@@ -39,32 +39,33 @@ function Sound() {
     <>
       {/* <img src={SightResult} className='w-[100%] p-[5%]' /> */}
       {/* <div className='text-[white] text-[20px]'>마이크와의 거리에 따라 검사 결과가 상이할 수 있습니다. </div> */}
+      <div className='flex justify-between px-[5%] '>
+
       {soundLog.intensity_graph && (
         <img
-          src={`${soundLog.intensity_graph}`}
-          className='w-[100%] p-[5%]'
+          src={`http://127.0.0.1:8000${soundLog.intensity_graph}`}
+          className='w-[48%] py-[5%]'
         />
       )}
       {soundLog.pitch_graph && (
         <img
-          src={`${soundLog.pitch_graph}`}
-          className='w-[100%] p-[5%]'
+          src={`http://127.0.0.1:8000${soundLog.pitch_graph}`}
+          className='w-[48%] py-[5%]'
         />
       )}
+      </div>
       <FeedbackBox>
         <RectBorder2>
           <Typo title={'강도 분석 평가'} type={'body8'} />
         </RectBorder2>
         <div className='text-[white] text-[25px] mb-[60px]'>
           {soundLog.intensity_summary}
-          {/* 피치가 일관되게 유지되며 적절한 높낮이를 보여줍니다. */}
         </div>
         <RectBorder2>
           <Typo title={'피치 분석 평가'} type={'body8'} />
         </RectBorder2>
         <div className='text-[white] text-[25px]'>
           {soundLog.pitch_summary}
-          {/* 강도가 일부 섹션에서 불규칙함을 보이나 전반적으로 안정적입니다. 강도가 일부 섹션에서 불규칙함을 보이나 전반적으로 안정적입니다. */}
         </div>
       </FeedbackBox>
       <div>

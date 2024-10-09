@@ -55,7 +55,8 @@ function DownloadPDF() {
         element.style.transformOrigin = "top left";
         html2pdf(element, {
             filename: "file.pdf", // default : file.pdf
-            html2canvas: { scale: 2 }, // 캡처한 이미지의 크기를 조절, 값이 클수록 더 선명하다.
+            html2canvas: { scale: 2, useCORS: true }, // 캡처한 이미지의 크기를 조절, 값이 클수록 더 선명하다.
+            image: { type: 'jpeg', quality: 0.50 },
             jsPDF: {
                 format: "a4",  // 종이 크기 형식
                 orientation: "portrait", // or landscape : 가로
@@ -95,25 +96,39 @@ function DownloadPDF() {
                         )
                     }
                 })}
-                <div className='pl-[40px] py-[30px]'>
+                <div className='pl-[40px] pt-[30px]'>
                     <Typo title={'[ 내 음성 분석 ]'} type={'body8'} />
                 </div>
                 <DivFlex>
-                    <img src={SoundResult} className='w-[40%] pl-[5%]' />
-                    <div className='px-[40px] py-[20px]'>
+                    {soundLog.intensity_graph && (
+                        <img
+                            src={`http://127.0.0.1:8000${soundLog.intensity_graph}`}
+                            className='w-[48%] py-[5%]'
+                        />
+                    )}
+                    {soundLog.pitch_graph && (
+                        <img
+                            src={`http://127.0.0.1:8000${soundLog.pitch_graph}`}
+                            className='w-[48%] py-[5%]'
+                        />
+                    )}
+                </DivFlex>
+                <DivFlex>
+
+                    <div className='px-[40px]'>
                         <RectBorder2>
                             <Typo title={'강도 분석 평가'} type={'small2'} />
                         </RectBorder2>
                         <div className='text-[15px] mb-[60px]'>
                             {soundLog.intensity_summary}
-                            사용자님은 피치가 일관되게 유지되며 적절한 높낮이를 보여줍니다.
                         </div>
+                    </div>
+                    <div className='pr-[40px]'>
                         <RectBorder2>
                             <Typo title={'피치 분석 평가'} type={'small2'} />
                         </RectBorder2>
                         <div className='text-[15px]'>
                             {soundLog.pitch_summary}
-                            강도가 일부 섹션에서 불규칙함을 보이나 전반적으로 안정적입니다.
                         </div>
                     </div>
                 </DivFlex>

@@ -16,7 +16,7 @@ background: linear-gradient(90deg, #4A92FF 0%, #88FFC6 35%, #CEFF8F 100%);
 width: 450px;
 `;
 
-function ComputerChat() {
+function ComputerChat({setChatList}) {
   return (
     <div className='w-[1214px] m-auto flex'>
       <div>
@@ -36,8 +36,8 @@ function ComputerChat() {
         </BgBox>
         <div className='flex flex-col rounded-b-[25px] bg-[white] gap-[10px] p-[20px]'>
           <Typo title={'궁금하신 평가 기준을 선택해주세요.'} type={'small3'} />
-          <CriterionBtn>답변 내용 분석 평가 기준</CriterionBtn>
-          <CriterionBtn>음성 분석 평가 기준</CriterionBtn>
+          <CriterionBtn onClick={() =>  setChatList(org => [...org, 'answer'])}>답변 내용 분석 평가 기준</CriterionBtn>
+          <CriterionBtn onClick={() =>  setChatList(org => [...org, 'sound'])}>음성 분석 평가 기준</CriterionBtn>
           <CriterionBtn>시선 분석 평가 기준</CriterionBtn>
           <CriterionBtn>자세 분석 평가 기준</CriterionBtn>
         </div>

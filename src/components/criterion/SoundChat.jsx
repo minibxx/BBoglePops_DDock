@@ -20,7 +20,7 @@ function SoundChat() {
             <div className='flex flex-col'>
                 <div className='text-[white] mb-[0px]'><Typo title={'똑똑'} type={'body8'} /></div>
                 <div className='bg-[white] w-fit px-[25px]  py-[15px]  rounded-[25px] my-[15px]'>
-                    <Typo title={'똑똑의 답변 내용 분석 평가 기준에 대해 말씀드릴게요!'} type={'small3'} />
+                    <Typo title={'똑똑의 음성 분석 평가 기준에 대해 말씀드릴게요!'} type={'small3'} />
                 </div>
                 <div className='bg-[white] w-fit p-[25px] rounded-[25px] my-[5px] flex gap-[15px] flex-col'>
                     

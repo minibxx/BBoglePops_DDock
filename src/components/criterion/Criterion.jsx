@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '@components/Header';
 import styled from 'styled-components';
 import Typo from '@components/Typography'
@@ -25,6 +25,23 @@ z-index: -1;
 `;
 
 function Criterion() {
+    const [ chatList, setChatList ] = useState(['computer']); 
+    
+    const renderChat = (chatType) => {
+        if (chatType == "computer"){
+            return <ComputerChat setChatList={setChatList}/>
+        }
+        if (chatType == "user"){
+            return <UserChat />
+        }
+        if (chatType == "answer"){
+            return <AnswerChat setChatList={setChatList}/>
+        }
+        if (chatType == "sound"){
+            return  <SoundChat setChatList={setChatList}/>
+        }
+    }
+       
     return (
         <>
             <Background />
@@ -33,10 +50,12 @@ function Criterion() {
                     <img src={CriterionBg} className='w-[100%] ' />
                 </BackgroundImage>
             <div className=' w-[1214px] m-[auto]'>
-            <ComputerChat />
-            <UserChat />
-            <AnswerChat/>
-            <SoundChat/>
+            {
+                chatList.map((item, i) => {
+                    return renderChat(item)
+                })
+            }
+            
             </div>
         </>
     )
